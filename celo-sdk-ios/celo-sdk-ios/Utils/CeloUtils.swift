@@ -42,7 +42,7 @@ public func TLog(_ entry: String) {
 func validateNil<T>(value:T?) throws -> T {
     
     guard let data = value else {
-        throw CeloError.error
+        throw CeloError.unKnown
     }
     
     return data
@@ -53,7 +53,7 @@ func validateNil<T>(value:T?) throws -> T {
 func isNil<T>(value:T?) throws -> T {
     
     guard let data = value else {
-        throw CeloError.error
+        throw CeloError.unKnown
     }
     
     return data
@@ -83,7 +83,7 @@ public func JSONToString<T:JsonEncodable>(_ payload: T ) -> String? {
 public func JSONToData<T:JsonEncodable>(_ payload: T ) throws -> Data? {
     guard let data = try? JSONSerialization.data(withJSONObject: payload.mapJson().serialize())  else {
         
-        throw CeloError.internal_error("unable to convert it to json")
+        throw CeloError.custom("unable to convert it to json")
     }
     
     return data
@@ -99,12 +99,12 @@ public func StringToJson(provisionCacheDataString:String) throws -> [String:Any]
     
     
     guard let provisionCacheDataStringUtf8 = provisionCacheDataString.data(using: .utf8) else {
-        throw CeloError.internal_error("provisionCacheDataString is nil or empty")
+        throw CeloError.custom("provisionCacheDataString is nil or empty")
     }
     
     guard let provisionCacheDataJson = try? JSONSerialization.jsonObject(with: provisionCacheDataStringUtf8, options: []) as? [String: AnyObject] else {
         
-        throw CeloError.internal_error("unable to convert it to json")
+        throw CeloError.custom("unable to convert it to json")
     }
     return provisionCacheDataJson ?? nil
     
