@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 public enum CeloError: Error {
+    case generic
     case hasAccount
     case accountDoesNotExist
     case invalidPath
