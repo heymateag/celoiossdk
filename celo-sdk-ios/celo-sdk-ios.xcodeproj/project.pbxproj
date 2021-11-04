@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		638D69242733BB8500E2CAB5 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D691A2733BB8500E2CAB5 /* celo_sdk_ios.framework */; };
+		638D69292733BB8500E2CAB5 /* celo_sdk_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D69282733BB8500E2CAB5 /* celo_sdk_iosTests.swift */; };
+		638D692B2733BB8500E2CAB5 /* celo_sdk_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 638D691D2733BB8500E2CAB5 /* celo_sdk_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		638D69472733BBDC00E2CAB5 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69402733BBDB00E2CAB5 /* BigInt.framework */; platformFilter = ios; };
+		638D69492733BBDC00E2CAB5 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69412733BBDB00E2CAB5 /* secp256k1.framework */; platformFilter = ios; };
+		638D694B2733BBDC00E2CAB5 /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69422733BBDB00E2CAB5 /* web3swift.framework */; platformFilter = ios; };
+		638D694D2733BBDC00E2CAB5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69432733BBDB00E2CAB5 /* PromiseKit.framework */; platformFilter = ios; };
+		638D694F2733BBDC00E2CAB5 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69442733BBDB00E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; };
+		638D69512733BBDC00E2CAB5 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69452733BBDC00E2CAB5 /* Starscream.framework */; platformFilter = ios; };
+		638D69562733BBEA00E2CAB5 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69402733BBDB00E2CAB5 /* BigInt.framework */; platformFilter = ios; };
+		638D69572733BBEA00E2CAB5 /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69402733BBDB00E2CAB5 /* BigInt.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D69592733BBEC00E2CAB5 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69442733BBDB00E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; };
+		638D695A2733BBEC00E2CAB5 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69442733BBDB00E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D695B2733BBED00E2CAB5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69432733BBDB00E2CAB5 /* PromiseKit.framework */; platformFilter = ios; };
+		638D695C2733BBED00E2CAB5 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69432733BBDB00E2CAB5 /* PromiseKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D695D2733BBEE00E2CAB5 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69412733BBDB00E2CAB5 /* secp256k1.framework */; platformFilter = ios; };
+		638D695E2733BBEE00E2CAB5 /* secp256k1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69412733BBDB00E2CAB5 /* secp256k1.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D695F2733BBEF00E2CAB5 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69452733BBDC00E2CAB5 /* Starscream.framework */; platformFilter = ios; };
+		638D69602733BBEF00E2CAB5 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69452733BBDC00E2CAB5 /* Starscream.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D69612733BBF100E2CAB5 /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69422733BBDB00E2CAB5 /* web3swift.framework */; platformFilter = ios; };
+		638D69622733BBF100E2CAB5 /* web3swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D69422733BBDB00E2CAB5 /* web3swift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		638D69252733BB8500E2CAB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 638D69112733BB8500E2CAB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 638D69192733BB8500E2CAB5;
+			remoteInfo = "celo-sdk-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		638D69582733BBEA00E2CAB5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				638D695C2733BBED00E2CAB5 /* PromiseKit.framework in Embed Frameworks */,
+				638D69572733BBEA00E2CAB5 /* BigInt.framework in Embed Frameworks */,
+				638D695A2733BBEC00E2CAB5 /* CryptoSwift.framework in Embed Frameworks */,
+				638D69622733BBF100E2CAB5 /* web3swift.framework in Embed Frameworks */,
+				638D69602733BBEF00E2CAB5 /* Starscream.framework in Embed Frameworks */,
+				638D695E2733BBEE00E2CAB5 /* secp256k1.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		638D691A2733BB8500E2CAB5 /* celo_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = celo_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		638D691D2733BB8500E2CAB5 /* celo_sdk_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = celo_sdk_ios.h; sourceTree = "<group>"; };
+		638D691E2733BB8500E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638D69232733BB8500E2CAB5 /* celo-sdk-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "celo-sdk-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		638D69282733BB8500E2CAB5 /* celo_sdk_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = celo_sdk_iosTests.swift; sourceTree = "<group>"; };
+		638D692A2733BB8500E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638D69402733BBDB00E2CAB5 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = "<group>"; };
+		638D69412733BBDB00E2CAB5 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
+		638D69422733BBDB00E2CAB5 /* web3swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = web3swift.framework; sourceTree = "<group>"; };
+		638D69432733BBDB00E2CAB5 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
+		638D69442733BBDB00E2CAB5 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		638D69452733BBDC00E2CAB5 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Starscream.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		638D69172733BB8500E2CAB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638D695F2733BBEF00E2CAB5 /* Starscream.framework in Frameworks */,
+				638D695D2733BBEE00E2CAB5 /* secp256k1.framework in Frameworks */,
+				638D69562733BBEA00E2CAB5 /* BigInt.framework in Frameworks */,
+				638D69612733BBF100E2CAB5 /* web3swift.framework in Frameworks */,
+				638D695B2733BBED00E2CAB5 /* PromiseKit.framework in Frameworks */,
+				638D69592733BBEC00E2CAB5 /* CryptoSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638D69202733BB8500E2CAB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638D69242733BB8500E2CAB5 /* celo_sdk_ios.framework in Frameworks */,
+				638D69512733BBDC00E2CAB5 /* Starscream.framework in Frameworks */,
+				638D694B2733BBDC00E2CAB5 /* web3swift.framework in Frameworks */,
+				638D694D2733BBDC00E2CAB5 /* PromiseKit.framework in Frameworks */,
+				638D694F2733BBDC00E2CAB5 /* CryptoSwift.framework in Frameworks */,
+				638D69492733BBDC00E2CAB5 /* secp256k1.framework in Frameworks */,
+				638D69472733BBDC00E2CAB5 /* BigInt.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		638D69102733BB8500E2CAB5 = {
+			isa = PBXGroup;
+			children = (
+				638D69362733BBA100E2CAB5 /* Frameworks */,
+				638D691C2733BB8500E2CAB5 /* celo-sdk-ios */,
+				638D69272733BB8500E2CAB5 /* celo-sdk-iosTests */,
+				638D691B2733BB8500E2CAB5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		638D691B2733BB8500E2CAB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				638D691A2733BB8500E2CAB5 /* celo_sdk_ios.framework */,
+				638D69232733BB8500E2CAB5 /* celo-sdk-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		638D691C2733BB8500E2CAB5 /* celo-sdk-ios */ = {
+			isa = PBXGroup;
+			children = (
+				638D691D2733BB8500E2CAB5 /* celo_sdk_ios.h */,
+				638D691E2733BB8500E2CAB5 /* Info.plist */,
+			);
+			path = "celo-sdk-ios";
+			sourceTree = "<group>";
+		};
+		638D69272733BB8500E2CAB5 /* celo-sdk-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				638D69282733BB8500E2CAB5 /* celo_sdk_iosTests.swift */,
+				638D692A2733BB8500E2CAB5 /* Info.plist */,
+			);
+			path = "celo-sdk-iosTests";
+			sourceTree = "<group>";
+		};
+		638D69362733BBA100E2CAB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				638D69402733BBDB00E2CAB5 /* BigInt.framework */,
+				638D69442733BBDB00E2CAB5 /* CryptoSwift.framework */,
+				638D69432733BBDB00E2CAB5 /* PromiseKit.framework */,
+				638D69412733BBDB00E2CAB5 /* secp256k1.framework */,
+				638D69452733BBDC00E2CAB5 /* Starscream.framework */,
+				638D69422733BBDB00E2CAB5 /* web3swift.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		638D69152733BB8500E2CAB5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638D692B2733BB8500E2CAB5 /* celo_sdk_ios.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		638D69192733BB8500E2CAB5 /* celo-sdk-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 638D692E2733BB8500E2CAB5 /* Build configuration list for PBXNativeTarget "celo-sdk-ios" */;
+			buildPhases = (
+				638D69152733BB8500E2CAB5 /* Headers */,
+				638D69162733BB8500E2CAB5 /* Sources */,
+				638D69172733BB8500E2CAB5 /* Frameworks */,
+				638D69182733BB8500E2CAB5 /* Resources */,
+				638D69582733BBEA00E2CAB5 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "celo-sdk-ios";
+			productName = "celo-sdk-ios";
+			productReference = 638D691A2733BB8500E2CAB5 /* celo_sdk_ios.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		638D69222733BB8500E2CAB5 /* celo-sdk-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 638D69312733BB8500E2CAB5 /* Build configuration list for PBXNativeTarget "celo-sdk-iosTests" */;
+			buildPhases = (
+				638D691F2733BB8500E2CAB5 /* Sources */,
+				638D69202733BB8500E2CAB5 /* Frameworks */,
+				638D69212733BB8500E2CAB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				638D69262733BB8500E2CAB5 /* PBXTargetDependency */,
+			);
+			name = "celo-sdk-iosTests";
+			productName = "celo-sdk-iosTests";
+			productReference = 638D69232733BB8500E2CAB5 /* celo-sdk-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		638D69112733BB8500E2CAB5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					638D69192733BB8500E2CAB5 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+					638D69222733BB8500E2CAB5 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 638D69142733BB8500E2CAB5 /* Build configuration list for PBXProject "celo-sdk-ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 638D69102733BB8500E2CAB5;
+			productRefGroup = 638D691B2733BB8500E2CAB5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				638D69192733BB8500E2CAB5 /* celo-sdk-ios */,
+				638D69222733BB8500E2CAB5 /* celo-sdk-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		638D69182733BB8500E2CAB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638D69212733BB8500E2CAB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		638D69162733BB8500E2CAB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		638D691F2733BB8500E2CAB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638D69292733BB8500E2CAB5 /* celo_sdk_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		638D69262733BB8500E2CAB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 638D69192733BB8500E2CAB5 /* celo-sdk-ios */;
+			targetProxy = 638D69252733BB8500E2CAB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		638D692C2733BB8500E2CAB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		638D692D2733BB8500E2CAB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		638D692F2733BB8500E2CAB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "celo-sdk-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-sdk-ios";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		638D69302733BB8500E2CAB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "celo-sdk-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-sdk-ios";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		638D69322733BB8500E2CAB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "celo-sdk-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-sdk-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		638D69332733BB8500E2CAB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "celo-sdk-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-sdk-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		638D69142733BB8500E2CAB5 /* Build configuration list for PBXProject "celo-sdk-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638D692C2733BB8500E2CAB5 /* Debug */,
+				638D692D2733BB8500E2CAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		638D692E2733BB8500E2CAB5 /* Build configuration list for PBXNativeTarget "celo-sdk-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638D692F2733BB8500E2CAB5 /* Debug */,
+				638D69302733BB8500E2CAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		638D69312733BB8500E2CAB5 /* Build configuration list for PBXNativeTarget "celo-sdk-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				638D69322733BB8500E2CAB5 /* Debug */,
+				638D69332733BB8500E2CAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 638D69112733BB8500E2CAB5 /* Project object */;
+}
