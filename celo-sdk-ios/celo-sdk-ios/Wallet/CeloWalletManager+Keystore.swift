@@ -1,22 +1,22 @@
 
 import web3swift
 
-extension WalletManager {
+extension CeloWalletManager {
     func saveKeystore(_ keystore: BIP32Keystore) throws {
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
-            throw WalletError.invalidPath
+            throw CeloError.invalidPath
         }
 
         guard let keystoreParams = keystore.keystoreParams else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
 
         guard let keystoreData = try? JSONEncoder().encode(keystoreParams) else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
 
-        guard let encryp = try? CryptTools.endcodeAESECB(dataToEncode: keystoreData, key: Setting.password) else {
-            throw WalletError.encryptFailure
+        guard let encryp = try? CeloCryptoUtils.endcodeAESECB(dataToEncode: keystoreData, key: Setting.password) else {
+            throw CeloError.encryptFailure
         }
 
         if !FileManager.default.fileExists(atPath: userDir + Setting.KeystoreDirectoryName) {
@@ -24,7 +24,7 @@ extension WalletManager {
                 try FileManager.default.createDirectory(atPath: userDir +
                     Setting.KeystoreDirectoryName, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                throw WalletError.invalidPath
+                throw CeloError.invalidPath
             }
         }
 
@@ -39,19 +39,19 @@ extension WalletManager {
 
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask,
                                                                 true).first else {
-            throw WalletError.invalidPath
+            throw CeloError.invalidPath
         }
 
 
         guard let keystoreManager = try? loadFile(path: userDir + Setting.KeystoreDirectoryName, scanForHDwallets: true, suffix: nil) else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
 
         guard let address = keystoreManager.addresses?.first else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
         guard let keystore = keystoreManager.walletForAddress(address) as? BIP32Keystore else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
 
         return keystore
@@ -59,7 +59,7 @@ extension WalletManager {
 
     public func killKeystore() throws {
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
-            throw WalletError.invalidPath
+            throw CeloError.invalidPath
         }
 
         if keystore != nil {
@@ -98,7 +98,7 @@ extension WalletManager {
                 }
                 filePath += file
                 guard let content = fileManager.contents(atPath: filePath) else { continue }
-                guard let decode = try? CryptTools.decodeAESECB(dataToDecode: content, key: "web3swift") else {
+                guard let decode = try? CeloCryptoUtils.decodeAESECB(dataToDecode: content, key: "web3swift") else {
                     continue
                 }
 
@@ -115,7 +115,7 @@ extension WalletManager {
                 }
                 filePath += file
                 guard let content = fileManager.contents(atPath: filePath) else { continue }
-                guard let decode = try? CryptTools.decodeAESECB(dataToDecode: content, key: Setting.password) else {
+                guard let decode = try? CeloCryptoUtils.decodeAESECB(dataToDecode: content, key: Setting.password) else {
                     continue
                 }
                 if scanForHDwallets {

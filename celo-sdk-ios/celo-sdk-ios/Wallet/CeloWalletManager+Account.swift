@@ -2,16 +2,16 @@ import Foundation
 import PromiseKit
 import web3swift
 
-extension WalletManager {
+extension CeloWalletManager {
     // MARK: - Account
 
-    class func storeAccountsToCache() {
+    class func storeAccountsDetails() {
         do {
-            let data = try JSONEncoder().encode(WalletManager.Accounts!)
+            let data = try JSONEncoder().encode(CeloWalletManager.Accounts!)
             Defaults[\.accountsData] = data
 
         } catch {
-            TLog(WalletError.createAccountFailure)
+            TLog(CeloError.createAccountFailure)
            
         }
     }
@@ -21,47 +21,47 @@ extension WalletManager {
 
             guard let data = Defaults[\.accountsData] else {
                 if Defaults[\.isFirstTimeOpen] == false {
-                    let error = WalletError.custom("Decode accounts failed")
+                    let error = CeloError.custom("Decode accounts failed")
                     seal.reject(error)
                 }
                 return
             }
             do {
                 let accounts = try JSONDecoder().decode([Account].self, from: data)
-                WalletManager.Accounts = accounts
+                CeloWalletManager.Accounts = accounts
                 seal.fulfill(accounts)
             } catch {
-                let error = WalletError.custom("Decode accounts failed")
+                let error = CeloError.custom("Decode accounts failed")
                 seal.reject(error)
             }
         }
     }
 
     class func createAccount() {
-        let oldPaths = WalletManager.shared.keystore!.paths.keys
+        let oldPaths = CeloWalletManager.shared.keystore!.paths.keys
 
         do {
-            try WalletManager.shared.keystore?.createNewChildAccount()
-            try WalletManager.shared.saveKeystore(WalletManager.shared.keystore!)
+            try CeloWalletManager.shared.keystore?.createNewChildAccount()
+            try CeloWalletManager.shared.saveKeystore(CeloWalletManager.shared.keystore!)
 
-            let animal = Constant.randomAnimal()
+            let animal = Constant.randomUDID()
             let name = "\(animal.firstUppercased) Wallet"
 
-            let newPaths = WalletManager.shared.keystore!.paths.keys
+            let newPaths = CeloWalletManager.shared.keystore!.paths.keys
 
             let newPath = newPaths.filter { !oldPaths.contains($0) }.first!
-            let address = WalletManager.shared.keystore!.paths[newPath]!.address
+            let address = CeloWalletManager.shared.keystore!.paths[newPath]!.address
             let account = Account(address: address, name: name, imageName: animal)
-            WalletManager.Accounts?.append(account)
+            CeloWalletManager.Accounts?.append(account)
 
 
         } catch {
-            TLog(error: WalletError.createAccountFailure)
+            TLog(error: CeloError.createAccountFailure)
         }
     }
 
     class func deleteAccount() {
-        if WalletManager.Accounts!.count <= 1 {
+        if CeloWalletManager.Accounts!.count <= 1 {
             TLog(text: "Can't delete the last account")
             return
         }
@@ -69,44 +69,44 @@ extension WalletManager {
 
     class func switchAccount(account: Account) {
         // if same account, not change
-        if account == WalletManager.currentAccount {
+        if account == CeloWalletManager.currentAccount {
             return
         }
 
-        WalletManager.currentAccount = account
-        Defaults[\.defaultAccountIndex] = WalletManager.Accounts!.firstIndex(of: account)!
+        CeloWalletManager.currentAccount = account
+        Defaults[\.defaultAccountIndex] = CeloWalletManager.Accounts!.firstIndex(of: account)!
         NotificationCenter.default.post(name: .accountChange, object: nil)
     }
 
     func walletChange() {
         Defaults[\.defaultAccountIndex] = 0
-        WalletManager.storeAccountsToCache()
+        CeloWalletManager.storeAccountsToCache()
     }
 
     // MARK: - Account info
 
     func updateAccount(account: Account, imageName: String?, name: String?) {
-        guard let index = WalletManager.Accounts?.firstIndex(of: account) else {
+        guard let index = CeloWalletManager.Accounts?.firstIndex(of: account) else {
             return
         }
 
         if let image = imageName {
-            WalletManager.Accounts?[index].imageName = image
+            CeloWalletManager.Accounts?[index].imageName = image
         }
 
         if let walletName = name {
-            WalletManager.Accounts![index].name = walletName
+            CeloWalletManager.Accounts![index].name = walletName
         }
 
-        WalletManager.storeAccountsToCache()
+        CeloWalletManager.storeAccountsToCache()
 
-        if account == WalletManager.currentAccount {
+        if account == CeloWalletManager.currentAccount {
             if let image = imageName {
-                WalletManager.currentAccount?.imageName = image
+                CeloWalletManager.currentAccount?.imageName = image
             }
 
             if let walletName = name {
-                WalletManager.currentAccount?.name = walletName
+                CeloWalletManager.currentAccount?.name = walletName
             }
         }
 

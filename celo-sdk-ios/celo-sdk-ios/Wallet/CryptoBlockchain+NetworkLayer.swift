@@ -9,16 +9,16 @@ extension CryptoBlockChain: NetworkLayer {
         return Promise<BigUInt> { seal in
             switch self {
             case .Celo:
-                guard let address = WalletManager.currentAccount?.address else {
-                    seal.reject(WalletError.accountDoesNotExist)
+                guard let address = CeloWalletManager.currentAccount?.address else {
+                    seal.reject(CeloError.accountDoesNotExist)
                     return
                 }
                 guard let ethereumAddress = EthereumAddress(address) else {
-                    seal.reject(WalletError.invalidAddress)
+                    seal.reject(CeloError.invalidAddress)
                     return
                 }
                 firstly {
-                    WalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
+                    CeloWalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
                 }.done { balanceStr in
                     seal.fulfill(balanceStr)
                 }.catch { error in

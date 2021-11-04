@@ -3,15 +3,15 @@
 import Foundation
 import web3swift
 
-class WalletManager {
-    static let shared = WalletManager()
+class CeloWalletManager {
+    static let shared = CeloWalletManager()
     static var currentAccount: Account?
     static var Accounts: [Account]? {
         didSet {
-            if oldValue == WalletManager.Accounts {
+            if oldValue == CeloWalletManager.Accounts {
                 return
             }
-            WalletManager.storeAccountsToCache()
+            CeloWalletManager.storeAccountsToCache()
         }
     }
 
@@ -23,48 +23,48 @@ class WalletManager {
     var keystore: BIP32Keystore?
 
     class func hasWallet() -> Bool {
-        if WalletManager.currentAccount != nil, WalletManager.Accounts!.count > 0 {
+        if CeloWalletManager.currentAccount != nil, CeloWalletManager.Accounts!.count > 0 {
             return true
         }
         return false
     }
 
     class func addKeyStoreIfNeeded() {
-        if !WalletManager.hasWallet() {
+        if !CeloWalletManager.hasWallet() {
             return
         }
 
-        guard let keystore = WalletManager.shared.keystore else {
+        guard let keystore = CeloWalletManager.shared.keystore else {
             return
         }
 
-        if WalletManager.web3Net.provider.attachedKeystoreManager != nil {
+        if CeloWalletManager.web3Net.provider.attachedKeystoreManager != nil {
             return
         }
 
-        WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+        CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
     }
 
     class func loadFromCache() {
-        guard let keystore = try? WalletManager.shared.loadKeystore() else {
+        guard let keystore = try? CeloWalletManager.shared.loadKeystore() else {
             return
         }
 
-        web3Net = WalletManager.fetchFromCache()
+        web3Net = CeloWalletManager.fetchFromCache()
 
-        WalletManager.shared.loadRPCFromCache()
+        CeloWalletManager.shared.loadCeloServerFromCache()
 
-        WalletManager.shared.keystore = keystore
+        CeloWalletManager.shared.keystore = keystore
         // Wait for acccunt loaded
         do {
-            let accounts = try WalletManager.fetchAccountsFromCache().wait()
+            let accounts = try CeloWalletManager.fetchAccountsFromCache().wait()
             var index = Defaults[\.defaultAccountIndex]
             if index > accounts.count - 1 {
                 Defaults[\.defaultAccountIndex] = 0
                 index = 0
             }
-            WalletManager.currentAccount = accounts[index]
-            WalletManager.addKeyStoreIfNeeded()
+            CeloWalletManager.currentAccount = accounts[index]
+            CeloWalletManager.addKeyStoreIfNeeded()
 
         } catch {
             print("Waiting for account loading fail")
@@ -76,7 +76,7 @@ class WalletManager {
     class func createWallet(completion: VoidBlock?) {
 //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
 
-        if WalletManager.hasWallet() {
+        if CeloWalletManager.hasWallet() {
             TLog(text: "You already had a wallet")
             return
         }
@@ -88,17 +88,17 @@ class WalletManager {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
             let keystore = try BIP32Keystore(mnemonics: mnemonics)
-            let animal = Constant.randomAnimal()
+            let animal = Constant.randomUDID()
             let name = "\(animal.firstUppercased) Wallet"
             let defaultAccount = Defaults[\.defaultAccountIndex]
             let address = keystore!.addresses![defaultAccount].address
             let wallet = Account(address: address, name: name, imageName: animal)
 
-            WalletManager.Accounts = [wallet]
-            WalletManager.currentAccount = wallet
-            WalletManager.shared.keystore = keystore
-            try! WalletManager.shared.saveKeystore(keystore!)
-            WalletManager.addKeyStoreIfNeeded()
+            CeloWalletManager.Accounts = [wallet]
+            CeloWalletManager.currentAccount = wallet
+            CeloWalletManager.shared.keystore = keystore
+            try! CeloWalletManager.shared.saveKeystore(keystore!)
+            CeloWalletManager.addKeyStoreIfNeeded()
 
             guard let completion = completion else { return }
             completion!()
@@ -109,30 +109,30 @@ class WalletManager {
     }
 
     class func importWallet(mnemonics: String, completion: VoidBlock?) throws {
-        if WalletManager.hasWallet() {
+        if CeloWalletManager.hasWallet() {
 
             return
         }
 
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
-            throw WalletError.malformedKeystore
+            throw CeloError.malformedKeystore
         }
 
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
 
-            let animal = Constant.randomAnimal()
+            let animal = Constant.randomUDID()
             let name = "\(animal.firstUppercased) Wallet"
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
 
-            WalletManager.Accounts = [wallet]
-            WalletManager.currentAccount = wallet
+            CeloWalletManager.Accounts = [wallet]
+            CeloWalletManager.currentAccount = wallet
 
-            WalletManager.shared.keystore = keystore
-            try WalletManager.shared.saveKeystore(keystore)
+            CeloWalletManager.shared.keystore = keystore
+            try CeloWalletManager.shared.saveKeystore(keystore)
 
-            WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+            CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
 
             guard let completion = completion else { return }
             completion!()
@@ -145,30 +145,30 @@ class WalletManager {
         guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
             // TODO: ENSURE
 
-            TLog(text: WalletError.malformedKeystore.errorDescription)
+            TLog(text: CeloError.malformedKeystore.errorDescription)
             return
         }
 
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
-            let animal = Constant.randomAnimal()
+            let animal = Constant.randomUDID()
             let name = "\(animal.firstUppercased) Wallet"
 
             let address = keystore.addresses!.first!.address
             let wallet = Account(address: address, name: name, imageName: animal)
 
-            WalletManager.currentAccount = wallet
-            WalletManager.Accounts = [wallet]
+            CeloWalletManager.currentAccount = wallet
+            CeloWalletManager.Accounts = [wallet]
 
 
-            WalletManager.shared.keystore = keystore
-            try WalletManager.shared.saveKeystore(keystore)
+            CeloWalletManager.shared.keystore = keystore
+            try CeloWalletManager.shared.saveKeystore(keystore)
 
-            WalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+            CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
 
             TLog(text: "Replace wallet success")
 
-            WalletManager.shared.walletChange()
+            CeloWalletManager.shared.walletChange()
 
         } catch {
             TLog(text: "Replace Wallet Failed")
@@ -185,7 +185,7 @@ class WalletManager {
                 return
             }
 
-            if WalletManager.hasWallet() {
+            if CeloWalletManager.hasWallet() {
                 return
             }
             return
@@ -196,7 +196,7 @@ class WalletManager {
             /// Mnemonics LOST !!!
 
             do {
-                let keystore = try WalletManager.shared.loadKeystore()
+                let keystore = try CeloWalletManager.shared.loadKeystore()
                 let jsonData = try JSONEncoder().encode(keystore.keystoreParams)
                 let jsonString = String(data: jsonData, encoding: .utf8)!
 

@@ -1,7 +1,7 @@
 import CryptoSwift
 import UIKit
 
-class CryptTools: NSObject {
+class CeloCryptoUtils: NSObject {
     // encode
     public static func endcodeAESECB(dataToEncode: Data, key: String) throws -> Data {
         do {
