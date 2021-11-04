@@ -1,28 +1,26 @@
-
-
 import Foundation
 
 
 extension CeloWalletManager {
-    func addCeloServer(model: Web3NetModel) {
+    func addCeloServer(model: CeloServerModel) {
         CeloWalletManager.customNetworkList.append(model)
         storeCeloServerToCache()
     }
 
-    func updateCeloServer(oldModel: Web3NetModel, newModel: Web3NetModel) {
+    func updateCeloServer(oldModel: CeloServerModel, newModel: CeloServerModel) {
         guard let index = CeloWalletManager.customNetworkList.firstIndex(of: oldModel) else {
             return
         }
         CeloWalletManager.customNetworkList[index] = newModel
 
         if CeloWalletManager.currentNetwork.model == oldModel {
-            CeloWalletManager.currentNetwork = Web3NetEnum(model: newModel)
+            CeloWalletManager.currentNetwork = CeloServerEnum(model: newModel)
         }
 
         storeCeloServerToCache()
     }
 
-    func deleteCeloServer(model: Web3NetModel) {
+    func deleteCeloServer(model: CeloServerModel) {
         guard let index = CeloWalletManager.customNetworkList.firstIndex(of: model) else {
             return
         }
@@ -37,7 +35,7 @@ extension CeloWalletManager {
 
     func loadCeloServerFromCache() {
         Shared.stringCache.fetch(key: CacheKey.web3CustomCeloServerKey).onSuccess { string in
-            guard let list = Web3NetModelList.deserialize(from: string) else {
+            guard let list = CeloServerModelList.deserialize(from: string) else {
                 return
             }
             WalletManager.customNetworkList = list.list
@@ -45,7 +43,7 @@ extension CeloWalletManager {
     }
 
     func storeCeloServerToCache() {
-        let list = Web3NetModelList(list: CeloWalletManager.customNetworkList)
+        let list = CeloServerModelList(list: CeloWalletManager.customNetworkList)
         guard let listString = list.toJSONString() else {
             return
         }

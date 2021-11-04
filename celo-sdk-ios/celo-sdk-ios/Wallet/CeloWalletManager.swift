@@ -15,11 +15,20 @@ class CeloWalletManager {
         }
     }
 
-    static var currentNetwork: Web3NetEnum = .main
-    static var customNetworkList: [Web3NetModel] = []
-    static var web3Net = Web3.InfuraMainnetWeb3()
+    static var currentNetwork: CeloServerEnum = .main
+    static var customNetworkList: [CeloServerModel] = []
+    
+    var web3Net = Web3.InfuraMainnetWeb3()
 
+    guard let urlStr = URL(string: "https://alfajores-forno.celo-testnet.org") else { return }
 
+    do {
+        web3Net = try Web3.new(urlStr)
+        
+    } catch {
+        Tlog("error initializing")
+    }
+    
     var keystore: BIP32Keystore?
 
     class func hasWallet() -> Bool {
@@ -141,39 +150,6 @@ class CeloWalletManager {
         }
     }
 
-    class func replaceWallet(mnemonics: String, completion _: VoidBlock?) {
-        guard let keystore = try? BIP32Keystore(mnemonics: mnemonics) else {
-            // TODO: ENSURE
-
-            TLog(text: CeloError.malformedKeystore.errorDescription)
-            return
-        }
-
-        do {
-            KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
-            let animal = Constant.randomUDID()
-            let name = "\(animal.firstUppercased) Wallet"
-
-            let address = keystore.addresses!.first!.address
-            let wallet = Account(address: address, name: name, imageName: animal)
-
-            CeloWalletManager.currentAccount = wallet
-            CeloWalletManager.Accounts = [wallet]
-
-
-            CeloWalletManager.shared.keystore = keystore
-            try CeloWalletManager.shared.saveKeystore(keystore)
-
-            CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
-
-            TLog(text: "Replace wallet success")
-
-            CeloWalletManager.shared.walletChange()
-
-        } catch {
-            TLog(text: "Replace Wallet Failed")
-        }
-    }
 
 
     // MARK: - Check Mnemonic
