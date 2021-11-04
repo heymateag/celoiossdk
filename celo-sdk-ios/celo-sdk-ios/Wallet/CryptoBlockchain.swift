@@ -33,8 +33,8 @@ extension CryptoBlockChain {
         }
     }
 
-    var basicInfo: TokenInfo {
-        var info = TokenInfo()
+    var basicInfo: TokenCrypto {
+        var info = TokenCrypto()
         info.decimals = decimal
         info.symbol = symbol
         switch self {
@@ -46,13 +46,6 @@ extension CryptoBlockChain {
 
         }
         return info
-    }
-
-    func txURL(txHash: String, network: CeloServerEnum? = WalletManager.currentNetwork) -> URL {
-        switch self {
-        case .Celo:
-            return PinItem.txURL(network: network ?? CeloWalletManager.currentNetwork, txHash: txHash)
-        }
     }
 
     func verify(address: String) -> Bool {
