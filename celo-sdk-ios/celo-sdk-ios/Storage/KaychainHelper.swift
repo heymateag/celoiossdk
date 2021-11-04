@@ -24,7 +24,7 @@ class KeychainHepler {
         do {
             try keychain?.synchronizable(true).set(value, key: key)
         } catch {
-            TLog(text: "Save mnemonic to keychain failed")
+            TLog("Save mnemonic to keychain failed")
         }
     }
 
@@ -33,7 +33,7 @@ class KeychainHepler {
             let value = try keychain?.get(key)
             return value
         } catch {
-            TLog(text: "Fetch mnemonic from keychain failed")
+            TLog("Fetch mnemonic from keychain failed")
         }
         return nil
     }

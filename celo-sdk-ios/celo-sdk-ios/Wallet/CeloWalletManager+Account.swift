@@ -62,7 +62,7 @@ extension CeloWalletManager {
 
     class func deleteAccount() {
         if CeloWalletManager.Accounts!.count <= 1 {
-            TLog(text: "Can't delete the last account")
+            TLog("Can't delete the last account")
             return
         }
     }

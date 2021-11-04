@@ -18,7 +18,7 @@ extension CryptoBlockChain: NetworkLayer {
                     return
                 }
                 firstly {
-                    CeloWalletManager.web3Net.eth.getBalancePromise(address: ethereumAddress)
+                    CeloWalletManager.web3ServerUrl.eth.getBalancePromise(address: ethereumAddress)
                 }.done { balanceStr in
                     seal.fulfill(balanceStr)
                 }.catch { error in

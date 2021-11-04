@@ -18,12 +18,12 @@ class CeloWalletManager {
     static var currentNetwork: CeloServerEnum = .main
     static var customNetworkList: [CeloServerModel] = []
     
-    var web3Net = Web3.InfuraMainnetWeb3()
+    var web3ServerUrl = Web3.InfuraMainnetWeb3()
 
     guard let urlStr = URL(string: "https://alfajores-forno.celo-testnet.org") else { return }
 
     do {
-        web3Net = try Web3.new(urlStr)
+        web3ServerUrl = try Web3.new(urlStr)
         
     } catch {
         Tlog("error initializing")
@@ -47,11 +47,11 @@ class CeloWalletManager {
             return
         }
 
-        if CeloWalletManager.web3Net.provider.attachedKeystoreManager != nil {
+        if CeloWalletManager.web3ServerUrl.provider.attachedKeystoreManager != nil {
             return
         }
 
-        CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+        CeloWalletManager.web3ServerUrl.addKeystoreManager(KeystoreManager([keystore]))
     }
 
     class func loadFromCache() {
@@ -59,7 +59,7 @@ class CeloWalletManager {
             return
         }
 
-        web3Net = CeloWalletManager.fetchFromCache()
+        web3ServerUrl = CeloWalletManager.fetchFromCache()
 
         CeloWalletManager.shared.loadCeloServerFromCache()
 
@@ -86,7 +86,7 @@ class CeloWalletManager {
 //        let Mnemonics =  KeychainHepler.fetchKeychain(key: Setting.MnemonicsKey)
 
         if CeloWalletManager.hasWallet() {
-            TLog(text: "You already had a wallet")
+            TLog("You already had a wallet")
             return
         }
 
@@ -113,7 +113,7 @@ class CeloWalletManager {
             completion!()
 
         } catch {
-            TLog(text: "Create Wallet Failed")
+            TLog("Create Wallet Failed")
         }
     }
 
@@ -141,12 +141,12 @@ class CeloWalletManager {
             CeloWalletManager.shared.keystore = keystore
             try CeloWalletManager.shared.saveKeystore(keystore)
 
-            CeloWalletManager.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+            CeloWalletManager.web3ServerUrl.addKeystoreManager(KeystoreManager([keystore]))
 
             guard let completion = completion else { return }
             completion!()
         } catch {
-            TLog(text: "Import Wallet Failed")
+            TLog("Import Wallet Failed")
         }
     }
 

@@ -7,7 +7,7 @@ import web3swift
 extension CeloWalletManager {
     func getCeloAddressWithPromise(node: String) -> Promise<EthereumAddress> {
         return Promise<EthereumAddress> { seal in
-            guard let ens = ENS(web3: CeloWalletManager.web3Net) else {
+            guard let ens = ENS(web3: CeloWalletManager.web3ServerUrl) else {
                 throw CeloError.custom("Init Celo Failed")
             }
 
