@@ -38,6 +38,7 @@
 		638D68C72733A33800E2CAB5 /* CeloWalletManager+Celo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C32733A33800E2CAB5 /* CeloWalletManager+Celo.swift */; };
 		638D68C82733A33800E2CAB5 /* CeloWalletManager+Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C42733A33800E2CAB5 /* CeloWalletManager+Keystore.swift */; };
 		638D68C92733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C52733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift */; };
+		638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D69742733C56B00E2CAB5 /* ContractKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		638D68C32733A33800E2CAB5 /* CeloWalletManager+Celo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+Celo.swift"; sourceTree = "<group>"; };
 		638D68C42733A33800E2CAB5 /* CeloWalletManager+Keystore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+Keystore.swift"; sourceTree = "<group>"; };
 		638D68C52733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+CustomRPC.swift"; sourceTree = "<group>"; };
+		638D69742733C56B00E2CAB5 /* ContractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		638D68412731554600E2CAB5 /* Contract */ = {
 			isa = PBXGroup;
 			children = (
+				638D69742733C56B00E2CAB5 /* ContractKit.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			files = (
 				638D68222731511400E2CAB5 /* PaymateImplmenetation.swift in Sources */,
 				638D68C92733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift in Sources */,
+				638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */,
 				638D684F2731571F00E2CAB5 /* CeloProtocol.swift in Sources */,
 				638D68C72733A33800E2CAB5 /* CeloWalletManager+Celo.swift in Sources */,
 				638D684A2731570800E2CAB5 /* CeloFramework.swift in Sources */,
