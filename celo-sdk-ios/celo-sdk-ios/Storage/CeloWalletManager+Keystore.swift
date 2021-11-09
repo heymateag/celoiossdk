@@ -2,6 +2,24 @@
 import web3swift
 
 extension CeloWalletManager {
+    func saveDefaultKeystore() throws -> KeystoreManager?
+    {
+          do {
+            let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            var keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
+            var ks: EthereumKeystoreV3?
+            if (keystoreManager?.addresses?.count == 0) {
+                ks = try EthereumKeystoreV3(password: "web3swift")
+                let keydata = try JSONEncoder().encode(ks!.keystoreParams)
+                FileManager.default.createFile(atPath: userDir + "/keystore"+"/key.json", contents: keydata, attributes: nil)
+                keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
+            }
+            return keystoreManager
+        }
+        catch{
+            print(CeloError.invalidPath)
+        }
+    }
     func saveKeystore(_ keystore: BIP32Keystore) throws {
         guard let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             throw CeloError.invalidPath
