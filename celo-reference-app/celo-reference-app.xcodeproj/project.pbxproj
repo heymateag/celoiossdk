@@ -17,6 +17,8 @@
 		638D680427314F8400E2CAB5 /* celo_reference_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D680327314F8400E2CAB5 /* celo_reference_appUITests.swift */; };
 		638D682E2731518D00E2CAB5 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D682D2731518D00E2CAB5 /* celo_sdk_ios.framework */; };
 		638D682F2731518D00E2CAB5 /* celo_sdk_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D682D2731518D00E2CAB5 /* celo_sdk_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */; };
+		638D6AA12742781400E2CAB5 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		638D680327314F8400E2CAB5 /* celo_reference_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = celo_reference_appUITests.swift; sourceTree = "<group>"; };
 		638D680527314F8400E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638D682D2731518D00E2CAB5 /* celo_sdk_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = celo_sdk_ios.framework; path = Framework/celo_sdk_ios.framework; sourceTree = "<group>"; };
+		638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
+		638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 				638D67EA27314F8300E2CAB5 /* Assets.xcassets */,
 				638D67EC27314F8300E2CAB5 /* LaunchScreen.storyboard */,
 				638D67EF27314F8300E2CAB5 /* Info.plist */,
+				638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */,
 			);
 			path = "celo-reference-app";
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			children = (
 				638D67F827314F8400E2CAB5 /* celo_reference_appTests.swift */,
 				638D67FA27314F8400E2CAB5 /* Info.plist */,
+				638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */,
 			);
 			path = "celo-reference-appTests";
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */,
 				638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */,
 				638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */,
 				638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */,
@@ -296,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638D6AA12742781400E2CAB5 /* ViewControllerTest.swift in Sources */,
 				638D67F927314F8400E2CAB5 /* celo_reference_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
