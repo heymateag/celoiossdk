@@ -15,6 +15,29 @@ extension CeloWalletManager {
            
         }
     }
+    
+    public func celoBalanceSync() throws -> String {
+        guard let address = address else { throw CeloError.accountDoesNotExist }
+        guard let ethereumAddress = CeloAddress(address) else { throw CeloError.invalidAddress }
+        
+        guard let balanceInWei = try? web3Instance.eth.getBalance(address: ethereumAddress) else {
+            throw WalletError.networkFailure
+        }
+        
+        guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWei, toUnits: Web3.Utils.Units.eth, decimals: 8, decimalSeparator: ".") else { throw WalletError.conversionFailure }
+        
+        return balanceInEtherUnitStr
+    }
+    
+    public func celoBalance(completion: @escaping (String?) -> ()) {
+        DispatchQueue.global().async {
+            let balance = try? self.celoBalanceSync()
+            DispatchQueue.main.async {
+                completion(balance)
+            }
+        }
+    }
+    
 
     class func fetchAccountsFromCache() -> Promise<[Account]> {
         return Promise<[Account]> { seal in
