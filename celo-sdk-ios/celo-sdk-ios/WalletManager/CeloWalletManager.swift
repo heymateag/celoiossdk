@@ -5,6 +5,10 @@ import web3swift
 
 class CeloWalletManager {
     static let shared = CeloWalletManager()
+    public static let account: AccountService = CeloWalletManager.shared
+    public static let balance: BalanceService = CeloWalletManager.shared
+    public static let address: AddressService = CeloWalletManager.shared
+    public static let contractkit: ContractKit = CeloWalletManager.shared
     static var currentAccount: Account?
     static var Accounts: [Account]? {
         didSet {

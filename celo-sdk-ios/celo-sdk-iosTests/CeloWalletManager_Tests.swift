@@ -109,5 +109,25 @@ class celo_sdk_iosTests: XCTestCase {
         XCTAssert(privKey != nil, "Failed to create new private key")
     }
 
+    
+    
+    func testUPSignatureUtils_pubKeyFromSignature() throws {
+        let privateKey = SECP256K1.generatePrivateKey()!
+        
+        let msg = "as8ft54ryhn036981a1ebe8221bb67cb6f04bcec510a96299f5a0a051cdce4d971d949d158415ee998ffef9a00c24120aa6da526b31217533a2dj88rdfghk"
+        let randomMessage = Data(msg.bytes)
+        let messageHash = Web3.Utils.hashPersonalMessage(randomMessage)!
+        let (serializedSignature, _) = SECP256K1.signForRecovery(hash: messageHash, privateKey: privateKey)
+        
+        let recoveredPubKey = SECP256K1.recoverPublicKey(hash: messageHash, signature: serializedSignature!)!
+        let recoveredEthereumAddress = Web3.Utils.publicToAddressString(recoveredPubKey)
+        
+        let actualPublicKey = SECP256K1.privateToPublic(privateKey: privateKey)!
+        let actualEthereumAddress = Web3.Utils.publicToAddressString(actualPublicKey)
+        
+        let recoveredEthereumAddress_utils = UPSignatureUtils.addressFromSignature(signature: serializedSignature!.toHexString(),
+                                                                         msg)
+        assert(recoveredEthereumAddress == recoveredEthereumAddress_utils && recoveredEthereumAddress_utils == actualEthereumAddress)
+    }
 
 }
