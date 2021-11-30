@@ -7,37 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		637D7C1D2755145B006A6CDD /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1A2755145B006A6CDD /* HandyJSON.framework */; platformFilter = ios; };
+		637D7C1F2755145C006A6CDD /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */; platformFilter = ios; };
+		637D7C7827560F87006A6CDD /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B1273169E400E2CAB5 /* BigInt.framework */; platformFilter = ios; };
+		637D7C7927560F87006A6CDD /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B1273169E400E2CAB5 /* BigInt.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C7A27560F89006A6CDD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B2273169E400E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; };
+		637D7C7B27560F89006A6CDD /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B2273169E400E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C7C27560F8B006A6CDD /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1A2755145B006A6CDD /* HandyJSON.framework */; platformFilter = ios; };
+		637D7C7D27560F8B006A6CDD /* HandyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1A2755145B006A6CDD /* HandyJSON.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C7E27560F8C006A6CDD /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B4273169E400E2CAB5 /* PromiseKit.framework */; platformFilter = ios; };
+		637D7C7F27560F8C006A6CDD /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B4273169E400E2CAB5 /* PromiseKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C8027560F8E006A6CDD /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B5273169E400E2CAB5 /* secp256k1.framework */; platformFilter = ios; };
+		637D7C8127560F8E006A6CDD /* secp256k1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B5273169E400E2CAB5 /* secp256k1.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C8227560F90006A6CDD /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B3273169E400E2CAB5 /* Starscream.framework */; platformFilter = ios; };
+		637D7C8327560F90006A6CDD /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B3273169E400E2CAB5 /* Starscream.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C8527560F93006A6CDD /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */; platformFilter = ios; };
+		637D7C8627560F93006A6CDD /* SwiftKeychainWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7C8727560F95006A6CDD /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B6273169E400E2CAB5 /* web3swift.framework */; platformFilter = ios; };
+		637D7C8827560F95006A6CDD /* web3swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B6273169E400E2CAB5 /* web3swift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		637D7CB7275661A0006A6CDD /* CeloSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB32756619F006A6CDD /* CeloSDK.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		637D7CB8275661A0006A6CDD /* CeloSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB32756619F006A6CDD /* CeloSDK.swift */; };
+		637D7CB9275661A0006A6CDD /* CeloSDK+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB4275661A0006A6CDD /* CeloSDK+Account.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		637D7CBA275661A0006A6CDD /* CeloSDK+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB4275661A0006A6CDD /* CeloSDK+Account.swift */; };
+		637D7CBB275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB5275661A0006A6CDD /* CeloSDK+Balance.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		637D7CBC275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB5275661A0006A6CDD /* CeloSDK+Balance.swift */; };
+		637D7CBD275661A0006A6CDD /* CeloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB6275661A0006A6CDD /* CeloError.swift */; };
+		637D7CBE275661A0006A6CDD /* CeloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CB6275661A0006A6CDD /* CeloError.swift */; };
+		637D7CC6275662C0006A6CDD /* CeloSDK+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CC5275662C0006A6CDD /* CeloSDK+Network.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		637D7CC7275662C0006A6CDD /* CeloSDK+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D7CC5275662C0006A6CDD /* CeloSDK+Network.swift */; };
+		637D7CCB27566888006A6CDD /* registry_contracts.json in Resources */ = {isa = PBXBuildFile; fileRef = 637D7CCA27566888006A6CDD /* registry_contracts.json */; };
+		637D7CCC27566888006A6CDD /* registry_contracts.json in Resources */ = {isa = PBXBuildFile; fileRef = 637D7CCA27566888006A6CDD /* registry_contracts.json */; };
 		638D67C327314F4E00E2CAB5 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D67B927314F4D00E2CAB5 /* celo_sdk_ios.framework */; };
 		638D67C827314F4E00E2CAB5 /* celo_sdk_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67C727314F4E00E2CAB5 /* celo_sdk_iosTests.swift */; };
 		638D67CA27314F4E00E2CAB5 /* celo_sdk_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 638D67BC27314F4D00E2CAB5 /* celo_sdk_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		638D68222731511400E2CAB5 /* PaymateImplmenetation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68212731511400E2CAB5 /* PaymateImplmenetation.swift */; };
-		638D68272731512A00E2CAB5 /* PaymateImplmenetation.swift in Headers */ = {isa = PBXBuildFile; fileRef = 638D68212731511400E2CAB5 /* PaymateImplmenetation.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		638D684A2731570800E2CAB5 /* CeloFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68492731570800E2CAB5 /* CeloFramework.swift */; };
-		638D684B2731570800E2CAB5 /* CeloFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68492731570800E2CAB5 /* CeloFramework.swift */; };
-		638D684F2731571F00E2CAB5 /* CeloProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D684E2731571F00E2CAB5 /* CeloProtocol.swift */; };
-		638D68502731571F00E2CAB5 /* CeloProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D684E2731571F00E2CAB5 /* CeloProtocol.swift */; };
-		638D68542731572800E2CAB5 /* CeloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68532731572800E2CAB5 /* CeloError.swift */; };
-		638D68552731572800E2CAB5 /* CeloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68532731572800E2CAB5 /* CeloError.swift */; };
 		638D68592731576700E2CAB5 /* CeloRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68582731576600E2CAB5 /* CeloRequest.swift */; };
 		638D685A2731576700E2CAB5 /* CeloRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68582731576600E2CAB5 /* CeloRequest.swift */; };
-		638D68602731579900E2CAB5 /* CeloUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D685F2731579900E2CAB5 /* CeloUtils.swift */; };
-		638D68612731579900E2CAB5 /* CeloUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D685F2731579900E2CAB5 /* CeloUtils.swift */; };
-		638D68642731579F00E2CAB5 /* PaymateImplmenetation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68212731511400E2CAB5 /* PaymateImplmenetation.swift */; };
-		638D687F2731581F00E2CAB5 /* KaychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68682731581F00E2CAB5 /* KaychainHelper.swift */; };
-		638D68802731581F00E2CAB5 /* CeloCryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D686B2731581F00E2CAB5 /* CeloCryptoUtils.swift */; };
-		638D68A7273169BA00E2CAB5 /* CryptoBlockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D689F273169BA00E2CAB5 /* CryptoBlockchain.swift */; };
-		638D68A9273169BA00E2CAB5 /* CeloWalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68A1273169BA00E2CAB5 /* CeloWalletManager.swift */; };
-		638D68AC273169BA00E2CAB5 /* CryptoBlockchain+NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68A4273169BA00E2CAB5 /* CryptoBlockchain+NetworkLayer.swift */; };
-		638D68B7273169E400E2CAB5 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B1273169E400E2CAB5 /* BigInt.framework */; platformFilter = ios; };
-		638D68B8273169E400E2CAB5 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B2273169E400E2CAB5 /* CryptoSwift.framework */; platformFilter = ios; };
-		638D68B9273169E400E2CAB5 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B3273169E400E2CAB5 /* Starscream.framework */; platformFilter = ios; };
-		638D68BA273169E400E2CAB5 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B4273169E400E2CAB5 /* PromiseKit.framework */; platformFilter = ios; };
-		638D68BB273169E400E2CAB5 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B5273169E400E2CAB5 /* secp256k1.framework */; platformFilter = ios; };
-		638D68BC273169E400E2CAB5 /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B6273169E400E2CAB5 /* web3swift.framework */; platformFilter = ios; };
-		638D68C62733A33800E2CAB5 /* CeloWalletManager+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C22733A33800E2CAB5 /* CeloWalletManager+Account.swift */; };
-		638D68C72733A33800E2CAB5 /* CeloWalletManager+Celo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C32733A33800E2CAB5 /* CeloWalletManager+Celo.swift */; };
-		638D68C82733A33800E2CAB5 /* CeloWalletManager+Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C42733A33800E2CAB5 /* CeloWalletManager+Keystore.swift */; };
-		638D68C92733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D68C52733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift */; };
 		638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D69742733C56B00E2CAB5 /* ContractKit.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				637D7C8627560F93006A6CDD /* SwiftKeychainWrapper.framework in Embed Frameworks */,
+				637D7C7927560F87006A6CDD /* BigInt.framework in Embed Frameworks */,
+				637D7C8327560F90006A6CDD /* Starscream.framework in Embed Frameworks */,
+				637D7C8127560F8E006A6CDD /* secp256k1.framework in Embed Frameworks */,
+				637D7C7D27560F8B006A6CDD /* HandyJSON.framework in Embed Frameworks */,
+				637D7C8827560F95006A6CDD /* web3swift.framework in Embed Frameworks */,
+				637D7C7B27560F89006A6CDD /* CryptoSwift.framework in Embed Frameworks */,
+				637D7C7F27560F8C006A6CDD /* PromiseKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,33 +77,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		637D7C1A2755145B006A6CDD /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = "<group>"; };
+		637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
+		637D7CB32756619F006A6CDD /* CeloSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloSDK.swift; sourceTree = "<group>"; };
+		637D7CB4275661A0006A6CDD /* CeloSDK+Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloSDK+Account.swift"; sourceTree = "<group>"; };
+		637D7CB5275661A0006A6CDD /* CeloSDK+Balance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloSDK+Balance.swift"; sourceTree = "<group>"; };
+		637D7CB6275661A0006A6CDD /* CeloError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloError.swift; sourceTree = "<group>"; };
+		637D7CC5275662C0006A6CDD /* CeloSDK+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloSDK+Network.swift"; sourceTree = "<group>"; };
+		637D7CCA27566888006A6CDD /* registry_contracts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = registry_contracts.json; sourceTree = "<group>"; };
 		638D67B927314F4D00E2CAB5 /* celo_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = celo_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67BC27314F4D00E2CAB5 /* celo_sdk_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = celo_sdk_ios.h; sourceTree = "<group>"; };
 		638D67BD27314F4D00E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638D67C227314F4E00E2CAB5 /* celo-sdk-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "celo-sdk-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67C727314F4E00E2CAB5 /* celo_sdk_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = celo_sdk_iosTests.swift; sourceTree = "<group>"; };
 		638D67C927314F4E00E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638D68212731511400E2CAB5 /* PaymateImplmenetation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymateImplmenetation.swift; sourceTree = "<group>"; };
-		638D68492731570800E2CAB5 /* CeloFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloFramework.swift; sourceTree = "<group>"; };
-		638D684E2731571F00E2CAB5 /* CeloProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloProtocol.swift; sourceTree = "<group>"; };
-		638D68532731572800E2CAB5 /* CeloError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloError.swift; sourceTree = "<group>"; };
 		638D68582731576600E2CAB5 /* CeloRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloRequest.swift; sourceTree = "<group>"; };
-		638D685F2731579900E2CAB5 /* CeloUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloUtils.swift; sourceTree = "<group>"; };
-		638D68682731581F00E2CAB5 /* KaychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaychainHelper.swift; sourceTree = "<group>"; };
-		638D686B2731581F00E2CAB5 /* CeloCryptoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloCryptoUtils.swift; sourceTree = "<group>"; };
-		638D689F273169BA00E2CAB5 /* CryptoBlockchain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoBlockchain.swift; sourceTree = "<group>"; };
-		638D68A1273169BA00E2CAB5 /* CeloWalletManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloWalletManager.swift; sourceTree = "<group>"; };
-		638D68A4273169BA00E2CAB5 /* CryptoBlockchain+NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CryptoBlockchain+NetworkLayer.swift"; sourceTree = "<group>"; };
 		638D68B1273169E400E2CAB5 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = "<group>"; };
 		638D68B2273169E400E2CAB5 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		638D68B3273169E400E2CAB5 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Starscream.framework; sourceTree = "<group>"; };
 		638D68B4273169E400E2CAB5 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
 		638D68B5273169E400E2CAB5 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
 		638D68B6273169E400E2CAB5 /* web3swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = web3swift.framework; sourceTree = "<group>"; };
-		638D68C22733A33800E2CAB5 /* CeloWalletManager+Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+Account.swift"; sourceTree = "<group>"; };
-		638D68C32733A33800E2CAB5 /* CeloWalletManager+Celo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+Celo.swift"; sourceTree = "<group>"; };
-		638D68C42733A33800E2CAB5 /* CeloWalletManager+Keystore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+Keystore.swift"; sourceTree = "<group>"; };
-		638D68C52733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CeloWalletManager+CustomRPC.swift"; sourceTree = "<group>"; };
 		638D69742733C56B00E2CAB5 /* ContractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,12 +106,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638D68B7273169E400E2CAB5 /* BigInt.framework in Frameworks */,
-				638D68BB273169E400E2CAB5 /* secp256k1.framework in Frameworks */,
-				638D68B9273169E400E2CAB5 /* Starscream.framework in Frameworks */,
-				638D68BC273169E400E2CAB5 /* web3swift.framework in Frameworks */,
-				638D68B8273169E400E2CAB5 /* CryptoSwift.framework in Frameworks */,
-				638D68BA273169E400E2CAB5 /* PromiseKit.framework in Frameworks */,
+				637D7C7827560F87006A6CDD /* BigInt.framework in Frameworks */,
+				637D7C8027560F8E006A6CDD /* secp256k1.framework in Frameworks */,
+				637D7C7C27560F8B006A6CDD /* HandyJSON.framework in Frameworks */,
+				637D7C8527560F93006A6CDD /* SwiftKeychainWrapper.framework in Frameworks */,
+				637D7C8227560F90006A6CDD /* Starscream.framework in Frameworks */,
+				637D7C8727560F95006A6CDD /* web3swift.framework in Frameworks */,
+				637D7C7A27560F89006A6CDD /* CryptoSwift.framework in Frameworks */,
+				637D7C7E27560F8C006A6CDD /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +121,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637D7C1F2755145C006A6CDD /* SwiftKeychainWrapper.framework in Frameworks */,
 				638D67C327314F4E00E2CAB5 /* celo_sdk_ios.framework in Frameworks */,
+				637D7C1D2755145B006A6CDD /* HandyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,17 +151,13 @@
 		638D67BB27314F4D00E2CAB5 /* celo-sdk-ios */ = {
 			isa = PBXGroup;
 			children = (
+				63F4A5BC2756A55A00930160 /* AddressBalance */,
+				63F4A5BB2756A54500930160 /* Account */,
+				63F4A5B82756A4B800930160 /* Network */,
+				63F4A5B42756A46F00930160 /* Registry */,
 				638D68B0273169E400E2CAB5 /* Framework */,
-				638D689D273169BA00E2CAB5 /* Wallet */,
-				638D686A2731581F00E2CAB5 /* Crypto */,
-				638D6848273156D800E2CAB5 /* Wrapper */,
 				638D68412731554600E2CAB5 /* Contract */,
-				638D68442731566700E2CAB5 /* Config */,
-				638D68452731568E00E2CAB5 /* Storage */,
 				638D6846273156A200E2CAB5 /* CeloFramework */,
-				638D6847273156B500E2CAB5 /* Protocol */,
-				638D68432731564800E2CAB5 /* Initialize */,
-				638D6842273155F900E2CAB5 /* Utils */,
 				638D67BC27314F4D00E2CAB5 /* celo_sdk_ios.h */,
 				638D67BD27314F4D00E2CAB5 /* Info.plist */,
 			);
@@ -175,87 +181,21 @@
 			path = Contract;
 			sourceTree = "<group>";
 		};
-		638D6842273155F900E2CAB5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				638D68532731572800E2CAB5 /* CeloError.swift */,
-				638D68212731511400E2CAB5 /* PaymateImplmenetation.swift */,
-				638D685F2731579900E2CAB5 /* CeloUtils.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		638D68432731564800E2CAB5 /* Initialize */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Initialize;
-			sourceTree = "<group>";
-		};
-		638D68442731566700E2CAB5 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		638D68452731568E00E2CAB5 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				638D68682731581F00E2CAB5 /* KaychainHelper.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		638D6846273156A200E2CAB5 /* CeloFramework */ = {
 			isa = PBXGroup;
 			children = (
+				637D7CB6275661A0006A6CDD /* CeloError.swift */,
+				637D7CB32756619F006A6CDD /* CeloSDK.swift */,
 				638D68582731576600E2CAB5 /* CeloRequest.swift */,
-				638D684E2731571F00E2CAB5 /* CeloProtocol.swift */,
-				638D68492731570800E2CAB5 /* CeloFramework.swift */,
 			);
 			path = CeloFramework;
-			sourceTree = "<group>";
-		};
-		638D6847273156B500E2CAB5 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		638D6848273156D800E2CAB5 /* Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Wrapper;
-			sourceTree = "<group>";
-		};
-		638D686A2731581F00E2CAB5 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				638D686B2731581F00E2CAB5 /* CeloCryptoUtils.swift */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		638D689D273169BA00E2CAB5 /* Wallet */ = {
-			isa = PBXGroup;
-			children = (
-				638D68C22733A33800E2CAB5 /* CeloWalletManager+Account.swift */,
-				638D68C32733A33800E2CAB5 /* CeloWalletManager+Celo.swift */,
-				638D68C52733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift */,
-				638D68C42733A33800E2CAB5 /* CeloWalletManager+Keystore.swift */,
-				638D689F273169BA00E2CAB5 /* CryptoBlockchain.swift */,
-				638D68A1273169BA00E2CAB5 /* CeloWalletManager.swift */,
-				638D68A4273169BA00E2CAB5 /* CryptoBlockchain+NetworkLayer.swift */,
-			);
-			path = Wallet;
 			sourceTree = "<group>";
 		};
 		638D68B0273169E400E2CAB5 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				637D7C1A2755145B006A6CDD /* HandyJSON.framework */,
+				637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */,
 				638D68B1273169E400E2CAB5 /* BigInt.framework */,
 				638D68B2273169E400E2CAB5 /* CryptoSwift.framework */,
 				638D68B3273169E400E2CAB5 /* Starscream.framework */,
@@ -266,6 +206,38 @@
 			path = Framework;
 			sourceTree = SOURCE_ROOT;
 		};
+		63F4A5B42756A46F00930160 /* Registry */ = {
+			isa = PBXGroup;
+			children = (
+				637D7CCA27566888006A6CDD /* registry_contracts.json */,
+			);
+			path = Registry;
+			sourceTree = "<group>";
+		};
+		63F4A5B82756A4B800930160 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				637D7CC5275662C0006A6CDD /* CeloSDK+Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		63F4A5BB2756A54500930160 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				637D7CB4275661A0006A6CDD /* CeloSDK+Account.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		63F4A5BC2756A55A00930160 /* AddressBalance */ = {
+			isa = PBXGroup;
+			children = (
+				637D7CB5275661A0006A6CDD /* CeloSDK+Balance.swift */,
+			);
+			path = AddressBalance;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -273,7 +245,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638D68272731512A00E2CAB5 /* PaymateImplmenetation.swift in Headers */,
 				638D67CA27314F4E00E2CAB5 /* celo_sdk_ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637D7CCB27566888006A6CDD /* registry_contracts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637D7CCC27566888006A6CDD /* registry_contracts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,22 +350,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638D68222731511400E2CAB5 /* PaymateImplmenetation.swift in Sources */,
-				638D68C92733A33800E2CAB5 /* CeloWalletManager+CustomRPC.swift in Sources */,
+				637D7CB7275661A0006A6CDD /* CeloSDK.swift in Sources */,
+				637D7CBB275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */,
+				637D7CC6275662C0006A6CDD /* CeloSDK+Network.swift in Sources */,
+				637D7CB9275661A0006A6CDD /* CeloSDK+Account.swift in Sources */,
 				638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */,
-				638D684F2731571F00E2CAB5 /* CeloProtocol.swift in Sources */,
-				638D68C72733A33800E2CAB5 /* CeloWalletManager+Celo.swift in Sources */,
-				638D684A2731570800E2CAB5 /* CeloFramework.swift in Sources */,
+				637D7CBD275661A0006A6CDD /* CeloError.swift in Sources */,
 				638D68592731576700E2CAB5 /* CeloRequest.swift in Sources */,
-				638D68AC273169BA00E2CAB5 /* CryptoBlockchain+NetworkLayer.swift in Sources */,
-				638D68A7273169BA00E2CAB5 /* CryptoBlockchain.swift in Sources */,
-				638D68A9273169BA00E2CAB5 /* CeloWalletManager.swift in Sources */,
-				638D68602731579900E2CAB5 /* CeloUtils.swift in Sources */,
-				638D68542731572800E2CAB5 /* CeloError.swift in Sources */,
-				638D68C82733A33800E2CAB5 /* CeloWalletManager+Keystore.swift in Sources */,
-				638D68C62733A33800E2CAB5 /* CeloWalletManager+Account.swift in Sources */,
-				638D68802731581F00E2CAB5 /* CeloCryptoUtils.swift in Sources */,
-				638D687F2731581F00E2CAB5 /* KaychainHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,12 +365,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				638D67C827314F4E00E2CAB5 /* celo_sdk_iosTests.swift in Sources */,
-				638D68502731571F00E2CAB5 /* CeloProtocol.swift in Sources */,
-				638D68642731579F00E2CAB5 /* PaymateImplmenetation.swift in Sources */,
-				638D684B2731570800E2CAB5 /* CeloFramework.swift in Sources */,
+				637D7CBA275661A0006A6CDD /* CeloSDK+Account.swift in Sources */,
 				638D685A2731576700E2CAB5 /* CeloRequest.swift in Sources */,
-				638D68612731579900E2CAB5 /* CeloUtils.swift in Sources */,
-				638D68552731572800E2CAB5 /* CeloError.swift in Sources */,
+				637D7CC7275662C0006A6CDD /* CeloSDK+Network.swift in Sources */,
+				637D7CB8275661A0006A6CDD /* CeloSDK.swift in Sources */,
+				637D7CBE275661A0006A6CDD /* CeloError.swift in Sources */,
+				637D7CBC275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +574,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = "celo-sdk-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,6 +597,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZT8NA52DSF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = "celo-sdk-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

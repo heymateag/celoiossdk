@@ -29,5 +29,42 @@ class celo_sdk_iosTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    private let password = "PASSWORD123"
+    
+    func testAccount() {
+        guard let _  = try? CeloSDK.account.generateAccount(password: password) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssert(CeloSDK.account.hasAccount)
+        
+        guard let address = CeloSDK.account.address else {
+            XCTFail()
+            return
+        }
+        XCTAssert(address.count == 42)
+        
+        guard let privateKey = try? CeloSDK.account.privateKey(password: password) else {
+            XCTFail()
+            return
+        }
+        XCTAssert(privateKey.count == 64)
+        
+        guard let _ = try? CeloSDK.account.importAccount(privateKey: privateKey, password: password) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssert(address == CeloSDK.account.address)
+        
+        XCTAssert(CeloSDK.account.verifyPassword(password))
+        XCTAssertFalse(CeloSDK.account.verifyPassword("WRONG_PASSWORD"))
+    }
+    
+    func testBalance() {
+        XCTAssert(try! CeloSDK.balance.celoBalanceSync() == "0")
+        XCTAssert(try! CeloSDK.balance.celoUSDBalanceSync() == "0")
+    }
 
 }

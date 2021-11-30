@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import celo_reference_app
+//@testable import celo_
 
 class celo_reference_appTests: XCTestCase {
 
