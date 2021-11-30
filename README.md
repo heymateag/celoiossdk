@@ -1,4 +1,4 @@
-# celoiossdk
+# Celo IOS SDK 
 iOS SDK for the Celo blockchain
 
 # Requirements
