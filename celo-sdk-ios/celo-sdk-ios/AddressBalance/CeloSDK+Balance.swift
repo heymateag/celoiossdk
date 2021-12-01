@@ -35,16 +35,17 @@ extension CeloSDK: BalanceService {
         let contractCeloAddress = EthereumAddress("0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1")
         guard let address = address else { throw CeloError.accountDoesNotExist }
         guard let celoAddress = EthereumAddress(address) else { throw CeloError.invalidAddress }
+        
         let bundle = Bundle(identifier: "com.heymate.celo-sdk-ios")
         let bundlePath = bundle!.path(forResource: "registry_contracts", ofType: "json")
         let jsonString = try! String(contentsOfFile: bundlePath!)
-        let contract = web3Instance.contract(jsonString, at: contractCeloAddress, abiVersion: 2)!
+        let contract = newKitFromWeb3(_web3InstanceFromUrl: web3Instance)
         var options = TransactionOptions.defaultOptions
         options.from = celoAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
         let method = "balanceOf"
-        let tx = contract.read(
+        let tx = contract!.read(
             method,
             parameters: [address] as [AnyObject],
             extraData: Data(),

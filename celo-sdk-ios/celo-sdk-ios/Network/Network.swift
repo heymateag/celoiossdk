@@ -1,6 +1,6 @@
 import web3swift
 extension CeloSDK {
-    class func make(customURL: String) throws -> web3 {
+    class func createWeb3Instance(customURL: String) throws -> web3 {
         let net = try CeloSDK.customNet(url:customURL)
         return net
     }

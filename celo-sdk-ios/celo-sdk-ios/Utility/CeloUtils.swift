@@ -9,30 +9,6 @@
 import UIKit
 import Foundation
 
-struct Account: Codable {
-    let address: String
-    var name: String
-
-}
-
-extension Account: Hashable, Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.address == rhs.address
-    }
-
-    var hashValue: Int {
-        return address.hashValue
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(address)
-    }
-}
-
-struct HDKey {
-    let name: String?
-    let address: String
-}
 
 public func TLog(_ entry: String) {
     #if DEBUG
@@ -83,7 +59,7 @@ public func JSONToString<T:JsonEncodable>(_ payload: T ) -> String? {
 public func JSONToData<T:JsonEncodable>(_ payload: T ) throws -> Data? {
     guard let data = try? JSONSerialization.data(withJSONObject: payload.mapJson().serialize())  else {
         
-        throw CeloError.custom("unable to convert it to json")
+        throw CeloError.unKnown
     }
     
     return data
@@ -99,12 +75,12 @@ public func StringToJson(provisionCacheDataString:String) throws -> [String:Any]
     
     
     guard let provisionCacheDataStringUtf8 = provisionCacheDataString.data(using: .utf8) else {
-        throw CeloError.custom("provisionCacheDataString is nil or empty")
+        throw CeloError.unKnown
     }
     
     guard let provisionCacheDataJson = try? JSONSerialization.jsonObject(with: provisionCacheDataStringUtf8, options: []) as? [String: AnyObject] else {
         
-        throw CeloError.custom("unable to convert it to json")
+        throw CeloError.unKnown
     }
     return provisionCacheDataJson ?? nil
     
