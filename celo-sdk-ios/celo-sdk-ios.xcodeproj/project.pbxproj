@@ -41,7 +41,6 @@
 		638D67C827314F4E00E2CAB5 /* celo_sdk_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67C727314F4E00E2CAB5 /* celo_sdk_iosTests.swift */; };
 		638D67CA27314F4E00E2CAB5 /* celo_sdk_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 638D67BC27314F4D00E2CAB5 /* celo_sdk_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D69742733C56B00E2CAB5 /* ContractKit.swift */; };
-		63F4A5CC27577C2D00930160 /* CeloWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A5CB27577C2D00930160 /* CeloWallet.swift */; };
 		63F4A5D92757B14400930160 /* CeloUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A5D82757B14400930160 /* CeloUtils.swift */; };
 		63F4A5DD2757C1A900930160 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A5DC2757C1A900930160 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -99,7 +98,6 @@
 		638D68B5273169E400E2CAB5 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
 		638D68B6273169E400E2CAB5 /* web3swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = web3swift.framework; sourceTree = "<group>"; };
 		638D69742733C56B00E2CAB5 /* ContractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractKit.swift; sourceTree = "<group>"; };
-		63F4A5CB27577C2D00930160 /* CeloWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloWallet.swift; sourceTree = "<group>"; };
 		63F4A5D82757B14400930160 /* CeloUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloUtils.swift; sourceTree = "<group>"; };
 		63F4A5DC2757C1A900930160 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +187,6 @@
 		638D6846273156A200E2CAB5 /* CeloFramework */ = {
 			isa = PBXGroup;
 			children = (
-				63F4A5CB27577C2D00930160 /* CeloWallet.swift */,
 				637D7CB6275661A0006A6CDD /* CeloError.swift */,
 				637D7CB32756619F006A6CDD /* CeloSDK.swift */,
 			);
@@ -371,7 +368,6 @@
 				63F4A5DD2757C1A900930160 /* Constants.swift in Sources */,
 				638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */,
 				637D7CBD275661A0006A6CDD /* CeloError.swift in Sources */,
-				63F4A5CC27577C2D00930160 /* CeloWallet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
