@@ -2,7 +2,7 @@
 iOS SDK for the Celo blockchain
 
 # Requirements
-Install XCode 12.4 and IOS 12+ (Not tested in IOS 15 and Xcode 13)
+Install XCode 13.1 .Tested in IOS 15 and lower versions as well 
 
 
 # Installation
