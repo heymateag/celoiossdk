@@ -6,7 +6,7 @@ Install XCode 13.1 .Tested in IOS 15 and lower versions as well
 
 
 # Installation
-1.The project is supplied as a workspace with both the SDK and Sample app included
+1.The project is supplied as a workspace with both the SDK and Sample app included.Launch the CeloIOSWorkspace.xcworkspace
 <img width="1390" alt="imgs1" src="https://user-images.githubusercontent.com/22989626/144111104-666babae-6239-4dc2-8cf3-771741d4b526.png">
 
 
