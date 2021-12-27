@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6300C4382779A601006BF5FC /* CeloLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4372779A601006BF5FC /* CeloLog.swift */; };
+		6300C43A2779B173006BF5FC /* ContractKitOtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4392779B173006BF5FC /* ContractKitOtions.swift */; };
+		6300C43C2779B32C006BF5FC /* CeloContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C43B2779B32C006BF5FC /* CeloContract.swift */; };
+		6300C43E2779BA11006BF5FC /* CeloTransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C43D2779BA11006BF5FC /* CeloTransactionManager.swift */; };
+		6300C4442779BF8C006BF5FC /* CeloRawTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C43F2779BF8B006BF5FC /* CeloRawTransaction.swift */; };
+		6300C4452779BF8C006BF5FC /* CeloTransactionEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4402779BF8B006BF5FC /* CeloTransactionEncoder.swift */; };
+		6300C4462779BF8C006BF5FC /* CeloTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4412779BF8B006BF5FC /* CeloTransaction.swift */; };
+		6300C4472779BF8C006BF5FC /* CeloRawTransactionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4422779BF8B006BF5FC /* CeloRawTransactionBuilder.swift */; };
+		6300C4482779BF8C006BF5FC /* CeloGasProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4432779BF8B006BF5FC /* CeloGasProvider.swift */; };
+		6300C44A2779DD08006BF5FC /* BaseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300C4492779DD08006BF5FC /* BaseWrapper.swift */; };
+		634FC34D276C667A0061C9C4 /* AddressRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634FC34C276C66790061C9C4 /* AddressRegistry.swift */; };
+		634FC34E276C667B0061C9C4 /* AddressRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634FC34C276C66790061C9C4 /* AddressRegistry.swift */; };
 		637D7C1D2755145B006A6CDD /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1A2755145B006A6CDD /* HandyJSON.framework */; platformFilter = ios; };
 		637D7C1F2755145C006A6CDD /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */; platformFilter = ios; };
 		637D7C7827560F87006A6CDD /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D68B1273169E400E2CAB5 /* BigInt.framework */; platformFilter = ios; };
@@ -77,6 +89,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6300C4372779A601006BF5FC /* CeloLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeloLog.swift; sourceTree = "<group>"; };
+		6300C4392779B173006BF5FC /* ContractKitOtions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractKitOtions.swift; sourceTree = "<group>"; };
+		6300C43B2779B32C006BF5FC /* CeloContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeloContract.swift; sourceTree = "<group>"; };
+		6300C43D2779BA11006BF5FC /* CeloTransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeloTransactionManager.swift; sourceTree = "<group>"; };
+		6300C43F2779BF8B006BF5FC /* CeloRawTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloRawTransaction.swift; sourceTree = "<group>"; };
+		6300C4402779BF8B006BF5FC /* CeloTransactionEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloTransactionEncoder.swift; sourceTree = "<group>"; };
+		6300C4412779BF8B006BF5FC /* CeloTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloTransaction.swift; sourceTree = "<group>"; };
+		6300C4422779BF8B006BF5FC /* CeloRawTransactionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloRawTransactionBuilder.swift; sourceTree = "<group>"; };
+		6300C4432779BF8B006BF5FC /* CeloGasProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloGasProvider.swift; sourceTree = "<group>"; };
+		6300C4492779DD08006BF5FC /* BaseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWrapper.swift; sourceTree = "<group>"; };
+		634FC34C276C66790061C9C4 /* AddressRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRegistry.swift; sourceTree = "<group>"; };
 		637D7C1A2755145B006A6CDD /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = "<group>"; };
 		637D7C1B2755145B006A6CDD /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
 		637D7CB32756619F006A6CDD /* CeloSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloSDK.swift; sourceTree = "<group>"; };
@@ -131,6 +154,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6300C43627799800006BF5FC /* TransactionManager */ = {
+			isa = PBXGroup;
+			children = (
+				6300C4432779BF8B006BF5FC /* CeloGasProvider.swift */,
+				6300C43F2779BF8B006BF5FC /* CeloRawTransaction.swift */,
+				6300C4422779BF8B006BF5FC /* CeloRawTransactionBuilder.swift */,
+				6300C4412779BF8B006BF5FC /* CeloTransaction.swift */,
+				6300C4402779BF8B006BF5FC /* CeloTransactionEncoder.swift */,
+				6300C43D2779BA11006BF5FC /* CeloTransactionManager.swift */,
+			);
+			path = TransactionManager;
+			sourceTree = "<group>";
+		};
+		634FC34F276C66D20061C9C4 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				6300C4492779DD08006BF5FC /* BaseWrapper.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
 		638D67AF27314F4D00E2CAB5 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +196,8 @@
 		638D67BB27314F4D00E2CAB5 /* celo-sdk-ios */ = {
 			isa = PBXGroup;
 			children = (
+				6300C43627799800006BF5FC /* TransactionManager */,
+				634FC34F276C66D20061C9C4 /* Wrappers */,
 				63F4A5DC2757C1A900930160 /* Constants.swift */,
 				63F4A5DB2757B38300930160 /* Utility */,
 				63F4A5BC2756A55A00930160 /* AddressBalance */,
@@ -180,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				638D69742733C56B00E2CAB5 /* ContractKit.swift */,
+				6300C4392779B173006BF5FC /* ContractKitOtions.swift */,
+				6300C43B2779B32C006BF5FC /* CeloContract.swift */,
 			);
 			path = Contract;
 			sourceTree = "<group>";
@@ -212,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				637D7CCA27566888006A6CDD /* registry_contracts.json */,
+				634FC34C276C66790061C9C4 /* AddressRegistry.swift */,
 			);
 			path = Registry;
 			sourceTree = "<group>";
@@ -244,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				63F4A5D82757B14400930160 /* CeloUtils.swift */,
+				6300C4372779A601006BF5FC /* CeloLog.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -360,14 +410,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6300C4442779BF8C006BF5FC /* CeloRawTransaction.swift in Sources */,
 				637D7CB7275661A0006A6CDD /* CeloSDK.swift in Sources */,
 				637D7CBB275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */,
 				637D7CC6275662C0006A6CDD /* Network.swift in Sources */,
+				6300C4472779BF8C006BF5FC /* CeloRawTransactionBuilder.swift in Sources */,
+				6300C4482779BF8C006BF5FC /* CeloGasProvider.swift in Sources */,
 				637D7CB9275661A0006A6CDD /* Account.swift in Sources */,
 				63F4A5D92757B14400930160 /* CeloUtils.swift in Sources */,
 				63F4A5DD2757C1A900930160 /* Constants.swift in Sources */,
+				6300C43C2779B32C006BF5FC /* CeloContract.swift in Sources */,
+				6300C4452779BF8C006BF5FC /* CeloTransactionEncoder.swift in Sources */,
+				6300C4462779BF8C006BF5FC /* CeloTransaction.swift in Sources */,
 				638D69752733C56B00E2CAB5 /* ContractKit.swift in Sources */,
+				6300C44A2779DD08006BF5FC /* BaseWrapper.swift in Sources */,
+				6300C4382779A601006BF5FC /* CeloLog.swift in Sources */,
+				634FC34D276C667A0061C9C4 /* AddressRegistry.swift in Sources */,
 				637D7CBD275661A0006A6CDD /* CeloError.swift in Sources */,
+				6300C43A2779B173006BF5FC /* ContractKitOtions.swift in Sources */,
+				6300C43E2779BA11006BF5FC /* CeloTransactionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +439,7 @@
 				638D67C827314F4E00E2CAB5 /* celo_sdk_iosTests.swift in Sources */,
 				637D7CBA275661A0006A6CDD /* Account.swift in Sources */,
 				637D7CC7275662C0006A6CDD /* Network.swift in Sources */,
+				634FC34E276C667B0061C9C4 /* AddressRegistry.swift in Sources */,
 				637D7CB8275661A0006A6CDD /* CeloSDK.swift in Sources */,
 				637D7CBE275661A0006A6CDD /* CeloError.swift in Sources */,
 				637D7CBC275661A0006A6CDD /* CeloSDK+Balance.swift in Sources */,

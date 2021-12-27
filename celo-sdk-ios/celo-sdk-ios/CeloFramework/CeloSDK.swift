@@ -30,13 +30,18 @@ public class CeloSDK {
     }
     
     public init(customUrl : String) {
+        
+        
+        let bundle = Bundle(identifier: "com.heymate.celo-sdk-ios")
+        let bundlePath = bundle!.path(forResource: "registry_contracts", ofType: "json")
+        
+        
+//        for i in
         do {
             self.web3Main = try CeloSDK.createWeb3Instance(customURL: customUrl)
         } catch {
             print(error)
         }
-
-        
 
     }
     

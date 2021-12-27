@@ -11,6 +11,7 @@ public protocol AccountService {
     func generateAccount(password: String) throws
     func importAccount(privateKey: String, password: String) throws
     func importAccount(mnemonics: String, password: String) throws
+    func loadKeystore() throws -> EthereumKeystoreV3
 }
 
 
@@ -115,7 +116,7 @@ extension CeloSDK: AccountService {
 
     }
     
-    func loadKeystore() throws -> EthereumKeystoreV3 {
+  public func loadKeystore() throws -> EthereumKeystoreV3 {
         if let keystore = keystoreCache {
             return keystore
         }

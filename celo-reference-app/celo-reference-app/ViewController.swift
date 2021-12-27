@@ -8,8 +8,6 @@
 import UIKit
 import celo_sdk_ios
 
-var ethAddressKey:String = "ETH_ADDRESS"
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var addressTxt: UITextView!

@@ -19,4 +19,13 @@ public func getContractKit(web3Instance: web3 ,_ abiString: String, at: web3swif
     
     return contract
 }
+    
+//public func getContractKit(web3Instance: web3) -> web3swift.web3.web3contract?
+//    {
+//        let contract = web3Instance.contract(abiString, at: at, abiVersion: 2)!
+//
+//        return contract
+//    }
+//
+    
 }

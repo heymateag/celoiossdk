@@ -38,6 +38,8 @@ extension CeloSDK: BalanceService {
         
         let bundle = Bundle(identifier: "com.heymate.celo-sdk-ios")
         let bundlePath = bundle!.path(forResource: "registry_contracts", ofType: "json")
+        
+        
         let jsonString = try! String(contentsOfFile: bundlePath!)
         let contract = newKitFromWeb3(_web3InstanceFromUrl: web3Instance)
         var options = TransactionOptions.defaultOptions

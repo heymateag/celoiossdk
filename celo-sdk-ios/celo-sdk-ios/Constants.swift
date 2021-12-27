@@ -12,5 +12,6 @@ public struct Constants {
     static let GOLD_TOKEN_CONTRACT_ADDRESS = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
     static let SDK_PRODUCT_IDENTIFIER = "com.heymate.celo-sdk-ios"
     
+    
 
 }
