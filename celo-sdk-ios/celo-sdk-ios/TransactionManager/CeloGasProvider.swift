@@ -17,9 +17,16 @@ private let defaultGasLimitForTransaction = 100_000
 private let defaultGasLimitForTokenTransfer = 100_000
 
 extension CeloTransactionManager {
-    // Return GWEI
 
-    func gasForContractMethod(to address: String,
+    func gasForSendingCelo(to address: String, amount: BigUInt, data: Data) -> Promise<BigUInt> {
+        return gasFeeForContractMethod(to: address,
+                                    contractABI: Web3.Utils.coldWalletABI,
+                                    methodName: "fallback",
+                                    methodParams: [],
+                                    amount: amount,
+                                    data: data)
+    }
+    func gasFeeForContractMethod(to address: String,
                               contractABI: String,
                               methodName: String,
                               methodParams: [AnyObject],
@@ -62,13 +69,8 @@ extension CeloTransactionManager {
     }
 }
 
-import BigInt
-import Foundation
-import PromiseKit
-import web3swift
 
-
-
+// MARK: - CeloTransactionManager Util Functions
 
 extension BigInt {
     var eth: Float {

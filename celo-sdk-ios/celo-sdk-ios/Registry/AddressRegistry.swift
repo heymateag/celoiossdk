@@ -18,11 +18,9 @@ public class AddressRegistry {
      
         self.web3 = web3Instance
         
-
+        
     }
-       
-    
-    public func addressFor(contract:CeloContract)->String {
+    public func addressFor(to contract:CeloContract) -> String {
         let contractCeloAddress = EthereumAddress(AddressRegistry.REGISTRY_CONTRACT_ADDRESS)
         let bundlePath = Bundle.main.path(forResource: "registry_cntracts", ofType: "json")
         let jsonString = try! String(contentsOfFile: bundlePath!)

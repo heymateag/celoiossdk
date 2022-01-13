@@ -1,5 +1,5 @@
 //
-//  CeloTransactionManager.swift
+//  CeloCeloTransactionManager.swift
 //  celo-sdk-ios
 //
 //  Created by Sreedeep on 27/12/21.
@@ -9,6 +9,7 @@ import BigInt
 import PromiseKit
 import web3swift
 import Foundation
+private var fetchPendingFrequency: TimeInterval = 5.0
 
 // TODO: Change all function to Promise
 class CeloTransactionManager {
@@ -75,6 +76,107 @@ class CeloTransactionManager {
                 seal.reject(CeloError.contractFailure)
                 return
             }
+            
+            firstly {
+                CeloTransactionManager.shared.checkBalance(amountInDouble: amountInDouble, notERC20: notERC20)
+            }.then { _ in
+                tx.sendPromise(password: "web3swift", transactionOptions: options)
+            }.done { result in
+                seal.fulfill(result.hash)
+
+
+            }.catch { error in
+
+                seal.reject(error)
+            }
+        }
+    }
+
+    
+    public func sendCeloSync(to address: String,
+                              amount: BigUInt,
+                              data: Data,
+                              password _: String = "web3swift",
+                              gasPrice: GasPrice = GasPrice.average,
+                              gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
+        return CeloTransactionManager.writeSmartContract(contractAddress: address,
+                                                     functionName: "fallback",
+                                                     abi: Web3.Utils.coldWalletABI,
+                                                     parameters: [AnyObject](),
+                                                     extraData: data,
+                                                     value: amount,
+                                                     gasPrice: gasPrice,
+                                                     gasLimit: gasLimit)
+    }
+    public func celoBalanceSync() throws -> String {
+        guard let address = CeloSDK.shared.address else { throw CeloError.accountDoesNotExist }
+        guard let celoAddress = EthereumAddress(address) else { throw CeloError.invalidAddress }
+
+        guard let balanceInWeiUnitResult = try? CeloSDK.shared.web3Main.eth.getBalance(address: celoAddress) else {
+            throw CeloError.insufficientBalance
+        }
+
+        guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
+                                                                           toUnits: .eth,
+                                                                           decimals: 6, decimalSeparator: ".")
+        else { throw CeloError.conversionFailure }
+
+        return balanceInEtherUnitStr
+    }
+
+    public func celoBalance() -> Promise<String> {
+        return Promise<String> { seal in
+            guard let address = CeloSDK.shared.address else {
+                seal.reject(CeloError.accountDoesNotExist)
+                return
+            }
+            guard let ethereumAddress = EthereumAddress(address) else {
+                seal.reject(CeloError.invalidAddress)
+                return
+            }
+
+            firstly {
+                CeloSDK.shared.web3Main.eth.getBalancePromise(address: ethereumAddress)
+            }.done { balanceInWeiUnitResult in
+                guard let balanceInEtherUnitStr = Web3.Utils.formatToEthereumUnits(balanceInWeiUnitResult,
+                                                                                   toUnits: .eth,
+                                                                                   decimals: 6, decimalSeparator: ".")
+                else {
+                    seal.reject(CeloError.conversionFailure)
+                    return
+                }
+                seal.fulfill(balanceInEtherUnitStr)
+            }
+        }
+
+    }
+
+    // MARK: - Send Transaction
+
+   
+
+    func checkBalance(amountInDouble: Double, notERC20: Bool) -> Promise<Bool> {
+        return Promise { seal in
+            // TODO: Add ERC20 Blanace Check
+            if !notERC20 {
+                seal.fulfill(true)
+            }
+
+            firstly {
+                celoBalance()
+            }.done { celoBalance in
+                guard let celoBalanceInDouble = Double(celoBalance) else {
+                    seal.reject(CeloError.conversionFailure)
+                    return
+                }
+                if notERC20 {
+                    guard celoBalanceInDouble >= amountInDouble else {
+                        seal.reject(CeloError.insufficientBalance)
+                        return
+                    }
+                }
+                seal.fulfill(true)
+            }
         }
     }
 
@@ -127,40 +229,36 @@ class CeloTransactionManager {
         }
     }
 
-    // MARK: - Sign Message
-
-  
-
-//    class func signMessage(message: Data) throws -> String? {
-//        guard let address = CeloSDK.shared.address else {
-//            throw CeloError.invalidAddress
-//        }
-//
-//        guard let walletAddress = EthereumAddress(address) else {
-//            throw CeloError.invalidAddress
-//        }
-//
-//        guard let keystore = CeloSDK.shared.address else {
-//            throw CeloError.malformedKeystore
-//        }
-//      
-//        do {
-//            
-//         
-//            let signedData = try Web3Signer.signPersonalMessage(message,
-//                                                                keystore: keystore,
-//                                                                account: walletAddress,
-//                                                                password: "celosdk")
-//            return (signedData?.toHexString().addHexPrefix())!
-//        } catch {
-//            throw CeloError.invalidKey
-//        }
-//    }
-
-    // MARK: - Sign Transaction
 
 
+    // MARK: - Sign chainId Transaction
 
+    func transfer(toAddress: String, value: BigUInt, data: Data = Data(),
+                  gasPrice: GasPrice = GasPrice.average,
+                  gasLimit: TransactionOptions.GasLimitPolicy = .automatic) -> Promise<String> {
+        return Promise<String> { seal in
+
+            var method: Promise<String>?
+         
+            method = CeloTransactionManager.shared.sendCeloSync(to: toAddress, amount: value,
+                                                                 data: data,
+                                                                 gasPrice: gasPrice,
+                                                                 gasLimit: gasLimit)
+          
+         
+
+            guard let block = method else {
+                throw CeloError.insufficientBalance
+            }
+
+            block.done { txHash in
+                seal.fulfill(txHash)
+            }.catch { error in
+                seal.reject(error)
+            }
+        }
+    }
+    // MARK: - Sign Send Transaction
     class func signTransaction(to address: String,
                                amount: BigUInt,
                                data: Data,
@@ -227,4 +325,8 @@ class CeloTransactionManager {
  
   
 }
+
+
+
+
 

@@ -10,5 +10,6 @@ public enum CeloError: Error {
     case notEnoughBalance
     case contractFailure
     case unexpectedResult
+    case insufficientBalance
     case unKnown
 }

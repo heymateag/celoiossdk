@@ -6,6 +6,12 @@
 //
 
 import Foundation
+import BigInt
+import PromiseKit
+
+
+import web3swift
+
 
 
 
@@ -33,6 +39,8 @@ public final class ContractKitOtions {
         self.from = from;
         self.chainId = chainId;
       }
+    
+    let fee = AddressRegistry.addressFor
     
 
 }

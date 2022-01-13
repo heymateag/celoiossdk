@@ -30,6 +30,7 @@ public enum CeloContract {
     case   Reserve
     case   SortedOracles
     case   StableToken
+    case   StableTokenEUR
     case   TransferWhitelist
     case   Validators
 }
