@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		634FC29E27675D230061C9C4 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F4A5E22757C2CA00930160 /* celo_sdk_ios.framework */; };
-		634FC29F27675D230061C9C4 /* celo_sdk_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63F4A5E22757C2CA00930160 /* celo_sdk_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18704257279039EC00D241FE /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18704256279039EC00D241FE /* celo_sdk_ios.framework */; platformFilter = ios; };
+		18704258279039EC00D241FE /* celo_sdk_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18704256279039EC00D241FE /* celo_sdk_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E127314F7C00E2CAB5 /* AppDelegate.swift */; };
 		638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */; };
 		638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E527314F7C00E2CAB5 /* ViewController.swift */; };
@@ -39,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		637D7CEF2756748A006A6CDD /* Embed Frameworks */ = {
+		18704259279039EC00D241FE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				634FC29F27675D230061C9C4 /* celo_sdk_ios.framework in Embed Frameworks */,
+				18704258279039EC00D241FE /* celo_sdk_ios.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		187042522790399D00D241FE /* celo_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = celo_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18704256279039EC00D241FE /* celo_sdk_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = celo_sdk_ios.framework; path = Framework/celo_sdk_ios.framework; sourceTree = "<group>"; };
 		638D67DE27314F7C00E2CAB5 /* celo-reference-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "celo-reference-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67E127314F7C00E2CAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				634FC29E27675D230061C9C4 /* celo_sdk_ios.framework in Frameworks */,
+				18704257279039EC00D241FE /* celo_sdk_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,8 @@
 		638D682C2731518D00E2CAB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18704256279039EC00D241FE /* celo_sdk_ios.framework */,
+				187042522790399D00D241FE /* celo_sdk_ios.framework */,
 				63F4A5E22757C2CA00930160 /* celo_sdk_ios.framework */,
 			);
 			name = Frameworks;
@@ -171,7 +175,7 @@
 				638D67DA27314F7C00E2CAB5 /* Sources */,
 				638D67DB27314F7C00E2CAB5 /* Frameworks */,
 				638D67DC27314F7C00E2CAB5 /* Resources */,
-				637D7CEF2756748A006A6CDD /* Embed Frameworks */,
+				18704259279039EC00D241FE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

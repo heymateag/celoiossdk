@@ -9,6 +9,7 @@ import Foundation
 import web3swift
 import BigInt
 import PromiseKit
+import HandyJSON
 
 public class CeloTransaction {
 
@@ -60,4 +61,60 @@ public init (feeCurrency:String,gatewayFeeRecipient:String,gatewayFee:BigInt) {
       }
 
 
+}
+struct CeloTransactionModel: HandyJSON {
+    var nonce: String?
+    var gasPrice: String?
+    var gasLimit: String?
+    var to: String?
+    var value: String?
+    var data: String?
+    var v: String?
+    var r: String?
+    var s: String?
+    var chainID: String?
+    var inferedChainID: String?
+    var from: String?
+    var hash: String?
+
+    init() {
+        return
+    }
+}
+struct EthTransaction: Hashable {
+    var hash: String
+
+    init?(hash: String) {
+        if !hash.hasPrefix("0x") {
+            return nil
+        }
+
+        if hash.count != 66 {
+            return nil
+        }
+
+        self.hash = hash
+    }
+}
+
+extension EthereumTransaction {
+    func toJsonString() -> String {
+        var model = CeloTransactionModel()
+        model.nonce = String(nonce)
+        model.gasPrice = String(gasPrice)
+        model.gasLimit = String(describing: gasLimit)
+        model.to = to.address
+        if let v = value {
+            model.value = String(v)
+        }
+        model.data = data.toHexString().addHexPrefix().lowercased()
+        model.v = String(v)
+        model.r = String(r)
+        model.s = String(s)
+        model.chainID = String(describing: intrinsicChainID)
+        model.inferedChainID = String(describing: inferedChainID)
+        model.from = String(describing: sender!.address)
+        model.hash = String(describing: hash!.toHexString().addHexPrefix())
+        return model.toJSONString(prettyPrint: true)!
+    }
 }
