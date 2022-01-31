@@ -5,6 +5,7 @@ public enum CeloError: Error {
     case invalidMnemonics
     case invalidAddress
     case malformedKeystore
+    case encryptFailure
     case networkFailure
     case conversionFailure
     case notEnoughBalance
