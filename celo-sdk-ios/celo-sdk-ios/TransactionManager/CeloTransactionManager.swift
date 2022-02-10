@@ -529,7 +529,7 @@ class CeloTransactionManager {
         
         public func sendPromise(password:String = Setting.password, CeloTransactionOptions: CeloTransactionOptions? = nil) -> Promise<TransactionSendingResult>{
             let queue = self.web3.requestDispatcher.queue
-            return self.assemblePromise(CeloTransactionOptions: CeloTransactionOptions).then(on: queue) { transaction throws -> Promise<TransactionSendingResult> in
+            return self.assemblePromise(CeloTransactionOptions: CeloTransactionOptions).then(on: queue) { transaction throws -> Promise<CeloTransactionSendingResult> in
                 let mergedOptions = self.CeloTransactionOptions.merge(CeloTransactionOptions)
                 var cleanedOptions = CeloTransactionOptions()
                 cleanedOptions.from = mergedOptions.from
@@ -538,7 +538,7 @@ class CeloTransactionManager {
             }
         }
         
-        public func send(password:String = Setting.password, CeloTransactionOptions: CeloTransactionOptions? = nil) throws -> TransactionSendingResult {
+        public func send(password:String = Setting.password, CeloTransactionOptions: CeloTransactionOptions? = nil) throws -> CeloTransactionSendingResult {
             return try self.sendPromise(password: password, CeloTransactionOptions: CeloTransactionOptions).wait()
         }
         

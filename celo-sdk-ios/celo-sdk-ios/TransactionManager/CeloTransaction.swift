@@ -61,23 +61,40 @@ struct CeloTransactionSendingResult {
 
 extension web3.Eth { //webtransaction
 
-    
+    public func sendCeloRawTransactionPromise(_ transaction: CeloTransaction) -> Promise<CeloTransactionSendingResult>{
+        
 
-    func sendRawCeloTransactionPromise(_ transaction: Data,web3 w3:web3) -> Promise<CeloTransactionSendingResult> {
-
-        guard let deserializedTX = CeloTransaction.fromRaw(transaction) else {
-
-            let promise = Promise<CeloTransactionSendingResult>.pending()
-
-            promise.resolver.reject(Web3Error.processingError(desc: "Serialized TX is invalid"))
-
-            return promise.promise
-
+        let queue = web3.requestDispatcher.queue
+        do {
+            guard let request = CeloTransaction.createRawTransaction(transaction: transaction) else {
+                throw Web3Error.processingError(desc: "Transaction is invalid")
+            }
+            let rp = web3.dispatch(request)
+            return rp.map(on: queue ) { response in
+                guard let value: String = response.getValue() else {
+                    if response.error != nil {
+                        throw Web3Error.nodeError(desc: response.error!.message)
+                    }
+                    throw Web3Error.nodeError(desc: "Invalid value from Ethereum node")
+                }
+                let result = CeloTransactionSendingResult(transaction: transaction, hash: value)
+                for hook in self.web3.postSubmissionHooks {
+                    hook.queue.async {
+                        hook.function(result)
+                    }
+                }
+                return result
+            }
+        } catch {
+            let returnPromise = Promise<CeloTransactionSendingResult>.pending()
+            queue.async {
+                returnPromise.resolver.reject(error)
+            }
+            return returnPromise.promise
         }
-
-        return sendCeloTransactionPromise(deserializedTX,web3: w3)
-
     }
+
+
 
     
 
