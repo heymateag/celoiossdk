@@ -42,7 +42,7 @@ extension CeloSDK: BalanceService {
         
         let jsonString = try! String(contentsOfFile: bundlePath!)
         let contract = newKitFromWeb3(_web3InstanceFromUrl: web3Instance)
-        var options = TransactionOptions.defaultOptions
+        var options = CeloTransactionOptions.defaultOptions
         options.from = celoAddress
         options.gasPrice = .automatic
         options.gasLimit = .automatic
@@ -51,7 +51,7 @@ extension CeloSDK: BalanceService {
             method,
             parameters: [address] as [AnyObject],
             extraData: Data(),
-            transactionOptions: options)!
+            CeloTransactionOptions: options)!
         let tokenBalance = try! tx.call()
       let balanceBigUInt = tokenBalance["0"] as! BigUInt
         let balanceString = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!

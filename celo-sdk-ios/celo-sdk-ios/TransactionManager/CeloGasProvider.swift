@@ -51,7 +51,7 @@ extension CeloTransactionManager {
                 return
             }
             let value = amount
-            var options = TransactionOptions.defaultOptions
+            var options = CeloTransactionOptions.defaultOptions
             options.value = value
             options.from = toAddress
             options.to = toAddress
@@ -62,7 +62,7 @@ extension CeloTransactionManager {
                 methodName,
                 parameters: methodParams,
                 extraData: data,
-                transactionOptions: options
+                CeloTransactionOptions: options
             ) else {
                 seal.reject(CeloError.contractFailure)
                 return

@@ -27,7 +27,7 @@ public class AddressRegistry {
 
         do {
             let contract = CeloSDK.shared.newKitFromWeb3(_web3InstanceFromUrl:web3 )
-            var options = TransactionOptions.defaultOptions
+            var options = CeloTransactionOptions.defaultOptions
             options.from = contractCeloAddress
             options.gasPrice = .automatic
             options.gasLimit = .automatic
@@ -36,7 +36,7 @@ public class AddressRegistry {
                 method,
                 parameters: [CeloSDK.shared.address] as [AnyObject],
                 extraData: Data(),
-                transactionOptions: options)!
+                CeloTransactionOptions: options)!
             let tokenBalance = try! tx.call()
           let balanceBigUInt = tokenBalance["0"] as! BigUInt
             let address = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!

@@ -18,6 +18,6 @@ public struct Constants {
 
 }
 class Setting {
-    static let password = "web3swift"
+    static let password = Setting.password
 
 }
