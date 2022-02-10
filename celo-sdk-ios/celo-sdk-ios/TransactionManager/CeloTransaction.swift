@@ -292,7 +292,18 @@ public init (feeCurrency:String,gatewayFeeRecipient:String,gatewayFee:BigInt) {
             }
         }
     }
-    
+    static func createCeloRawTransaction(transaction: CeloTransaction) -> JSONRPCrequest? {
+        guard transaction.sender != nil else {return nil}
+        guard let encodedData = transaction.encode() else {return nil}
+        let hex = encodedData.toHexString().addHexPrefix().lowercased()
+        var request = JSONRPCrequest()
+        request.method = JSONRPCmethod.sendRawTransaction
+        let params = [hex] as Array<Encodable>
+        let pars = JSONRPCparams(params: params)
+        request.params = pars
+        if !request.isValid {return nil}
+        return request
+    }
     
     public var description: String {
         get {
