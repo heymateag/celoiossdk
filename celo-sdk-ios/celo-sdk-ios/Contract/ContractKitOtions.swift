@@ -40,7 +40,7 @@ public final class ContractKitOtions {
         self.chainId = chainId;
       }
     
-    let fee = AddressRegistry.addressFor
+
     
 
 }

@@ -18,10 +18,19 @@ private let defaultGasLimitForTokenTransfer = 100_000
 
 extension CeloTransactionManager {
 
+    convenience public init (web3 web3Instance: web3) {
+        self.init()
+        self.web3 = web3Instance
+        
+        
+    }
+
     func gasForSendingCelo(to address: String, amount: BigUInt, data: Data) -> Promise<BigUInt> {
+        
+        let gasPriceContract = AddressRegistry.init(web3: CeloSDK.shared.web3Main).addressFor(to: CeloContract.GasPriceMinimum)
         return gasFeeForContractMethod(to: address,
-                                    contractABI: Web3.Utils.coldWalletABI,
-                                    methodName: "fallback",
+                                    contractABI: gasPriceContract,
+                                    methodName: "GasPriceMinimum",
                                     methodParams: [],
                                     amount: amount,
                                     data: data)
