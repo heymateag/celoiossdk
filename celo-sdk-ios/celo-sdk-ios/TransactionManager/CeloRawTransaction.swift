@@ -41,5 +41,26 @@ public init (transaction: CeloTransaction,feeCurrency:String,gatewayFeeRecipient
     
 
 }
+    
+public extension CeloTransactionInvocation {
+
+    func call(block: EthereumQuantityTag = .latest) -> Promise<[String: Any]> {
+        return Promise { seal in
+            self.call(block: block, completion: seal.resolve)
+        }
+    }
+
+    func send(nonce: CeloQuantity? = nil, from: CeloAddress, value: CeloQuantity?, gas: CeloQuantity, gasPrice: CeloQuantity?) -> Promise<CeloData> {
+        return Promise { seal in
+            self.send(nonce: nonce, from: from, value: value, gas: gas, gasPrice: gasPrice, completion: seal.resolve)
+        }
+    }
+
+    func estimateGas(from: CeloAddress? = nil, gas: CeloQuantity? = nil, value: CeloQuantity? = nil) -> Promise<CeloQuantity> {
+        return Promise { seal in
+            self.estimateGas(from: from, gas: gas, value: value, completion: seal.resolve)
+        }
+    }
+}
 
 }
