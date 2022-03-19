@@ -258,7 +258,16 @@ extension String {
     var firstCapitalized: String {
         return prefix(1).capitalized + dropFirst()
     }
-
+   extension Dictionary where Key == String, Value: Equatable {
+    func keyForValue(value : Value) -> String? {
+        for key in self.keys {
+            if self[key] == value {
+                return key
+            }
+        }
+        return nil
+    }
+}
     var hexDecodeUTF8: String? {
         guard let data = Data.fromHex(self) else {
             return nil
