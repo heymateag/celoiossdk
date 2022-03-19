@@ -267,7 +267,14 @@ public init (feeCurrency:String,gatewayFeeRecipient:String,gatewayFee:BigInt) {
         model.hash = String(describing: hash!.toHexString().addHexPrefix())
         return model.toJSONString(prettyPrint: true)!
     }
-
+    public protocol CeloContractProtocol {
+    var address: CeloAddress? {get set}
+    var transactionOptions: CeloTransactionOptions? {get set}
+    var allMethods: [String] {get}
+    func deploy(bytecode:Data, parameters: [AnyObject], extraData: Data) -> CeloTransaction?
+    func method(_ method:String, parameters: [AnyObject], extraData: Data) -> CeloTransaction?
+    init?(_ abiString: String, at: CeloAddress?)
+}
 
     struct CeloTransactionModel: HandyJSON {
         var nonce: String?
