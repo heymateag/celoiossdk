@@ -8,7 +8,7 @@
 import Foundation
 
 
-public enum CeloContract {
+public enum CeloContractClass : String {
     case Accounts
     case  Attestations
     case  BlockchainParameters
