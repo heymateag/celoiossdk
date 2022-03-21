@@ -13,39 +13,57 @@ public class AddressRegistry {
     static let  REGISTRY_CONTRACT_ADDRESS:String = "0x000000000000000000000000000000000000ce10";
     static let  NULL_ADDRESS:String = "0x0000000000000000000000000000000000000000";
     
-    var web3: web3
-    public init (web3 web3Instance: web3) {
-     
-        self.web3 = web3Instance
-        
+//    var web3: web3
+//    public init (web3 web3Instance: web3) {
+//     
+//        self.web3 = web3Instance
+//        
+//        
+//    }
+    public init()
+    {
         
     }
-    public func addressFor(to contract:CeloContract) -> String {
-        let contractCeloAddress = EthereumAddress(AddressRegistry.REGISTRY_CONTRACT_ADDRESS)
-        let bundlePath = Bundle.main.path(forResource: "registry_cntracts", ofType: "json")
-        let jsonString = try! String(contentsOfFile: bundlePath!)
-
-        do {
-            let contract = CeloSDK.shared.newKitFromWeb3(_web3InstanceFromUrl:web3 )
-            var options = CeloTransactionOptions.defaultOptions
-            options.from = contractCeloAddress
-            options.gasPrice = .automatic
-            options.gasLimit = .automatic
-            let method = "getAddressFor"
-            let tx = contract!.read(
-                method,
-                parameters: [CeloSDK.shared.address] as [AnyObject],
-                extraData: Data(),
-                CeloTransactionOptions: options)!
-            let tokenBalance = try! tx.call()
-          let balanceBigUInt = tokenBalance["0"] as! BigUInt
-            let address = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!
-            
+    public func getAbiForContract(to contract:CeloContractClass) -> String {
         
-            return address;
-        } catch {
-            return "CeloError.invalidAddress"
-        }
+        let parser = Parser()
+        let abi = parser.getContractDetailsFor(contract:contract,requiredData:.ABI)
+        
+       return abi
+//        let address = parser.getContractDetailsFor(contract:. StableToken ,requiredData:.Address)
+//
+//
+//
+//        let contractCeloAddress = EthereumAddress(AddressRegistry.REGISTRY_CONTRACT_ADDRESS)
+//        let bundlePath = Bundle.main.path(forResource: "registry_cntracts", ofType: "json")
+//        let jsonString = try! String(contentsOfFile: bundlePath!)
+//        return "CeloError.invalidAddress"
+//        do {
+//
+//            let parser = Parser()
+//            let abi = parser.getContractDetailsFor(contract:. Registry,requiredData:.ABI)
+//            let address = parser.getContractDetailsFor(contract:. StableToken ,requiredData:.Address)
+//
+//            let contract = CeloSDK.shared.newKitFromWeb3(_web3InstanceFromUrl:web3 )
+//            var options = CeloTransactionOptions.defaultOptions
+//            options.from = contractCeloAddress
+//            options.gasPrice = .automatic
+//            options.gasLimit = .automatic
+//            let method = "getAddressFor"
+//            let tx = contract!.read(
+//                method,
+//                parameters: [CeloSDK.shared.address] as [AnyObject],
+//                extraData: Data(),
+//                CeloTransactionOptions: options)!
+//            let tokenBalance = try! tx.call()
+//          let balanceBigUInt = tokenBalance["0"] as! BigUInt
+//            let address = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!
+//
+//
+//            return address;
+//        } catch {
+//            return "CeloError.invalidAddress"
+//        }
     
        
    }
