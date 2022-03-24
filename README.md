@@ -140,7 +140,7 @@ Get GasPriceMinimum for a Token
        }
 ```
 
-StableToken transfer
+Token transfer/Transaction 
 
 ```swift
 firstly {
