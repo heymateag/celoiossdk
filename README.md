@@ -1,10 +1,10 @@
-# Celo iOS SDK (alpha v0.0.1)
+# Celo iOS SDK (alpha v1.0.1)
 
 iOS SDK for the Celo blockchain
 
 - [Learn more about Celo](https://docs.celo.org/)
 
-![image](https://user-images.githubusercontent.com/2653576/149579694-5f022b1d-c600-4dca-9432-fe697b06d9d0.png)
+![image](https://user-images.githubusercontent.com/22989626/159862411-e25f173c-248d-49f6-b7f3-c05afc199362.png)
 
 ## Requirements
 
@@ -24,14 +24,16 @@ iOS SDK for the Celo blockchain
 - Known issues with M1 mac (Arm64)
   - To increase compatibility, run Xcode with Rosetta enabled. 
     - Right click on the Xcode icon, in popup window make sure that Open using Rosetta is checked.
-  - If an error occurs regarding Swift compiler version for dependencies like Web3Swift, make sure to include dependencies within your swift package manager and remove conflicting frameworks.
   - Known project dependencies that needed to be refreshed to work on M1 chipset
     - https://github.com/skywinder/web3swift
     - https://github.com/jrendel/SwiftKeychainWrapper 
 - Build & Test!
+- You may run on device as well.Please unzip the frameworks for arm64 and replace in Framework folder in SDK and Sample app
 
 ## Structure
-The SDK connects to Alfajores network. This can be changed in SDK under celo-sdk-ios/celo-sdk-ios/Constants.swift when needed
+The SDK connects to Mainnet network by default. This can be changed in SDK like this
+Configuration.changeEnvironment(isProduction: false) -- Alfajores
+Configuration.changeEnvironment(isProduction: true) -- Mainnet
 
 [Learn more about Celo's networks](https://docs.celo.org/getting-started/choosing-a-network)
 
@@ -55,19 +57,112 @@ Post that replace the new framework in Sample app in Framework,Libraries and Emb
 
 ## SDK Usage
 
-Generating a new account
+Import the SDK
+import celo_sdk_ios
+
+Import PromiseKit.Promises simplify asynchronous programming.
+import PromiseKit
+
+
+Initialize and generate current Account without any password
+```swift
+CeloSDK.shared.initializeWalletConnect {
+            print("address\(CeloSDK.currentAccount?.address)")
+}
+```
+Get current account wallet address
+```swift
+CeloSDK.currentAccount?.address
+```
+
+Initialize contract kit instance
+```swift
+let contractkit = CeloSDK.shared.contractKit
+```
+
+(Important step)
+First fetch the Stable Token Address ,this will internally set it as the FeeCurrency in the ContractKit 
+```swift
+ firstly {
+   StableTokenWrapper().getStableTokenAddress()
+        }.then { address in
+  print(address)
+            
+        }
+```
+
+Set the feeCurrency by passing the Celo FeeCurrency for specific Stable Token
+```swift
+contractkit.setFeeCurrency(feeCurrency: mFeeCurrency)
+ mFeeCurrency - CUSD Fee Currency
+```
+
+Get the feeCurrency for specific Stable Token
+```swift
+contractkit.getFeeCurrency()
+```
+
+
+Get CUSD Balance for an address
+```swift
+ firstly {
+  contractkit.getStableTokenBalanceOf(currentAddress:mAddress)
+    }.done { balance in
+  print(balance)
+    }
+ mAddress - User's wallet Address
+```
+
+Get Native Celo Balance
+
+```swift
+ contractkit.calculateCELO()
+
+```
+
+Get GasPriceMinimum for a Token 
+
+```swift
+ firstly {
+     CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType:CeloContractClass.StableToken)
+        }.done {gasPrice in
+        print(gasPrice)
+       }
+```
+
+StableToken transfer
+
+```swift
+firstly {
+       CeloSDK.shared.contractKit.transfer(amount: self.fromAddressField.text!, toAddress: self.toAddressField.text!)
+        }.done { txRecieptHash in
+            print(txRecieptHash)
+        }
+```
+
+Initialize contract kit instance for a specific web3 instance and abi hosted in your network
+```swift
+let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(contractAddress)!)
+```
+
+```
+To set web3 url instance
+```swift
+let web3net = try CeloSDK.customNet(url: "")
+This can be accessed from SDK via CeloSDK.web3Net
+```
+
+
+
+Generating a new account with password
 ```swift
 CeloSDK.account.generateAccount(password)
 ```
 
-Import account
+Import account with password and mnemonic
 ```swift
 CeloSDK.account.importAccount(mnemonics, password)
 CeloSDK.account.importAccount(privateKey, password)
-```
-Get account
-```swift
-CeloSDK.shared.address
 ```
 
 Get mnemonics
@@ -75,61 +170,13 @@ Get mnemonics
 CeloSDK.shared.mnemonics
 ```
 
-Get private key
+Get private key with Password
 ```swift
-CeloSDK.shared.mnemonics
+CeloSDK.shared.privateKey(password: mPassWord)
 ```
 
-Get Celo balance
-```swift
-CeloSDK.balance.getCeloBalance
-```
-
-Get cUSD balance
-```swift
-CeloSDK.balance.getGoldToken
-```
-
-Initialize and generate current Account
-```swift
-CeloSDK.shared.initializeWalletConnect {
-            print("address\(CeloSDK.currentAccount?.address)")
-}
-```
-Initialize contract kit instance
-```swift
-let contractkit = CeloSDK.shared.contractKit
-```
-Get StableToken Balance for an address
-```swift
- contractkit.getStableTokenBalanceOf(currentAddress: mAddress)
- mAddress - User's wallet Address
-```
-Get GasPriceMinimum for a Token 
-```swift
-let stableToken : StableTokenWrapper = StableTokenWrapper()
-contractkit.getGasPriceMinimum(accountOwner: stableToken)
-```
-Get GasPriceMinimum from default feeCurrency
-```swift
-contractkit.getGasPriceMinimum()
-```
-Set feeCurrency
-```swift
-contractkit.setFeeCurrency(feeCurrency: StableTokenFeeCurrency)
-```
-Get feeCurrency
-```swift
-contractkit.getFeeCurrency()
-```
-StableToken transfer
-```swift
-contractkit.transfer(amount: String,toAddress :String)
-```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-

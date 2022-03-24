@@ -12,56 +12,82 @@ import BigInt
 
 public struct GasPriceMinimumWrapper
 {
-    public func balanceOf(accountOwner: String) -> Promise<BigUInt>
-    {
-        
-        let returnPromise = Promise<BigUInt>.pending()
-Configuration.changeEnvironment(isProduction: true)
-print(Setting.web3url)
-let abi = AddressRegistry().getAbiForContract(to: CeloContractClass.GasPriceMinimum)
+    public init()
+    {}
+    public func getGasPriceMinimum(accountOwner: String) -> Promise<BigUInt>
+
+        {
+
+            let abi = AddressRegistry().getAbiForContract(to: CeloContractClass.GasPriceMinimum)
+
+            
+            return Promise {seal in
+
+                firstly {
+                    getGasPriceMinimumAddress()
+                }.done { address in
+                    let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(address)!)
+                    
+                            var options = ContractKitOptions.defaultOptions
+
+                            let address = (CeloSDK.currentAccount?.address)!
+
+                            let celoAddress = EthereumAddress(address)
+
+                            options.from = celoAddress
+
+                        options.gasPrice = TransactionOptions.GasPricePolicy.automatic
+
+                        options.gasLimit = TransactionOptions.GasLimitPolicy.automatic
+
+                                let tx = contract!.read(
+
+                                    GAS_PRICE_MINIMUM.FUNCTION_GET_GASPRICE_MINIMUM,
+
+                                    parameters: [CeloSDK.shared.contractKit.getFeeCurrency()] as [AnyObject],
 
 
-let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress("0x765de816845861e75a25fca122bb6898b8b1282a")!)
-var options = ContractKitOptions.defaultOptions
-let address = (CeloSDK.currentAccount?.address)!
-let celoAddress = EthereumAddress(address)
-options.from = celoAddress
-options.gasPrice = .automatic
-options.gasLimit = .automatic
+                                    extraData: Data(),
 
-let method = "getGasPriceMinimum"
+                                    transactionOptions: options)!
+                            print("wait here")
+                                    var stableTokenBal:BigUInt = BigUInt(0)
+                                    let  gasPriceVal = try tx.callPromise(transactionOptions: options).wait()
+                            let balanceBigUInt =  gasPriceVal["0"] as! BigUInt
+                            print(" gasPriceVal \( gasPriceVal)")
+                          
+                    let multiplied = balanceBigUInt*10
+                        stableTokenBal = multiplied
+                        seal.fulfill(stableTokenBal)
+                }
+                
 
+            }
 
-let tx = contract!.write(
- method,
- parameters: ["0x765de816845861e75a25fca122bb6898b8b1282a"] as [AnyObject],
- extraData: Data(),
- transactionOptions: options)!
-//        let tx = contract!.read(
-//            method,
-//            parameters: ["0x765de816845861e75a25fca122bb6898b8b1282a"] as [AnyObject],
-//            extraData: Data(),
-//            transactionOptions: options)!
-        let randomDouble = Int.random(in: 1592580000...1592589999)
-        
-        var stableTokenBal = BigUInt(randomDouble)
-firstly {
-tx.sendPromise(password: "web3swift", transactionOptions: options)
-}.done { tokenBalance in
-print(tokenBalance)
-    returnPromise.resolver.fulfill(BigUInt(randomDouble))
-
-}.catch { error in
-let randomDouble = Int.random(in: 1592580000...1592589999)
-var options = TransactionOptions.defaultOptions
-options.gasPrice = .manual(BigUInt(randomDouble))
-options.gasLimit = .manual(10000000)
-    returnPromise.resolver.reject(error)
-print(error)
-}
-//        return stableTokenBal
-        return returnPromise.promise
-    }
+        }
     
+    func getGasPriceMinimumAddress() -> Promise<String> {
+
+        return Promise { seal in
+            if let address = UserDefaults.standard.value(forKey: "GAS_PRICE_MIN_ADDRESS") as? String,!address.isEmpty {
+                seal.fulfill(address)
+
+            } else {
+
+                firstly {
+                    AddressRegistry.init().getAdressForString(contractName: CeloContractClass.GasPriceMinimum.rawValue)
+                }.done { address in
+                    seal.fulfill(address)
+                }
+
+            }
+
+        }
+        
+        
+
+
+        }
     
+
 }

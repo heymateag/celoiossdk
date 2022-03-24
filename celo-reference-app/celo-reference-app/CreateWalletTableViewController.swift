@@ -2,11 +2,12 @@
 //  CreateWalletTableViewController.swift
 //  celo-reference-app
 //
-//  Created by Vankireddy, BharathkumarReddy on 18/03/22.
+//  Created by Sreedeep,  Sreedeep on 18/03/22.
 //
 
 import UIKit
 import celo_sdk_ios
+import PromiseKit
 
 class CreateWalletTableViewController: UITableViewController {
 
@@ -17,14 +18,53 @@ class CreateWalletTableViewController: UITableViewController {
     @IBOutlet weak var toAddressField: UITextField!
     @IBOutlet weak var btnTransfer: UIButton!
     @IBOutlet var versionInfoView: UIView!
+    @IBOutlet weak var gasPrice: UILabel!
+    @IBOutlet weak var feecurrency: UILabel!
+    @IBOutlet weak var currentAddressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+       
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTableGesture))
         self.tableView.addGestureRecognizer(gesture)
         self.tableView.tableFooterView = versionInfoView
-        CeloSDK.balance.getCeloBalance { balance in
+        
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CeloSDK.shared.initializeWalletConnect {
+            self.calculatePrices()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RappleActivityIndicatorView.startAnimating()
+        
+    }
+    private func calculatePrices() {
+
+        firstly {
+            StableTokenWrapper().getStableTokenAddress()
+        }.then { ad in
+            CeloSDK.shared.contractKit.getStableTokenBalanceOf(currentAddress: CeloSDK.currentAccount!.address)
+            
+        }.done { balance in
             print("balance \(balance)")
-           }
+            self.currentBalanceLabel.text = balance
+            let fc = CeloSDK.shared.contractKit.getFeeCurrency()
+            self.feecurrency.text = fc
+            RappleActivityIndicatorView.stopAnimating()
+        }
+
+        firstly {
+            CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType: CeloContractClass.StableToken)
+        }.done { gp in
+            print(gp)
+            self.gasPrice.text = "\(gp)"
+        }
+        currentAddressLabel.text = CeloSDK.currentAccount?.address ?? ""
+        celBalanceLabel.text = CeloSDK.shared.contractKit.calculateCELO(address: CeloSDK.currentAccount!.address)
     }
     
     @objc private func onTableGesture() {
@@ -32,76 +72,17 @@ class CreateWalletTableViewController: UITableViewController {
     }
 
     @IBAction func onTransferFunds(_ sender: Any) {
+        firstly {
+            CeloSDK.shared.contractKit.transfer(amount: self.fromAddressField.text!, toAddress: self.toAddressField.text!)
+        }.done { transactionReciept in
+            print(transactionReciept)
+        }
+        
+        
     }
     
     @IBAction func onCurrencyType(_ sender: Any) {
+        
     }
     
-//    // MARK: - Table view data source
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

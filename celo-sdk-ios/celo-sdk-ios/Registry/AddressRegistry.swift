@@ -8,21 +8,58 @@
 import Foundation
 import web3swift
 import BigInt
+import PromiseKit
 
 public class AddressRegistry {
     static let  REGISTRY_CONTRACT_ADDRESS:String = "0x000000000000000000000000000000000000ce10";
     static let  NULL_ADDRESS:String = "0x0000000000000000000000000000000000000000";
     
-//    var web3: web3
-//    public init (web3 web3Instance: web3) {
-//     
-//        self.web3 = web3Instance
-//        
-//        
-//    }
     public init()
     {
         
+    }
+    public func getAdressForString(contractName : String) -> Promise<String>
+    {
+        let queue = DispatchQueue.main
+        let returnPromise = Promise<String>.pending()
+
+        print(Setting.web3url)
+        let abi = AddressRegistry().getAbiForContract(to: CeloContractClass.Registry)
+        
+        let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(AddressRegistry.REGISTRY_CONTRACT_ADDRESS)!)
+            var options = ContractKitOptions.defaultOptions
+            let address = (CeloSDK.currentAccount?.address)!
+            let celoAddress = EthereumAddress(address)
+            options.from = celoAddress
+        options.gasPrice = TransactionOptions.GasPricePolicy.automatic
+        options.gasLimit = TransactionOptions.GasLimitPolicy.automatic
+
+            let method = "getAddressFor"
+        
+        let datan = Data(contractName.utf8)
+        let tx = contract!.read(
+            method,
+            parameters: [datan.sha3(.keccak256)] as [AnyObject],
+            extraData: Data(),
+            transactionOptions: options)!
+
+            var stableTokenBal = ""
+                firstly {
+                    try tx.callPromise(transactionOptions: options)
+                }.done { tokenBalance in
+                    print(tokenBalance)
+                    let addressRegistry = tokenBalance["0"] as! EthereumAddress
+                    stableTokenBal  = addressRegistry.address
+                    queue.async {
+                        returnPromise.resolver.fulfill(stableTokenBal)
+                    }
+                }.catch { error in
+              
+                                print(error)
+                                }
+        
+        
+        return returnPromise.promise
     }
     public func getAbiForContract(to contract:CeloContractClass) -> String {
         
@@ -30,42 +67,6 @@ public class AddressRegistry {
         let abi = parser.getContractDetailsFor(contract:contract,requiredData:.ABI)
         
        return abi
-//        let address = parser.getContractDetailsFor(contract:. StableToken ,requiredData:.Address)
-//
-//
-//
-//        let contractCeloAddress = EthereumAddress(AddressRegistry.REGISTRY_CONTRACT_ADDRESS)
-//        let bundlePath = Bundle.main.path(forResource: "registry_cntracts", ofType: "json")
-//        let jsonString = try! String(contentsOfFile: bundlePath!)
-//        return "CeloError.invalidAddress"
-//        do {
-//
-//            let parser = Parser()
-//            let abi = parser.getContractDetailsFor(contract:. Registry,requiredData:.ABI)
-//            let address = parser.getContractDetailsFor(contract:. StableToken ,requiredData:.Address)
-//
-//            let contract = CeloSDK.shared.newKitFromWeb3(_web3InstanceFromUrl:web3 )
-//            var options = CeloTransactionOptions.defaultOptions
-//            options.from = contractCeloAddress
-//            options.gasPrice = .automatic
-//            options.gasLimit = .automatic
-//            let method = "getAddressFor"
-//            let tx = contract!.read(
-//                method,
-//                parameters: [CeloSDK.shared.address] as [AnyObject],
-//                extraData: Data(),
-//                CeloTransactionOptions: options)!
-//            let tokenBalance = try! tx.call()
-//          let balanceBigUInt = tokenBalance["0"] as! BigUInt
-//            let address = Web3.Utils.formatToEthereumUnits(balanceBigUInt, toUnits: .eth, decimals: 3)!
-//
-//
-//            return address;
-//        } catch {
-//            return "CeloError.invalidAddress"
-//        }
-    
-       
    }
 }
 

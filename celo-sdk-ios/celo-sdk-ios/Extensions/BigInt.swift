@@ -2,8 +2,7 @@
 //  BigInt.swift
 //   
 //
-//    on 19/7/19.
-//   . All rights reserved.
+
 //
 
 import BigInt

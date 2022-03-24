@@ -7,6 +7,10 @@
 
 import UIKit
 import celo_sdk_ios
+import PromiseKit
+
+
+var ethAddressKey:String = "ETH_ADDRESS"
 
 class ViewController: UIViewController {
     
@@ -18,15 +22,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+ 
 
-        CeloSDK.balance.getCeloBalance { balance in
-            self.balanceETH.text = "Celo Native Asset = \(String(describing: balance!))"
-               }
-        CeloSDK.balance.getGoldToken{ balance in
-            self.tokenBalLabel.text = "Celo USD = \(String(describing: balance!))"
-              }
-        self.addressTxt.text = "Address = \(String(describing: CeloSDK.shared.address!))"
-        self.toAddressTxt.text = "Mnemonic = \(String(describing: CeloSDK.shared.mnemonics!))"
+            let nativeAsset = CeloSDK.shared.contractKit.calculateCELO(address: CeloSDK.shared.address!)
+            self.balanceETH.text = "Celo Balance = \(nativeAsset)"
+            self.addressTxt.text = "Address = \(String(describing: CeloSDK.shared.address!))"
+            self.toAddressTxt.text = "Mnemonic = \(String(describing: CeloSDK.shared.mnemonics!))"
+     
+        
+    
 
     }
 

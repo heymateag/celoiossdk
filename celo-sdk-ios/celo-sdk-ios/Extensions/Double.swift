@@ -1,9 +1,6 @@
 //
 //  Double.swift
-//   
-//
-//    on 12/7/19.
-//   .
+
 //
 
 import Foundation

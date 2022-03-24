@@ -2,7 +2,7 @@
 //  celo_sdk_ios.h
 //  celo-sdk-ios
 //
-//  Created by Sreedeep on 02/11/21.
+//  Created by Apple on 18/03/22.
 //
 
 #import <Foundation/Foundation.h>

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18704257279039EC00D241FE /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18704256279039EC00D241FE /* celo_sdk_ios.framework */; platformFilter = ios; };
-		18704258279039EC00D241FE /* celo_sdk_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18704256279039EC00D241FE /* celo_sdk_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		189D475E27ECAE9600186B7F /* RappleProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475927ECAE9600186B7F /* RappleProgressHUD.swift */; };
+		189D475F27ECAE9600186B7F /* RappleAIPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */; };
+		189D476027ECAE9600186B7F /* RappleActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */; };
+		189D476127ECAE9600186B7F /* RappleAIUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475C27ECAE9600186B7F /* RappleAIUIs.swift */; };
+		189D476227ECAE9600186B7F /* RappleAIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475D27ECAE9600186B7F /* RappleAIAction.swift */; };
 		638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E127314F7C00E2CAB5 /* AppDelegate.swift */; };
 		638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */; };
 		638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E527314F7C00E2CAB5 /* ViewController.swift */; };
@@ -18,10 +21,54 @@
 		638D67F927314F8400E2CAB5 /* celo_reference_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67F827314F8400E2CAB5 /* celo_reference_appTests.swift */; };
 		638D680427314F8400E2CAB5 /* celo_reference_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D680327314F8400E2CAB5 /* celo_reference_appUITests.swift */; };
 		638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */; };
-		638D6AA12742781400E2CAB5 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */; };
+		F73595D327EA4E1C00843B08 /* CreateWalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */; };
+		F771611A27EA258A009F56F0 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610227EA2583009F56F0 /* BigInt.framework */; platformFilter = ios; };
+		F771611B27EA258A009F56F0 /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610227EA2583009F56F0 /* BigInt.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771611C27EA258A009F56F0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610527EA2583009F56F0 /* CryptoSwift.framework */; platformFilter = ios; };
+		F771611D27EA258A009F56F0 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610527EA2583009F56F0 /* CryptoSwift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771611E27EA258A009F56F0 /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610827EA2583009F56F0 /* HandyJSON.framework */; platformFilter = ios; };
+		F771611F27EA258A009F56F0 /* HandyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610827EA2583009F56F0 /* HandyJSON.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612027EA258A009F56F0 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610027EA2583009F56F0 /* Haneke.framework */; platformFilter = ios; };
+		F771612127EA258A009F56F0 /* Haneke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610027EA2583009F56F0 /* Haneke.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612227EA258B009F56F0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610627EA2583009F56F0 /* KeychainAccess.framework */; platformFilter = ios; };
+		F771612327EA258B009F56F0 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610627EA2583009F56F0 /* KeychainAccess.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612427EA258B009F56F0 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FC27EA2583009F56F0 /* PromiseKit.framework */; platformFilter = ios; };
+		F771612527EA258B009F56F0 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FC27EA2583009F56F0 /* PromiseKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612627EA258B009F56F0 /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610727EA2583009F56F0 /* secp256k1.framework */; platformFilter = ios; };
+		F771612727EA258B009F56F0 /* secp256k1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610727EA2583009F56F0 /* secp256k1.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612827EA258B009F56F0 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610927EA2583009F56F0 /* Starscream.framework */; platformFilter = ios; };
+		F771612927EA258B009F56F0 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610927EA2583009F56F0 /* Starscream.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612A27EA258B009F56F0 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610A27EA2583009F56F0 /* SwiftEntryKit.framework */; platformFilter = ios; };
+		F771612B27EA258B009F56F0 /* SwiftEntryKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610A27EA2583009F56F0 /* SwiftEntryKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612C27EA258B009F56F0 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FF27EA2583009F56F0 /* SwiftKeychainWrapper.framework */; platformFilter = ios; };
+		F771612D27EA258B009F56F0 /* SwiftKeychainWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FF27EA2583009F56F0 /* SwiftKeychainWrapper.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771612E27EA258B009F56F0 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FE27EA2583009F56F0 /* SwiftProtobuf.framework */; platformFilter = ios; };
+		F771612F27EA258B009F56F0 /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FE27EA2583009F56F0 /* SwiftProtobuf.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771613027EA258B009F56F0 /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610427EA2583009F56F0 /* SwiftyUserDefaults.framework */; platformFilter = ios; };
+		F771613127EA258B009F56F0 /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610427EA2583009F56F0 /* SwiftyUserDefaults.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771613227EA258B009F56F0 /* WalletConnectSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610127EA2583009F56F0 /* WalletConnectSwift.framework */; };
+		F771613327EA258B009F56F0 /* WalletConnectSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610127EA2583009F56F0 /* WalletConnectSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771613427EA258B009F56F0 /* WalletCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FD27EA2583009F56F0 /* WalletCore.framework */; };
+		F771613527EA258B009F56F0 /* WalletCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77160FD27EA2583009F56F0 /* WalletCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F771613627EA258B009F56F0 /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610327EA2583009F56F0 /* web3swift.framework */; };
+		F771613727EA258B009F56F0 /* web3swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610327EA2583009F56F0 /* web3swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		189D474A27EC4F8200186B7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1847A8B127E4F4E5006142F0;
+			remoteInfo = "celo-sdk-ios";
+		};
+		189D474C27EC4F8200186B7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1847A8BB27E4F4E5006142F0;
+			remoteInfo = "celo-sdk-iosTests";
+		};
 		638D67F527314F8400E2CAB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 638D67D627314F7C00E2CAB5 /* Project object */;
@@ -39,13 +86,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		18704259279039EC00D241FE /* Embed Frameworks */ = {
+		637D7CEF2756748A006A6CDD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18704258279039EC00D241FE /* celo_sdk_ios.framework in Embed Frameworks */,
+				F771612B27EA258B009F56F0 /* SwiftEntryKit.framework in Embed Frameworks */,
+				F771612F27EA258B009F56F0 /* SwiftProtobuf.framework in Embed Frameworks */,
+				F771612527EA258B009F56F0 /* PromiseKit.framework in Embed Frameworks */,
+				F771612327EA258B009F56F0 /* KeychainAccess.framework in Embed Frameworks */,
+				F771611D27EA258A009F56F0 /* CryptoSwift.framework in Embed Frameworks */,
+				F771612727EA258B009F56F0 /* secp256k1.framework in Embed Frameworks */,
+				F771612927EA258B009F56F0 /* Starscream.framework in Embed Frameworks */,
+				F771611F27EA258A009F56F0 /* HandyJSON.framework in Embed Frameworks */,
+				F771613327EA258B009F56F0 /* WalletConnectSwift.framework in Embed Frameworks */,
+				F771612D27EA258B009F56F0 /* SwiftKeychainWrapper.framework in Embed Frameworks */,
+				F771611B27EA258A009F56F0 /* BigInt.framework in Embed Frameworks */,
+				F771612127EA258A009F56F0 /* Haneke.framework in Embed Frameworks */,
+				F771613727EA258B009F56F0 /* web3swift.framework in Embed Frameworks */,
+				F771613527EA258B009F56F0 /* WalletCore.framework in Embed Frameworks */,
+				F771613127EA258B009F56F0 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +114,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		187042522790399D00D241FE /* celo_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = celo_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18704256279039EC00D241FE /* celo_sdk_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = celo_sdk_ios.framework; path = Framework/celo_sdk_ios.framework; sourceTree = "<group>"; };
+		189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "celo-sdk-ios.xcodeproj"; path = "../celo-sdk-ios/celo-sdk-ios.xcodeproj"; sourceTree = "<group>"; };
+		189D475927ECAE9600186B7F /* RappleProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleProgressHUD.swift; sourceTree = "<group>"; };
+		189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIPrivate.swift; sourceTree = "<group>"; };
+		189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleActivityIndicatorView.swift; sourceTree = "<group>"; };
+		189D475C27ECAE9600186B7F /* RappleAIUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIUIs.swift; sourceTree = "<group>"; };
+		189D475D27ECAE9600186B7F /* RappleAIAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIAction.swift; sourceTree = "<group>"; };
 		638D67DE27314F7C00E2CAB5 /* celo-reference-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "celo-reference-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67E127314F7C00E2CAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +135,22 @@
 		638D680327314F8400E2CAB5 /* celo_reference_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = celo_reference_appUITests.swift; sourceTree = "<group>"; };
 		638D680527314F8400E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
-		638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
-		63F4A5E22757C2CA00930160 /* celo_sdk_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = celo_sdk_ios.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CeloIOSWorkspace-adiydghevrrcteaysfzhdwkvnvjr/Build/Products/Debug-iphonesimulator/celo_sdk_ios.framework"; sourceTree = "<group>"; };
+		F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletTableViewController.swift; sourceTree = "<group>"; };
+		F77160FC27EA2583009F56F0 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
+		F77160FD27EA2583009F56F0 /* WalletCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WalletCore.framework; sourceTree = "<group>"; };
+		F77160FE27EA2583009F56F0 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
+		F77160FF27EA2583009F56F0 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
+		F771610027EA2583009F56F0 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Haneke.framework; sourceTree = "<group>"; };
+		F771610127EA2583009F56F0 /* WalletConnectSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WalletConnectSwift.framework; sourceTree = "<group>"; };
+		F771610227EA2583009F56F0 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = "<group>"; };
+		F771610327EA2583009F56F0 /* web3swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = web3swift.framework; sourceTree = "<group>"; };
+		F771610427EA2583009F56F0 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyUserDefaults.framework; sourceTree = "<group>"; };
+		F771610527EA2583009F56F0 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		F771610627EA2583009F56F0 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
+		F771610727EA2583009F56F0 /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
+		F771610827EA2583009F56F0 /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = "<group>"; };
+		F771610927EA2583009F56F0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Starscream.framework; sourceTree = "<group>"; };
+		F771610A27EA2583009F56F0 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftEntryKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +158,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18704257279039EC00D241FE /* celo_sdk_ios.framework in Frameworks */,
+				F771612E27EA258B009F56F0 /* SwiftProtobuf.framework in Frameworks */,
+				F771613427EA258B009F56F0 /* WalletCore.framework in Frameworks */,
+				F771612227EA258B009F56F0 /* KeychainAccess.framework in Frameworks */,
+				F771612627EA258B009F56F0 /* secp256k1.framework in Frameworks */,
+				F771613027EA258B009F56F0 /* SwiftyUserDefaults.framework in Frameworks */,
+				F771612C27EA258B009F56F0 /* SwiftKeychainWrapper.framework in Frameworks */,
+				F771612827EA258B009F56F0 /* Starscream.framework in Frameworks */,
+				F771613227EA258B009F56F0 /* WalletConnectSwift.framework in Frameworks */,
+				F771612427EA258B009F56F0 /* PromiseKit.framework in Frameworks */,
+				F771611A27EA258A009F56F0 /* BigInt.framework in Frameworks */,
+				F771612A27EA258B009F56F0 /* SwiftEntryKit.framework in Frameworks */,
+				F771612027EA258A009F56F0 /* Haneke.framework in Frameworks */,
+				F771613627EA258B009F56F0 /* web3swift.framework in Frameworks */,
+				F771611E27EA258A009F56F0 /* HandyJSON.framework in Frameworks */,
+				F771611C27EA258A009F56F0 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,14 +193,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1847AA9327E4FC89006142F0 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F771610227EA2583009F56F0 /* BigInt.framework */,
+				F771610527EA2583009F56F0 /* CryptoSwift.framework */,
+				F771610827EA2583009F56F0 /* HandyJSON.framework */,
+				F771610027EA2583009F56F0 /* Haneke.framework */,
+				F771610627EA2583009F56F0 /* KeychainAccess.framework */,
+				F77160FC27EA2583009F56F0 /* PromiseKit.framework */,
+				F771610727EA2583009F56F0 /* secp256k1.framework */,
+				F771610927EA2583009F56F0 /* Starscream.framework */,
+				F771610A27EA2583009F56F0 /* SwiftEntryKit.framework */,
+				F77160FF27EA2583009F56F0 /* SwiftKeychainWrapper.framework */,
+				F77160FE27EA2583009F56F0 /* SwiftProtobuf.framework */,
+				F771610427EA2583009F56F0 /* SwiftyUserDefaults.framework */,
+				F771610127EA2583009F56F0 /* WalletConnectSwift.framework */,
+				F77160FD27EA2583009F56F0 /* WalletCore.framework */,
+				F771610327EA2583009F56F0 /* web3swift.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		1847ABA327E54060006142F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		189D474627EC4F8100186B7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				189D474B27EC4F8200186B7F /* celo_sdk_ios.framework */,
+				189D474D27EC4F8200186B7F /* celo-sdk-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		189D475827ECAE9600186B7F /* RappleProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				189D475927ECAE9600186B7F /* RappleProgressHUD.swift */,
+				189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */,
+				189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */,
+				189D475C27ECAE9600186B7F /* RappleAIUIs.swift */,
+				189D475D27ECAE9600186B7F /* RappleAIAction.swift */,
+			);
+			path = RappleProgressHUD;
+			sourceTree = SOURCE_ROOT;
+		};
 		638D67D527314F7C00E2CAB5 = {
 			isa = PBXGroup;
 			children = (
+				189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */,
+				1847AA9327E4FC89006142F0 /* Framework */,
 				638D67E027314F7C00E2CAB5 /* celo-reference-app */,
 				638D67F727314F8400E2CAB5 /* celo-reference-appTests */,
 				638D680227314F8400E2CAB5 /* celo-reference-appUITests */,
 				638D67DF27314F7C00E2CAB5 /* Products */,
-				638D682C2731518D00E2CAB5 /* Frameworks */,
+				1847ABA327E54060006142F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +269,8 @@
 		638D67E027314F7C00E2CAB5 /* celo-reference-app */ = {
 			isa = PBXGroup;
 			children = (
+				189D475827ECAE9600186B7F /* RappleProgressHUD */,
+				F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */,
 				638D67E127314F7C00E2CAB5 /* AppDelegate.swift */,
 				638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */,
 				638D67E527314F7C00E2CAB5 /* ViewController.swift */,
@@ -141,7 +288,6 @@
 			children = (
 				638D67F827314F8400E2CAB5 /* celo_reference_appTests.swift */,
 				638D67FA27314F8400E2CAB5 /* Info.plist */,
-				638D6AA02742781400E2CAB5 /* ViewControllerTest.swift */,
 			);
 			path = "celo-reference-appTests";
 			sourceTree = "<group>";
@@ -155,16 +301,6 @@
 			path = "celo-reference-appUITests";
 			sourceTree = "<group>";
 		};
-		638D682C2731518D00E2CAB5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				18704256279039EC00D241FE /* celo_sdk_ios.framework */,
-				187042522790399D00D241FE /* celo_sdk_ios.framework */,
-				63F4A5E22757C2CA00930160 /* celo_sdk_ios.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,7 +311,7 @@
 				638D67DA27314F7C00E2CAB5 /* Sources */,
 				638D67DB27314F7C00E2CAB5 /* Frameworks */,
 				638D67DC27314F7C00E2CAB5 /* Resources */,
-				18704259279039EC00D241FE /* Embed Frameworks */,
+				637D7CEF2756748A006A6CDD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +391,12 @@
 			mainGroup = 638D67D527314F7C00E2CAB5;
 			productRefGroup = 638D67DF27314F7C00E2CAB5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 189D474627EC4F8100186B7F /* Products */;
+					ProjectRef = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				638D67DD27314F7C00E2CAB5 /* celo-reference-app */,
@@ -263,6 +405,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		189D474B27EC4F8200186B7F /* celo_sdk_ios.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = celo_sdk_ios.framework;
+			remoteRef = 189D474A27EC4F8200186B7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		189D474D27EC4F8200186B7F /* celo-sdk-iosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "celo-sdk-iosTests.xctest";
+			remoteRef = 189D474C27EC4F8200186B7F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		638D67DC27314F7C00E2CAB5 /* Resources */ = {
@@ -296,10 +455,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189D475E27ECAE9600186B7F /* RappleProgressHUD.swift in Sources */,
 				638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */,
 				638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */,
+				F73595D327EA4E1C00843B08 /* CreateWalletTableViewController.swift in Sources */,
+				189D475F27ECAE9600186B7F /* RappleAIPrivate.swift in Sources */,
 				638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */,
 				638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */,
+				189D476127ECAE9600186B7F /* RappleAIUIs.swift in Sources */,
+				189D476027ECAE9600186B7F /* RappleActivityIndicatorView.swift in Sources */,
+				189D476227ECAE9600186B7F /* RappleAIAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638D6AA12742781400E2CAB5 /* ViewControllerTest.swift in Sources */,
 				638D67F927314F8400E2CAB5 /* celo_reference_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +648,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "celo-reference-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-reference-app";
+				PRODUCT_BUNDLE_IDENTIFIER = works.heymate.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,11 +673,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "celo-reference-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.heymate.celo-reference-app";
+				PRODUCT_BUNDLE_IDENTIFIER = works.heymate.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
