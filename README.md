@@ -155,8 +155,8 @@ Initialize contract kit instance for a specific web3 instance and abi hosted in 
 let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(contractAddress)!)
 ```
 
-```
 To set web3 url instance
+
 ```swift
 let web3net = try CeloSDK.customNet(url: "")
 This can be accessed from SDK via CeloSDK.web3Net
