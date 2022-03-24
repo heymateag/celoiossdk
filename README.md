@@ -67,7 +67,6 @@ Get current account wallet address
 CeloSDK.currentAccount?.address
 ```
 
-```
 Initialize contract kit instance
 ```swift
 let contractkit = CeloSDK.shared.contractKit
@@ -98,20 +97,22 @@ contractkit.getFeeCurrency()
 Get CUSD Balance for an address
 ```swift
  firstly {
-        contractkit.getStableTokenBalanceOf(currentAddress:mAddress)
+  contractkit.getStableTokenBalanceOf(currentAddress:mAddress)
     }.done { balance in
-        print(balance)
+  print(balance)
     }
  mAddress - User's wallet Address
 ```
 
 Get Native Celo Balance
+
 ```swift
  contractkit.calculateCELO()
 
 ```
 
 Get GasPriceMinimum for a Token 
+
 ```swift
  firstly {
      CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType:CeloContractClass.StableToken)
@@ -121,6 +122,7 @@ Get GasPriceMinimum for a Token
 ```
 
 StableToken transfer
+
 ```swift
 firstly {
        CeloSDK.shared.contractKit.transfer(amount: self.fromAddressField.text!, toAddress: self.toAddressField.text!)
