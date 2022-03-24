@@ -32,7 +32,7 @@ public struct StableTokenWrapper
             options.gasLimit = TransactionOptions.GasLimitPolicy.automatic
             let tx = contract!.read(
                 STABLE_TOKEN.FUNCTION_BALANCE_OF,
-                parameters: [CeloSDK.currentAccount?.address] as [AnyObject],
+                parameters: [accountOwner] as [AnyObject],
                 extraData: Data(),
                 transactionOptions: options)!
 

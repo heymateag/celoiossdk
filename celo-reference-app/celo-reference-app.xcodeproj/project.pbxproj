@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189D475E27ECAE9600186B7F /* RappleProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475927ECAE9600186B7F /* RappleProgressHUD.swift */; };
+		189D475F27ECAE9600186B7F /* RappleAIPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */; };
+		189D476027ECAE9600186B7F /* RappleActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */; };
+		189D476127ECAE9600186B7F /* RappleAIUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475C27ECAE9600186B7F /* RappleAIUIs.swift */; };
+		189D476227ECAE9600186B7F /* RappleAIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D475D27ECAE9600186B7F /* RappleAIAction.swift */; };
 		638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E127314F7C00E2CAB5 /* AppDelegate.swift */; };
 		638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */; };
 		638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D67E527314F7C00E2CAB5 /* ViewController.swift */; };
@@ -110,6 +115,11 @@
 
 /* Begin PBXFileReference section */
 		189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "celo-sdk-ios.xcodeproj"; path = "../celo-sdk-ios/celo-sdk-ios.xcodeproj"; sourceTree = "<group>"; };
+		189D475927ECAE9600186B7F /* RappleProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleProgressHUD.swift; sourceTree = "<group>"; };
+		189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIPrivate.swift; sourceTree = "<group>"; };
+		189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleActivityIndicatorView.swift; sourceTree = "<group>"; };
+		189D475C27ECAE9600186B7F /* RappleAIUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIUIs.swift; sourceTree = "<group>"; };
+		189D475D27ECAE9600186B7F /* RappleAIAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RappleAIAction.swift; sourceTree = "<group>"; };
 		638D67DE27314F7C00E2CAB5 /* celo-reference-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "celo-reference-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67E127314F7C00E2CAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +231,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		189D475827ECAE9600186B7F /* RappleProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				189D475927ECAE9600186B7F /* RappleProgressHUD.swift */,
+				189D475A27ECAE9600186B7F /* RappleAIPrivate.swift */,
+				189D475B27ECAE9600186B7F /* RappleActivityIndicatorView.swift */,
+				189D475C27ECAE9600186B7F /* RappleAIUIs.swift */,
+				189D475D27ECAE9600186B7F /* RappleAIAction.swift */,
+			);
+			path = RappleProgressHUD;
+			sourceTree = SOURCE_ROOT;
+		};
 		638D67D527314F7C00E2CAB5 = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +269,7 @@
 		638D67E027314F7C00E2CAB5 /* celo-reference-app */ = {
 			isa = PBXGroup;
 			children = (
+				189D475827ECAE9600186B7F /* RappleProgressHUD */,
 				F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */,
 				638D67E127314F7C00E2CAB5 /* AppDelegate.swift */,
 				638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */,
@@ -432,11 +455,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189D475E27ECAE9600186B7F /* RappleProgressHUD.swift in Sources */,
 				638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */,
 				638D67E627314F7C00E2CAB5 /* ViewController.swift in Sources */,
 				F73595D327EA4E1C00843B08 /* CreateWalletTableViewController.swift in Sources */,
+				189D475F27ECAE9600186B7F /* RappleAIPrivate.swift in Sources */,
 				638D67E227314F7C00E2CAB5 /* AppDelegate.swift in Sources */,
 				638D67E427314F7C00E2CAB5 /* SceneDelegate.swift in Sources */,
+				189D476127ECAE9600186B7F /* RappleAIUIs.swift in Sources */,
+				189D476027ECAE9600186B7F /* RappleActivityIndicatorView.swift in Sources */,
+				189D476227ECAE9600186B7F /* RappleAIAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

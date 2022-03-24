@@ -18,18 +18,19 @@ class CreateNewAccount: UIViewController {
         
     }
     @IBAction func onCreateWallet(_ sender: UIButton) {
-        CeloSDK.shared.initializeWalletConnect {
-            print("address\(CeloSDK.currentAccount?.address)")
-            let stableToken : StableTokenWrapper = StableTokenWrapper()
-
-            firstly {
-                stableToken.getStableTokenAddress()
-            }.done { address in
-                
-                CeloSDK.shared.contractKit.setFeeCurrency(feeCurrency: address)
-                self.performSegue(withIdentifier: "segue_create_wallet", sender:nil)
-            }
-        }
+        self.performSegue(withIdentifier: "segue_create_wallet", sender:nil)
+//        CeloSDK.shared.initializeWalletConnect {
+//            print("address\(CeloSDK.currentAccount?.address)")
+//            let stableToken : StableTokenWrapper = StableTokenWrapper()
+//
+//            firstly {
+//                stableToken.getStableTokenAddress()
+//            }.done { address in
+//                
+//                CeloSDK.shared.contractKit.setFeeCurrency(feeCurrency: address)
+//                self.performSegue(withIdentifier: "segue_create_wallet", sender:nil)
+//            }
+//        }
 
        
     }

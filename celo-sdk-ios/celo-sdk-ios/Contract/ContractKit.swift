@@ -39,10 +39,9 @@ public class ContractKit
         let transactionHash = stableToken.transfer(amount: amount, toAddress: toAddress)
         return transactionHash
     }
-    public func calculateCELO() -> String {
+    public func calculateCELO(address :String) -> String {
         let balanceString : String = ""
         guard let urlStr = URL(string: Setting.web3url),
-              let address = (CeloSDK.currentAccount?.address),
               let ethereumAddress = EthereumAddress(address) else {
           
                   return balanceString

@@ -23,6 +23,7 @@ class CreateWalletTableViewController: UITableViewController {
     @IBOutlet weak var currentAddressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        RappleActivityIndicatorView.startAnimating()
         CeloSDK.shared.initializeWalletConnect {
             self.calculatePrices()
         }
@@ -45,16 +46,17 @@ class CreateWalletTableViewController: UITableViewController {
             self.currentBalanceLabel.text = balance
             let fc = CeloSDK.shared.contractKit.getFeeCurrency()
             self.feecurrency.text = fc
+            RappleActivityIndicatorView.stopAnimating()
         }
 
         firstly {
-            CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType: .StableToken)
+            CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType: CeloContractClass.StableToken)
         }.done { gp in
             print(gp)
             self.gasPrice.text = "\(gp)"
         }
         currentAddressLabel.text = CeloSDK.currentAccount?.address ?? ""
-        celBalanceLabel.text = CeloSDK.shared.contractKit.calculateCELO()
+        celBalanceLabel.text = CeloSDK.shared.contractKit.calculateCELO(address: CeloSDK.currentAccount!.address)
     }
     
     @objc private func onTableGesture() {
@@ -67,13 +69,6 @@ class CreateWalletTableViewController: UITableViewController {
         }.done { transactionReciept in
             print(transactionReciept)
         }
-//        do{
-//        let web3net = try CeloSDK.customNet(url: "")
-//        }
-//        catch
-//        {
-//            print(error)
-//        }
         
         
     }
