@@ -26,7 +26,7 @@ class CreateNewAccount: UIViewController {
 //            firstly {
 //                stableToken.getStableTokenAddress()
 //            }.done { address in
-//                
+//
 //                CeloSDK.shared.contractKit.setFeeCurrency(feeCurrency: address)
 //                self.performSegue(withIdentifier: "segue_create_wallet", sender:nil)
 //            }
@@ -48,7 +48,7 @@ class CreateNewAccount: UIViewController {
               if let userInput = userIdTextField!.text {
                   print("User entered \(userInput)")
                 try? CeloSDK.accountWithMnemonic.generateAccount(password: userInput)
-
+//                  RappleActivityIndicatorView.startAnimating()
               }
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController")
             self.present(controller!, animated: true, completion: nil)
@@ -69,7 +69,7 @@ class CreateNewAccount: UIViewController {
               userIdTextField = textField
               userIdTextField?.placeholder = "Type in your ID"
           }
-
+//        RappleActivityIndicatorView.stopAnimating()
           // Present dialog message to user
           self.present(dialogMessage, animated: true, completion: nil)
         

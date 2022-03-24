@@ -17,7 +17,6 @@ public struct StableTokenWrapper
     public func balanceOf(accountOwner: String) -> Promise<String>
     {
         let queue = DispatchQueue.main
-//        Configuration.changeEnvironment(isProduction: true)
         print(Setting.web3url)
         let abi = AddressRegistry().getAbiForContract(to: CeloContractClass.StableToken)
         
@@ -50,13 +49,8 @@ public struct StableTokenWrapper
                         queue.async {
                             returnPromise.resolver.fulfill(stableTokenBal)
                         }
-
-                //                        print(balanceString)
                     }
-//        }
         return returnPromise.promise
-
-//      return stableTokenBal
     }
     
 
@@ -108,10 +102,6 @@ public func getStableTokenAddress() -> Promise<String> {
             }
         }
     }
-    
-            
-
-//            return returnPromsie.promise
 
         }
     

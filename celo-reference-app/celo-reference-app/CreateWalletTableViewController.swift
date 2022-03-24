@@ -23,17 +23,25 @@ class CreateWalletTableViewController: UITableViewController {
     @IBOutlet weak var currentAddressLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        RappleActivityIndicatorView.startAnimating()
-        CeloSDK.shared.initializeWalletConnect {
-            self.calculatePrices()
-        }
+       
+       
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTableGesture))
         self.tableView.addGestureRecognizer(gesture)
         self.tableView.tableFooterView = versionInfoView
         
 
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CeloSDK.shared.initializeWalletConnect {
+            self.calculatePrices()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RappleActivityIndicatorView.startAnimating()
+        
+    }
     private func calculatePrices() {
 
         firstly {
