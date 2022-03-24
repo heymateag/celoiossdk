@@ -215,16 +215,11 @@ public class CeloTransactionManager {
                     throw CeloError.invalidAddress
 
                 }
-
-
-
                 guard let walletAddress = EthereumAddress(address) else {
 
                     throw CeloError.invalidAddress
 
                 }
-
-
 
                 let etherBalance = try CeloTransactionManager.shared.etherBalanceSync()
 
@@ -234,15 +229,11 @@ public class CeloTransactionManager {
 
                 }
 
-
-
                 guard let amountInDouble = Double(amount.readableValue) else {
 
                     throw CeloError.conversionFailure
 
                 }
-
-
 
                 guard etherBalanceInDouble >= amountInDouble else {
 
@@ -250,17 +241,11 @@ public class CeloTransactionManager {
 
                 }
 
-
-
                 guard let keystore = CeloSDK.web3Net.provider.attachedKeystoreManager else {
 
                     throw CeloError.malformedKeystore
 
                 }
-
-
-
-
 
                 let value = amount
 
@@ -310,15 +295,11 @@ public class CeloTransactionManager {
 
                         return seal.fulfill((tx.encode(forSignature: false, chainID: nil)?.toHexString().addHexPrefix())!)
 
-
-
                     } catch {
 
                         HUDManager.shared.showError()
 
                     }
-
-
 
                     return seal.reject(CeloError.custom("Sign Transaction Failed"))
                     

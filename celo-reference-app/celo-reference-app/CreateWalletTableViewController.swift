@@ -67,6 +67,13 @@ class CreateWalletTableViewController: UITableViewController {
         }.done { transactionReciept in
             print(transactionReciept)
         }
+//        do{
+//        let web3net = try CeloSDK.customNet(url: "")
+//        }
+//        catch
+//        {
+//            print(error)
+//        }
         
         
     }

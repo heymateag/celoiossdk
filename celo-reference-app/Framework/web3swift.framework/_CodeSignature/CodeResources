@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		+fwN4iZ/ERp/HMS3BIy1IEL9j+c=
+		</data>
 		<key>Browser.bundle/Info.plist</key>
 		<data>
 		l6Lt2JRfiu+cwcPrWAKWZuVdkxc=
@@ -58,11 +62,11 @@
 		</data>
 		<key>Modules/web3swift.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		SjxiBRTlsAIKjRA4WFn16BBA/oA=
+		2MhzmWA7c0Re5yLQwO9uKz68qdI=
 		</data>
 		<key>Modules/web3swift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		SjxiBRTlsAIKjRA4WFn16BBA/oA=
+		2MhzmWA7c0Re5yLQwO9uKz68qdI=
 		</data>
 		<key>Modules/web3swift.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,7 +74,7 @@
 		</data>
 		<key>Modules/web3swift.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		h9iIn5G3M0IEMLSLLmudNMZXYrU=
+		W7CfJTBBXL1Y91SCfWAHhXIkUaQ=
 		</data>
 		<key>Modules/web3swift.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -78,7 +82,7 @@
 		</data>
 		<key>Modules/web3swift.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		h9iIn5G3M0IEMLSLLmudNMZXYrU=
+		W7CfJTBBXL1Y91SCfWAHhXIkUaQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -219,22 +223,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SjxiBRTlsAIKjRA4WFn16BBA/oA=
+			2MhzmWA7c0Re5yLQwO9uKz68qdI=
 			</data>
 			<key>hash2</key>
 			<data>
-			F+St4LsupXnMjTlUtMLP3GTN5sHty7weHYSVWOwxAoA=
+			MeMlgQ9CvoKxWorWPsQAcb1s+nqgp1tDWOHPOsBuer4=
 			</data>
 		</dict>
 		<key>Modules/web3swift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SjxiBRTlsAIKjRA4WFn16BBA/oA=
+			2MhzmWA7c0Re5yLQwO9uKz68qdI=
 			</data>
 			<key>hash2</key>
 			<data>
-			F+St4LsupXnMjTlUtMLP3GTN5sHty7weHYSVWOwxAoA=
+			MeMlgQ9CvoKxWorWPsQAcb1s+nqgp1tDWOHPOsBuer4=
 			</data>
 		</dict>
 		<key>Modules/web3swift.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -252,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h9iIn5G3M0IEMLSLLmudNMZXYrU=
+			W7CfJTBBXL1Y91SCfWAHhXIkUaQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			OuXE0+91adupKXs9d5JyVYh6vVOh517ldCCcbZNykkA=
+			jWshuR9nvokoTR5UrotrqNRwpbtCi9jlfWYetbD0Jqw=
 			</data>
 		</dict>
 		<key>Modules/web3swift.swiftmodule/x86_64.swiftdoc</key>
@@ -274,11 +278,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h9iIn5G3M0IEMLSLLmudNMZXYrU=
+			W7CfJTBBXL1Y91SCfWAHhXIkUaQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			OuXE0+91adupKXs9d5JyVYh6vVOh517ldCCcbZNykkA=
+			jWshuR9nvokoTR5UrotrqNRwpbtCi9jlfWYetbD0Jqw=
 			</data>
 		</dict>
 	</dict>

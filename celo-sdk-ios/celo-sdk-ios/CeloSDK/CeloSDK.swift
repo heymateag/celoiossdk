@@ -31,7 +31,7 @@ import web3swift
     var keystore: BIP32Keystore?
 
      public init() {
-         Configuration.changeEnvironment(isProduction: true)
+         Configuration.changeEnvironment(isProduction: false)
          print("###### celo sdk address #####")
          print(Setting.web3url)
      }

@@ -183,7 +183,7 @@ extension CeloSDK {
         }
     }
 
-    class func customNet(url: String) throws -> web3 {
+   public class func customNet(url: String) throws -> web3 {
         guard let URL = URL(string: url), let web3Url = Web3HttpProvider(URL) else {
             throw CeloError.netSwitchFailure
         }

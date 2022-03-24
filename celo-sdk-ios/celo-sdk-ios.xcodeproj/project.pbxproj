@@ -67,7 +67,6 @@
 		189D473C27EC3FF900186B7F /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189D472C27EC3FF700186B7F /* SwiftProtobuf.framework */; platformFilter = ios; };
 		189D473D27EC3FF900186B7F /* secp256k1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189D472D27EC3FF700186B7F /* secp256k1.framework */; platformFilter = ios; };
 		189D473E27EC3FF900186B7F /* web3swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189D472E27EC3FF700186B7F /* web3swift.framework */; platformFilter = ios; };
-		F762647C27EA3E090079A5DF /* stable_token_contracts.json in Resources */ = {isa = PBXBuildFile; fileRef = F762647B27EA3E080079A5DF /* stable_token_contracts.json */; };
 		F7C2A54927EA0B9000AABECC /* BalanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C2A54827EA0B8F00AABECC /* BalanceTest.swift */; };
 		F7C2A54A27EA0B9600AABECC /* CeloSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847A99527E4F640006142F0 /* CeloSDK.swift */; };
 		F7C2A54B27EA0BA200AABECC /* CeloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847A9A927E4F643006142F0 /* CeloError.swift */; };
@@ -153,7 +152,6 @@
 		189D472C27EC3FF700186B7F /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
 		189D472D27EC3FF700186B7F /* secp256k1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = secp256k1.framework; sourceTree = "<group>"; };
 		189D472E27EC3FF700186B7F /* web3swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = web3swift.framework; sourceTree = "<group>"; };
-		F762647B27EA3E080079A5DF /* stable_token_contracts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stable_token_contracts.json; sourceTree = "<group>"; };
 		F7C2A54827EA0B8F00AABECC /* BalanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,9 +212,7 @@
 		1847A8B327E4F4E5006142F0 /* celo-sdk-ios */ = {
 			isa = PBXGroup;
 			children = (
-				F762647B27EA3E080079A5DF /* stable_token_contracts.json */,
 				1847ABD327E7821E006142F0 /* GasPriceMinimum */,
-				1847ABD027E774EA006142F0 /* Web3Wrapper */,
 				1847ABCD27E76D3E006142F0 /* StableToken */,
 				1847ABC427E65CCF006142F0 /* Registry */,
 				1847ABBF27E60FAF006142F0 /* Contract */,
@@ -333,13 +329,6 @@
 				1847ABCE27E76D5B006142F0 /* StableTokenWrapper.swift */,
 			);
 			path = StableToken;
-			sourceTree = "<group>";
-		};
-		1847ABD027E774EA006142F0 /* Web3Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Web3Wrapper;
 			sourceTree = "<group>";
 		};
 		1847ABD327E7821E006142F0 /* GasPriceMinimum */ = {
@@ -467,7 +456,6 @@
 			files = (
 				1847ABC827E65D79006142F0 /* registry_contracts.json in Resources */,
 				1847AA4F27E4F7EE006142F0 /* Browser.bundle in Resources */,
-				F762647C27EA3E090079A5DF /* stable_token_contracts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

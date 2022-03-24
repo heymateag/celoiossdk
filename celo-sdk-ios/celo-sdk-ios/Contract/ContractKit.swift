@@ -17,6 +17,7 @@ public class ContractKit
     public var gatewayFee: BigUInt?
     public func getContractKit(web3Instance: web3 ,_ abiString: String, at: web3swift.EthereumAddress) -> web3swift.web3.web3contract?
     {
+        
         let contract = web3Instance.contract(abiString, at: at, abiVersion: 2)!
         return contract
     }
@@ -40,7 +41,7 @@ public class ContractKit
     }
     public func calculateCELO() -> String {
         let balanceString : String = ""
-        guard let urlStr = URL(string: "https://forno.celo.org"),
+        guard let urlStr = URL(string: Setting.web3url),
               let address = (CeloSDK.currentAccount?.address),
               let ethereumAddress = EthereumAddress(address) else {
           

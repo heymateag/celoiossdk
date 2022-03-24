@@ -27,7 +27,7 @@ public struct GasPriceMinimumWrapper
                     getGasPriceMinimumAddress()
                 }.done { address in
                     let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(address)!)
-
+                    
                             var options = ContractKitOptions.defaultOptions
 
                             let address = (CeloSDK.currentAccount?.address)!
