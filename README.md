@@ -31,9 +31,12 @@ iOS SDK for the Celo blockchain
 - You may run on device as well.Please unzip the frameworks for arm64 and replace in Framework folder in SDK and Sample app
 
 ## Structure
-The SDK connects to Mainnet network by default. This can be changed in SDK like this
+The SDK connects to alfajores network by default. This can be changed in SDK like this
+
+```swift
 Configuration.changeEnvironment(isProduction: false) -- Alfajores
 Configuration.changeEnvironment(isProduction: true) -- Mainnet
+```swift
 
 [Learn more about Celo's networks](https://docs.celo.org/getting-started/choosing-a-network)
 
@@ -85,8 +88,9 @@ Initialize contract kit instance
 ```swift
 let contractkit = CeloSDK.shared.contractKit
 ```
-
-(Important step)
+```swift
+(Important step to be done after generating wallet)
+```swift
 First fetch the Stable Token Address ,this will internally set it as the FeeCurrency in the ContractKit 
 ```swift
  firstly {
