@@ -58,10 +58,16 @@ Post that replace the new framework in Sample app in Framework,Libraries and Emb
 ## SDK Usage
 
 Import the SDK
-import celo_sdk_ios
+```swift
+ import celo_sdk_ios
+```
+
 
 Import PromiseKit.Promises simplify asynchronous programming.
-import PromiseKit
+```swift
+ import PromiseKit
+```
+
 
 
 Initialize and generate current Account without any password
