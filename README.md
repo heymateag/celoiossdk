@@ -1,4 +1,4 @@
-# Celo iOS SDK (alpha v0.0.1)
+# Celo iOS SDK (alpha v1.0.1)
 
 iOS SDK for the Celo blockchain
 
