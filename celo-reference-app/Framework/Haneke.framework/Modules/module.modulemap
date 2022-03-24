@@ -1,0 +1,11 @@
+framework module Haneke {
+  umbrella header "HanekeSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Haneke.Swift {
+    header "Haneke-Swift.h"
+    requires objc
+}
