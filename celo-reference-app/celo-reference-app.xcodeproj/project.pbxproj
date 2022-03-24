@@ -17,8 +17,6 @@
 		638D680427314F8400E2CAB5 /* celo_reference_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D680327314F8400E2CAB5 /* celo_reference_appUITests.swift */; };
 		638D6A9D2742767900E2CAB5 /* CreateNewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */; };
 		F73595D327EA4E1C00843B08 /* CreateWalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */; };
-		F77160FA27EA1C19009F56F0 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77160F727EA1C00009F56F0 /* celo_sdk_ios.framework */; platformFilter = ios; };
-		F77160FB27EA1C19009F56F0 /* celo_sdk_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F77160F727EA1C00009F56F0 /* celo_sdk_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F771611A27EA258A009F56F0 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610227EA2583009F56F0 /* BigInt.framework */; platformFilter = ios; };
 		F771611B27EA258A009F56F0 /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F771610227EA2583009F56F0 /* BigInt.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F771611C27EA258A009F56F0 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F771610527EA2583009F56F0 /* CryptoSwift.framework */; platformFilter = ios; };
@@ -52,6 +50,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		189D474A27EC4F8200186B7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1847A8B127E4F4E5006142F0;
+			remoteInfo = "celo-sdk-ios";
+		};
+		189D474C27EC4F8200186B7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1847A8BB27E4F4E5006142F0;
+			remoteInfo = "celo-sdk-iosTests";
+		};
 		638D67F527314F8400E2CAB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 638D67D627314F7C00E2CAB5 /* Project object */;
@@ -65,20 +77,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 638D67DD27314F7C00E2CAB5;
 			remoteInfo = "celo-reference-app";
-		};
-		F77160F627EA1C00009F56F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F77160F127EA1C00009F56F0 /* celo-sdk-ios.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1847A8B127E4F4E5006142F0;
-			remoteInfo = "celo-sdk-ios";
-		};
-		F77160F827EA1C00009F56F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F77160F127EA1C00009F56F0 /* celo-sdk-ios.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1847A8BB27E4F4E5006142F0;
-			remoteInfo = "celo-sdk-iosTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -98,7 +96,6 @@
 				F771612927EA258B009F56F0 /* Starscream.framework in Embed Frameworks */,
 				F771611F27EA258A009F56F0 /* HandyJSON.framework in Embed Frameworks */,
 				F771613327EA258B009F56F0 /* WalletConnectSwift.framework in Embed Frameworks */,
-				F77160FB27EA1C19009F56F0 /* celo_sdk_ios.framework in Embed Frameworks */,
 				F771612D27EA258B009F56F0 /* SwiftKeychainWrapper.framework in Embed Frameworks */,
 				F771611B27EA258A009F56F0 /* BigInt.framework in Embed Frameworks */,
 				F771612127EA258A009F56F0 /* Haneke.framework in Embed Frameworks */,
@@ -112,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "celo-sdk-ios.xcodeproj"; path = "../celo-sdk-ios/celo-sdk-ios.xcodeproj"; sourceTree = "<group>"; };
 		638D67DE27314F7C00E2CAB5 /* celo-reference-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "celo-reference-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		638D67E127314F7C00E2CAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 		638D680527314F8400E2CAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638D6A9C2742767900E2CAB5 /* CreateNewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccount.swift; sourceTree = "<group>"; };
 		F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWalletTableViewController.swift; sourceTree = "<group>"; };
-		F77160F127EA1C00009F56F0 /* celo-sdk-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "celo-sdk-ios.xcodeproj"; path = "../../celo-sdk-ios-evening/celo-sdk-ios.xcodeproj"; sourceTree = "<group>"; };
 		F77160FC27EA2583009F56F0 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
 		F77160FD27EA2583009F56F0 /* WalletCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WalletCore.framework; sourceTree = "<group>"; };
 		F77160FE27EA2583009F56F0 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftProtobuf.framework; sourceTree = "<group>"; };
@@ -151,7 +148,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77160FA27EA1C19009F56F0 /* celo_sdk_ios.framework in Frameworks */,
 				F771612E27EA258B009F56F0 /* SwiftProtobuf.framework in Frameworks */,
 				F771613427EA258B009F56F0 /* WalletCore.framework in Frameworks */,
 				F771612227EA258B009F56F0 /* KeychainAccess.framework in Frameworks */,
@@ -216,9 +212,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		189D474627EC4F8100186B7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				189D474B27EC4F8200186B7F /* celo_sdk_ios.framework */,
+				189D474D27EC4F8200186B7F /* celo-sdk-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		638D67D527314F7C00E2CAB5 = {
 			isa = PBXGroup;
 			children = (
+				189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */,
 				1847AA9327E4FC89006142F0 /* Framework */,
 				638D67E027314F7C00E2CAB5 /* celo-reference-app */,
 				638D67F727314F8400E2CAB5 /* celo-reference-appTests */,
@@ -242,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				F73595D027EA4E1C00843B08 /* CreateWalletTableViewController.swift */,
-				F77160F127EA1C00009F56F0 /* celo-sdk-ios.xcodeproj */,
 				638D67E127314F7C00E2CAB5 /* AppDelegate.swift */,
 				638D67E327314F7C00E2CAB5 /* SceneDelegate.swift */,
 				638D67E527314F7C00E2CAB5 /* ViewController.swift */,
@@ -271,15 +276,6 @@
 				638D680527314F8400E2CAB5 /* Info.plist */,
 			);
 			path = "celo-reference-appUITests";
-			sourceTree = "<group>";
-		};
-		F77160F227EA1C00009F56F0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F77160F727EA1C00009F56F0 /* celo_sdk_ios.framework */,
-				F77160F927EA1C00009F56F0 /* celo-sdk-iosTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +370,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F77160F227EA1C00009F56F0 /* Products */;
-					ProjectRef = F77160F127EA1C00009F56F0 /* celo-sdk-ios.xcodeproj */;
+					ProductGroup = 189D474627EC4F8100186B7F /* Products */;
+					ProjectRef = 189D474527EC4F8100186B7F /* celo-sdk-ios.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -388,18 +384,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F77160F727EA1C00009F56F0 /* celo_sdk_ios.framework */ = {
+		189D474B27EC4F8200186B7F /* celo_sdk_ios.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = celo_sdk_ios.framework;
-			remoteRef = F77160F627EA1C00009F56F0 /* PBXContainerItemProxy */;
+			remoteRef = 189D474A27EC4F8200186B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F77160F927EA1C00009F56F0 /* celo-sdk-iosTests.xctest */ = {
+		189D474D27EC4F8200186B7F /* celo-sdk-iosTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "celo-sdk-iosTests.xctest";
-			remoteRef = F77160F827EA1C00009F56F0 /* PBXContainerItemProxy */;
+			remoteRef = 189D474C27EC4F8200186B7F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
