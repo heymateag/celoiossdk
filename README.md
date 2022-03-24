@@ -36,7 +36,7 @@ The SDK connects to alfajores network by default. This can be changed in SDK lik
 ```swift
 Configuration.changeEnvironment(isProduction: false) -- Alfajores
 Configuration.changeEnvironment(isProduction: true) -- Mainnet
-```swift
+```
 
 [Learn more about Celo's networks](https://docs.celo.org/getting-started/choosing-a-network)
 
