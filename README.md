@@ -55,19 +55,111 @@ Post that replace the new framework in Sample app in Framework,Libraries and Emb
 
 ## SDK Usage
 
-Generating a new account
+Import the SDK
+import celo_sdk_ios
+
+Import PromiseKit.Promises simplify asynchronous programming.
+import PromiseKit
+
+
+Initialize and generate current Account without any password
+```swift
+CeloSDK.shared.initializeWalletConnect {
+            print("address\(CeloSDK.currentAccount?.address)")
+}
+```
+Get current account wallet address
+```swift
+CeloSDK.currentAccount?.address
+```
+
+Initialize contract kit instance
+```swift
+let contractkit = CeloSDK.shared.contractKit
+```
+
+First fetch the Stable Token Address ,this will internally set it as the FeeCurrency in the ContractKit (Important step)
+```swift
+ firstly {
+   StableTokenWrapper().getStableTokenAddress()
+        }.then { ad in
+  contractkit.getStableTokenBalanceOf(currentAddress: CeloSDK.currentAccount!.address)
+            
+        }
+```
+
+Set the feeCurrency by passing the Celo FeeCurrency for specific Stable Token
+```swift
+contractkit.setFeeCurrency(feeCurrency: mFeeCurrency)
+ mFeeCurrency - CUSD Fee Currency
+```
+
+Get the feeCurrency for specific Stable Token
+```swift
+contractkit.getFeeCurrency()
+```
+
+
+Get CUSD Balance for an address
+```swift
+ firstly {
+  contractkit.getStableTokenBalanceOf(currentAddress:mAddress)
+    }.done { balance in
+  print(balance)
+    }
+ mAddress - User's wallet Address
+```
+
+Get Native Celo Balance
+
+```swift
+ contractkit.calculateCELO()
+
+```
+
+Get GasPriceMinimum for a Token 
+
+```swift
+ firstly {
+     CeloSDK.shared.contractKit.getGaspriceMinimum(tokenType:CeloContractClass.StableToken)
+        }.done {gasPrice in
+        print(gasPrice)
+       }
+```
+
+StableToken transfer
+
+```swift
+firstly {
+       CeloSDK.shared.contractKit.transfer(amount: self.fromAddressField.text!, toAddress: self.toAddressField.text!)
+        }.done { txRecieptHash in
+            print(txRecieptHash)
+        }
+```
+
+Initialize contract kit instance for a specific web3 instance and abi hosted in your network
+```swift
+let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(contractAddress)!)
+```
+
+```
+To set web3 url instance
+```swift
+let web3net = try CeloSDK.customNet(url: "")
+This can be accessed from SDK via CeloSDK.web3Net
+```
+
+
+
+Generating a new account with password
 ```swift
 CeloSDK.account.generateAccount(password)
 ```
 
-Import account
+Import account with password and mnemonic
 ```swift
 CeloSDK.account.importAccount(mnemonics, password)
 CeloSDK.account.importAccount(privateKey, password)
-```
-Get account
-```swift
-CeloSDK.shared.address
 ```
 
 Get mnemonics
@@ -75,71 +167,11 @@ Get mnemonics
 CeloSDK.shared.mnemonics
 ```
 
-Get private key
+Get private key with Password
 ```swift
-CeloSDK.shared.mnemonics
+CeloSDK.shared.privateKey(password: mPassWord)
 ```
 
-Initialize and generate current Account
-```swift
-CeloSDK.shared.initializeWalletConnect {
-            print("address\(CeloSDK.currentAccount?.address)")
-}
-```
-
-```
-Initialize contract kit instance
-```swift
-let contractkit = CeloSDK.shared.contractKit
-```
-
-Get StableToken Balance for an address
-```swift
- contractkit.getStableTokenBalanceOf(currentAddress: mAddress)
- mAddress - User's wallet Address
-```
-Get GasPriceMinimum for a Token 
-```swift
-let stableToken : StableTokenWrapper = StableTokenWrapper()
-contractkit.getGasPriceMinimum(accountOwner: stableToken)
-```
-Get GasPriceMinimum from default feeCurrency
-```swift
-contractkit.getGasPriceMinimum()
-```
-Set feeCurrency
-```swift
-contractkit.setFeeCurrency(feeCurrency: StableTokenFeeCurrency)
-```
-Get feeCurrency
-```swift
-contractkit.getFeeCurrency()
-```
-StableToken transfer
-```swift
-contractkit.transfer(amount: String,toAddress :String)
-```
-Get Celo balance
-```swift
-CeloSDK.balance.getCeloBalance
-```
-
-Get cUSD balance
-```swift
-CeloSDK.balance.getGoldToken
-```
-```
-Initialize contract kit instance for a specific web3 instance and abi hosted in your network
-```swift
-let contract = CeloSDK.shared.contractKit.getContractKit(web3Instance: CeloSDK.web3Net, abi, at: EthereumAddress(contractAddress)!)
-```
-
-```
-To change web3 url instance
-```swift
-let celoSdk = CeloSDK.shared()
-lceloSdk.web3Net = CeloSDK.shared.custom(url:String)
-```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
