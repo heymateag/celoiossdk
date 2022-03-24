@@ -3,8 +3,10 @@
 iOS SDK for the Celo blockchain
 
 - [Learn more about Celo](https://docs.celo.org/)
+- <img width="355" alt="Screenshot 2022-03-24 at 9 20 11 PM" src="https://user-images.githubusercontent.com/22989626/159956526-728fd78f-2ce3-4104-8126-00b1b2581cf4.png">
 
-![image](https://user-images.githubusercontent.com/22989626/159862411-e25f173c-248d-49f6-b7f3-c05afc199362.png)
+
+
 
 ## Requirements
 
