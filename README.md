@@ -76,9 +76,9 @@ let contractkit = CeloSDK.shared.contractKit
 First fetch the Stable Token Address ,this will internally set it as the FeeCurrency in the ContractKit (Important step)
 ```swift
  firstly {
-            StableTokenWrapper().getStableTokenAddress()
+   StableTokenWrapper().getStableTokenAddress()
         }.then { ad in
-            contractkit.getStableTokenBalanceOf(currentAddress: CeloSDK.currentAccount!.address)
+  contractkit.getStableTokenBalanceOf(currentAddress: CeloSDK.currentAccount!.address)
             
         }
 ```
