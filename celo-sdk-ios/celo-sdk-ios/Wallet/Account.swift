@@ -83,6 +83,10 @@ extension CeloSDK: AccountService {
             throw CeloError.malformedKeystore
         }
         
+        if let unwrapped = CeloSDK.shared.address {
+         CeloSDK.currentAccount = Account.init(address: unwrapped)
+                }
+        
         guard let privateKey = try? keystore.UNSAFE_getPrivateKeyData(password: password, account: address).toHexString() else {
             throw CeloError.malformedKeystore
         }
