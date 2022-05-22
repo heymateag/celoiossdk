@@ -3,14 +3,19 @@ import SwiftyUserDefaults
 import web3swift
 
  public class CeloSDK {
-     public static let shared = CeloSDK()
+     public static let shared = CeloSDK.init()
      public static var currentAccount: Account?
      public let contractKit : ContractKit = ContractKit()
      public static let accountWithMnemonic: AccountService = CeloSDK.shared
      
-     let keystoreDirectoryName = "/keystore"
-     let keystoreFileName = "/key.json"
-     let mnemonicsKeystoreKey = "mnemonicsKeystoreKey"
+//     let keystoreDirectoryName = "/keystore"
+//     let keystoreFileName = "/key.json"
+//     let mnemonicsKeystoreKey = "mnemonicsKeystoreKey"
+     
+     let keystoreDirectoryName = Setting.KeystoreDirectoryName
+     let keystoreFileName = Setting.KeystoreFileName
+     let mnemonicsKeystoreKey = Setting.KeyMnemonicKey
+     
      var keystoreCache: EthereumKeystoreV3?
     static var Accounts: [Account]? {
         didSet {
@@ -25,8 +30,8 @@ import web3swift
     static var customNetworkList: [Web3NetModel] = []
 
 
-    public static var web3Net = try! Web3.new(URL(string: Setting.web3url)!)
-
+//     public static var web3Net:Web3! = try! Web3.new(URL(string: Setting.web3url)!)
+     public static var web3Net:web3!
 
     var keystore: BIP32Keystore?
 
@@ -34,57 +39,77 @@ import web3swift
          Configuration.changeEnvironment(isProduction: false)
          print("###### celo sdk address #####")
          print(Setting.web3url)
+         do {
+             if let url = URL(string: Setting.web3url) {
+                 CeloSDK.web3Net = try Web3.new(url)
+             }
+         } catch {
+             print("unable to create web3 url \(error)")
+         }
      }
      
      public func initializeWalletConnect(onCompletion:@escaping(() -> Void))
      {
-         CeloSDK.loadFromCache()
-         if CeloSDK.hasWallet() {
-             print("already has wallet")
-             WalletCore.shared.loadFromCache()
-             onCompletion()
-
-         } else {
-             CeloSDK.createWallet { () -> Void in
-                 print("created wallert")
+         onBackgroundThread {
+             CeloSDK.loadFromCache()
+             if CeloSDK.hasWallet() {
+                 print("already has wallet")
                  WalletCore.shared.loadFromCache()
-                 onCompletion()
+                 onMainThread {
+                     onCompletion()
+                     Configuration.saveWalletAddress(CeloSDK.currentAccount?.address)
+                 }
+             } else {
+                 CeloSDK.createWallet { () -> Void in
+                     print("created wallert")
+                     WalletCore.shared.loadFromCache()
+                     onMainThread {
+                         onCompletion()
+                         Configuration.saveWalletAddress(CeloSDK.currentAccount?.address)
+                     }
+                 }
              }
          }
-         
-       
-         UserDefaults.standard.set(CeloSDK.currentAccount?.address, forKey: "WalletAddress")
-
+//         UserDefaults.standard.set(CeloSDK.currentAccount?.address, forKey: "WalletAddress")
      }
      
      
-     
-    class func hasWallet() -> Bool {
-        if CeloSDK.currentAccount != nil, CeloSDK.Accounts!.count > 0 {
-            
-            let address = (CeloSDK.currentAccount?.address)!
-            print("###################### Address ############################")
-            print(address)
-            print("###################### Printed ############################")
-
-            return true
-        }
-        return false
+    static func hasWallet() -> Bool {
+//        if CeloSDK.currentAccount != nil, CeloSDK.Accounts!.count > 0 {
+//
+//            let address = (CeloSDK.currentAccount?.address)!
+//            print("###################### Address ############################")
+//            print(address)
+//            print("###################### Printed ############################")
+//
+//            return true
+//        }
+//        return false
+        let address = (CeloSDK.currentAccount?.address)
+        print("###################### Address ############################")
+        print(address ?? "NO address available")
+        print("###################### Printed ############################")
+        
+        
+        return CeloSDK.currentAccount != nil && (CeloSDK.Accounts ?? []).count > 0
     }
 
     class func addKeyStoreIfNeeded() {
         
-        if !CeloSDK.hasWallet() {
+//        if !CeloSDK.hasWallet() {
+//            return
+//        }
+
+        guard let keystore = CeloSDK.shared.keystore,
+              CeloSDK.hasWallet(),
+              CeloSDK.web3Net.provider.attachedKeystoreManager != nil else {
+                  print("addKeyStoreIfNeeded failured guard statement")
             return
         }
 
-        guard let keystore = CeloSDK.shared.keystore else {
-            return
-        }
-
-        if CeloSDK.web3Net.provider.attachedKeystoreManager != nil {
-            return
-        }
+//        if CeloSDK.web3Net.provider.attachedKeystoreManager != nil {
+//            return
+//        }
 
         CeloSDK.web3Net.addKeystoreManager(KeystoreManager([keystore]))
     }
@@ -95,9 +120,7 @@ import web3swift
         }
         // Load web3 net from user default
         web3Net = CeloSDK.fetchFromCache()
-
         CeloSDK.shared.loadRPCFromCache()
-
         CeloSDK.shared.keystore = keystore
 
         do {
@@ -153,7 +176,6 @@ import web3swift
 
     class func importWallet(mnemonics: String, completion: VoidBlock?) throws {
         if CeloSDK.hasWallet() {
-
             return
         }
 
@@ -163,25 +185,24 @@ import web3swift
 
         do {
             KeychainHepler.shared.saveToKeychain(value: mnemonics, key: Setting.MnemonicsKey)
+            if (keystore.addresses ?? []).count > 0, let address = keystore.addresses?.first?.address {
+                let wallet = Account(address: address)
 
-            let address = keystore.addresses!.first!.address
-            let wallet = Account(address: address)
+                CeloSDK.Accounts = [wallet]
 
-            CeloSDK.Accounts = [wallet]
+                CeloSDK.currentAccount = wallet
 
-            CeloSDK.currentAccount = wallet
+                CeloSDK.shared.keystore = keystore
+                try CeloSDK.shared.saveKeystore(keystore)
 
-            CeloSDK.shared.keystore = keystore
-            try CeloSDK.shared.saveKeystore(keystore)
-
-            CeloSDK.web3Net.addKeystoreManager(KeystoreManager([keystore]))
-
-            guard let completion = completion else { return }
-            completion!()
+                CeloSDK.web3Net.addKeystoreManager(KeystoreManager([keystore]))
+//                guard let completion = completion else { return }
+                if let unwrapped = completion {
+                    unwrapped!()
+                }
+            }
         } catch {
             HUDManager.shared.showError(text: "Import Wallet Failed")
         }
     }
-
-
 }

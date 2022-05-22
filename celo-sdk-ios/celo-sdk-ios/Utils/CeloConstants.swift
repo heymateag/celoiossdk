@@ -31,7 +31,26 @@ public struct Configuration
         return UserDefaults.standard.bool(forKey: Environment.CELO_ENVIRONMENT)
 
     }
+    
+    static func saveWalletAddress(_ address:String?) {
+        UserDefaults.standard.set(address, forKey: Setting.KeyWalletAddress)
+    }
 
+    static func getGasPriceMinimumAddress() -> String? {
+        return UserDefaults.standard.value(forKey: Setting.KeyGasPriceMinAddress) as? String
+    }
+    
+    static func getStableTokenAddress() -> String? {
+        return UserDefaults.standard.value(forKey: Setting.KeyStableTokenAddress) as? String
+    }
+    
+    static func setPreviousSession(session:Data?) {
+        return UserDefaults.standard.setValue(session, forKey: Setting.KeyPreviousSession)
+    }
+    
+    static func getPreviousSession() -> Data? {
+        return UserDefaults.standard.data(forKey: Setting.KeyPreviousSession)
+    }
     
 }
 
@@ -63,11 +82,21 @@ public class Setting {
     static let WalletName = "Heymate X"
     static let KeystoreDirectoryName = "/keystore"
     static let KeystoreFileName = "/key.json"
+    static let KeyMnemonicKey = "mnemonicsKeystoreKey"
+    static let KeyGasPriceMinAddress = "GAS_PRICE_MIN_ADDRESS"
+    static let KeyStableTokenAddress = "STABLE_TOKEN_ADDRESS"
+    static let KeyPreviousSession = "P_SESSION"
     public static let password = "web3swift"
+    static let KeyWalletAddress = "WalletAddress"
     public static let web3url = Configuration.isProductionEnvironment() ? MAINNET_URL:ALFAJORES_URL
     public static let celoChainid = Configuration.isProductionEnvironment() ?  MAINNET_CHAINID:ALFAJORES_CHAINID
     static let termURL = URL(string: "https://www.Heymatedapp.com/terms-of-service")!
     static let privacyURL = URL(string: "https://www.Heymatedapp.com/privacy-policy")!
+    
+    static let TXActionGetAddressFor = "getAddressFor"
+    static let RegistryContractAddress = "0x000000000000000000000000000000000000ce10"
+    static let RegistryNullAddress = "0x0000000000000000000000000000000000000000"
+    
 }
 
 class CeloContract

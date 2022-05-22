@@ -27,15 +27,17 @@ public class RawSigninTransactionHelper {
     public init() {
 
     }
-    public func connect(url: String) {
+    public func connect(url: String) throws {
             if isConnecting, session != nil {
                 disconnect()
             }
 
-            server = Server(delegate: self)
-     
-           
-            server!.register(handler: SendTransactionHandler(server: server!))
+        
+//        guard let s = Server(delegate: self) else {
+//            throw CeloError.custom("Unable to create Server instance")
+//        }
+        self.server = Server(delegate: self)
+        server?.register(handler: SendTransactionHandler(server: self.server!))
 
 
             if let existing = getExistingSession() {
@@ -44,6 +46,7 @@ public class RawSigninTransactionHelper {
                 }
                 catch{
                     print("##########server error ######### \(error)" )
+                    throw error
                 }
                     
             } else {
@@ -52,6 +55,7 @@ public class RawSigninTransactionHelper {
                     try server?.connect(to: mUrl)
                 } catch {
                     HUDManager.shared.showError(text: "Parse Wallet Connect QRcode failed")
+                    throw error
                 }
             }
             
@@ -69,20 +73,22 @@ public class RawSigninTransactionHelper {
     }
     func saveSession(session:Session?) {
         guard session != nil else {
-            UserDefaults.standard.setValue(nil, forKey: "P_SESSION")
+//            UserDefaults.standard.setValue(nil, forKey: "P_SESSION")
+            Configuration.setPreviousSession(session: nil)
             return
             
         }
             do {
                 let data  =  try JSONEncoder().encode(session!)
-                UserDefaults.standard.setValue(data, forKey: "P_SESSION")
+//                UserDefaults.standard.setValue(data, forKey: "P_SESSION")
+                Configuration.setPreviousSession(session: data)
 
             } catch {
                 print("session encoe error \(error)")
             }
         }
     func getExistingSession() -> Session? {
-            if let session = UserDefaults.standard.data(forKey: "P_SESSION") {
+        if let session = Configuration.getPreviousSession() {
                 do {
                     return try JSONDecoder().decode(Session.self, from: session)
                 } catch {

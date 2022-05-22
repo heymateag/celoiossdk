@@ -165,16 +165,20 @@ class SendTransactionHandler: RawSigninTransactionHandler {
             gasLimitOption = TransactionOptions.GasLimitPolicy.manual(gasLimit)
         }
         
-        firstly {
-            self.transfer(toAddress: toAddress!, value: amount!, data: self.data,
-                           gasPrice: gasPrice, gasLimit: gasLimitOption)
-        }.done { hash in
-            print(hash)
-
-
-        }.catch { error in
-            HUDManager.shared.showError(error: error)
+        if let tAddress = toAddress,let amnt = amount {
+            firstly {
+                self.transfer(toAddress: tAddress, value: amnt, data: self.data,
+                               gasPrice: gasPrice, gasLimit: gasLimitOption)
+            }.done { hash in
+                print(hash)
+            }.catch { error in
+                HUDManager.shared.showError(error: error)
+            }
+        } else {
+            print("### address and amount are nil")
         }
+        
+        
     }
    public func transfer(toAddress: String, value: BigUInt, data: Data = Data(),
                   gasPrice: GasPrice = GasPrice.average,

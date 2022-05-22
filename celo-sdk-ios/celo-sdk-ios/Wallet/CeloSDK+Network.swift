@@ -149,7 +149,14 @@ extension CeloSDK {
     class func make(type: Web3NetEnum, customURL _: String = Setting.web3url) throws -> web3 {
         switch type {
         case .main:
-            return try! Web3.new(URL(string: Setting.web3url)!)
+            if let web3Url = URL(string: Setting.web3url) {
+                do {
+                    return try Web3.new(web3Url)
+                } catch {
+                    print("web3Url error \(error)")
+                    throw CeloError.custom("WEB3URL form error")
+                }
+            }
         case .custom:
             do {
                 let net = try CeloSDK.customNet(url: Setting.web3url)
@@ -158,8 +165,7 @@ extension CeloSDK {
                 throw error
             }
         }
-
-     
+        return try! Web3.new(URL(string: Setting.web3url)!)
     }
 
     class func make(url: String) -> Promise<web3> {
@@ -208,7 +214,13 @@ extension CeloSDK {
         if !CeloSDK.isKeyPresentInUserDefaults(key: CacheKey.web3NetStoreKey) {
             let net = Web3NetEnum.main
             CeloSDK.storeInCache(type: net.model)
-            return try! Web3.new(URL(string: Setting.web3url)!)
+            if let url = URL(string: Setting.web3url) {
+                do {
+                    return try Web3.new(url)
+                }catch {
+                    print("web3 url error \(error)")
+                }
+            }
         }
 
         guard let typeString = UserDefaults.standard.string(forKey: CacheKey.web3NetStoreKey),

@@ -10,9 +10,10 @@ extension CeloSDK {
 
     class func storeAccountsToCache() {
         do {
-            let data = try JSONEncoder().encode(CeloSDK.Accounts!)
-            Defaults[\.accountsData] = data
-
+            if let accounts = CeloSDK.Accounts {
+                let data = try JSONEncoder().encode(accounts)
+                Defaults[\.accountsData] = data
+            }
         } catch {
             HUDManager.shared.showError(error: CeloError.createAccountFailure)
         }
@@ -43,27 +44,21 @@ extension CeloSDK {
     }
 
     class func createAccount() {
-        let oldPaths = CeloSDK.shared.keystore!.paths.keys
+
 
         do {
-            try CeloSDK.shared.keystore?.createNewChildAccount()
-            try CeloSDK.shared.saveKeystore(CeloSDK.shared.keystore!)
-
-
-            let newPaths = CeloSDK.shared.keystore!.paths.keys
-
-            let newPath = newPaths.filter { !oldPaths.contains($0) }.first!
-            let address = CeloSDK.shared.keystore!.paths[newPath]!.address
-            let account = Account(address: address)
-            CeloSDK.Accounts?.append(account)
-
+            if let oldPaths = CeloSDK.shared.keystore?.paths.keys,let keystore = CeloSDK.shared.keystore {
+                try CeloSDK.shared.keystore?.createNewChildAccount()
+                try CeloSDK.shared.saveKeystore(keystore)
+                let newPaths = keystore.paths.keys
+                let newPath = newPaths.filter { !oldPaths.contains($0) }.first!
+                if let address = keystore.paths[newPath]?.address {
+                    let account = Account(address: address)
+                    CeloSDK.Accounts?.append(account)
+                }
+            }
         } catch {
             HUDManager.shared.showError(error: CeloError.createAccountFailure)
         }
     }
-
-
-
-
-
 }

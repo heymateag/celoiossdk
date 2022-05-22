@@ -17,9 +17,8 @@ public class ContractKit
     public var gatewayFee: BigUInt?
     public func getContractKit(web3Instance: web3 ,_ abiString: String, at: web3swift.EthereumAddress) -> web3swift.web3.web3contract?
     {
-        
-        let contract = web3Instance.contract(abiString, at: at, abiVersion: 2)!
-        return contract
+        return web3Instance.contract(abiString, at: at, abiVersion: 2)
+//        return contract
     }
     public func getAdressForString(contractName : String) -> Promise<String>{
         let addressRegistry : AddressRegistry = AddressRegistry()
@@ -43,18 +42,15 @@ public class ContractKit
         let balanceString : String = ""
         guard let urlStr = URL(string: Setting.web3url),
               let ethereumAddress = EthereumAddress(address) else {
-          
                   return balanceString
               }
         do {
             let web3 = try Web3.new(urlStr)
             let balance = try web3.eth.getBalance(address: ethereumAddress)
-
             if let balanceString = Web3.Utils.formatToEthereumUnits(balance, toUnits: .eth, decimals: 2) {
                    return balanceString
             }
         } catch {
-          
             print("balance error \(error)")
             return balanceString
           
