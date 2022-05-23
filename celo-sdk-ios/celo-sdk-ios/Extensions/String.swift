@@ -191,4 +191,12 @@ extension String {
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: self)
     }
+    
+    var isPhoneNumber: Bool {
+        let charcter  = NSCharacterSet(charactersInString: "+0123456789").invertedSet
+        var filtered:NSString!
+        let inputString:NSArray = self.componentsSeparatedByCharactersInSet(charcter)
+        filtered = inputString.componentsJoinedByString("")
+        return  self == filtered            
+    }
 }
