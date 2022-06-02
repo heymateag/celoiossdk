@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183D236428453B7900322F1F /* SelectiveCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D236128453B7900322F1F /* SelectiveCall.swift */; };
+		183D236528453B7900322F1F /* WrapperCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D236228453B7900322F1F /* WrapperCache.swift */; };
+		183D236628453B7900322F1F /* AttestationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D236328453B7900322F1F /* AttestationsWrapper.swift */; };
 		1847A8B627E4F4E5006142F0 /* celo_sdk_ios.docc in Sources */ = {isa = PBXBuildFile; fileRef = 1847A8B527E4F4E5006142F0 /* celo_sdk_ios.docc */; };
 		1847A8BC27E4F4E5006142F0 /* celo_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1847A8B127E4F4E5006142F0 /* celo_sdk_ios.framework */; };
 		1847A8C127E4F4E5006142F0 /* celo_sdk_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847A8C027E4F4E5006142F0 /* celo_sdk_iosTests.swift */; };
@@ -96,6 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183D236128453B7900322F1F /* SelectiveCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectiveCall.swift; sourceTree = "<group>"; };
+		183D236228453B7900322F1F /* WrapperCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapperCache.swift; sourceTree = "<group>"; };
+		183D236328453B7900322F1F /* AttestationsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttestationsWrapper.swift; sourceTree = "<group>"; };
 		1847A8B127E4F4E5006142F0 /* celo_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = celo_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1847A8B427E4F4E5006142F0 /* celo_sdk_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = celo_sdk_ios.h; sourceTree = "<group>"; };
 		1847A8B527E4F4E5006142F0 /* celo_sdk_ios.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = celo_sdk_ios.docc; sourceTree = "<group>"; };
@@ -376,6 +382,9 @@
 		18C74599283B5435002C718F /* Attestation */ = {
 			isa = PBXGroup;
 			children = (
+				183D236328453B7900322F1F /* AttestationsWrapper.swift */,
+				183D236128453B7900322F1F /* SelectiveCall.swift */,
+				183D236228453B7900322F1F /* WrapperCache.swift */,
 				18C7459A283B5435002C718F /* SDKUtils.swift */,
 				18C7459B283B5435002C718F /* AttestationCompleter.swift */,
 				18C7459C283B5435002C718F /* AttestationRequester.swift */,
@@ -498,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1847A9F827E4F646006142F0 /* CeloError.swift in Sources */,
+				183D236528453B7900322F1F /* WrapperCache.swift in Sources */,
 				1847A9D627E4F645006142F0 /* UIColor.swift in Sources */,
 				18C745A0283B5436002C718F /* AttestationCompleter.swift in Sources */,
 				1847A9C427E4F645006142F0 /* String.swift in Sources */,
@@ -509,6 +519,7 @@
 				1847ABC727E65D79006142F0 /* AddressRegistry.swift in Sources */,
 				1847ABB527E5A703006142F0 /* CeloSDK+Network.swift in Sources */,
 				1847ABB727E5A703006142F0 /* CeloConstants.swift in Sources */,
+				183D236428453B7900322F1F /* SelectiveCall.swift in Sources */,
 				1847ABD527E78982006142F0 /* GasPriceMinimumWrapper.swift in Sources */,
 				1847A9D327E4F645006142F0 /* Date.swift in Sources */,
 				1847A9EE27E4F646006142F0 /* Double.swift in Sources */,
@@ -535,6 +546,7 @@
 				1847A9BE27E4F645006142F0 /* Int.swift in Sources */,
 				189D471A27EB433F00186B7F /* CeloUtils.swift in Sources */,
 				1847A9EC27E4F646006142F0 /* UIApplication.swift in Sources */,
+				183D236628453B7900322F1F /* AttestationsWrapper.swift in Sources */,
 				1847A9C627E4F645006142F0 /* NSObject.swift in Sources */,
 				18C745A3283B5436002C718F /* CELOError.swift in Sources */,
 				1847ABCA27E6A207006142F0 /* Parser.swift in Sources */,

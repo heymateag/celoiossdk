@@ -16,10 +16,10 @@ class ODISSaltUtil {
     private static  let  AUTHENTICATION_METHOD_ENCRYPTION_KEY = "encryption_key";
     private static  let  AUTHENTICATION_METHOD_CUSTOM_SIGNER = "custom_signer";
 
-    private static  let  ERROR_ODIS_QUOTA = "odisQuotaError";
-    private static  let  ERROR_ODIS_INPUT = "odisBadInputError";
-    private static  let  ERROR_ODIS_AUTH = "odisAuthError";
-    private static  let  ERROR_ODIS_CLIENT = "Unknown Client Error";
+   static let  ERROR_ODIS_QUOTA = "odisQuotaError";
+   static let  ERROR_ODIS_INPUT = "odisBadInputError";
+   static let  ERROR_ODIS_AUTH = "odisAuthError";
+   static let  ERROR_ODIS_CLIENT = "Unknown Client Error";
     private static  let ERRORS:[String] = [ERROR_ODIS_QUOTA, ERROR_ODIS_INPUT, ERROR_ODIS_AUTH, ERROR_ODIS_CLIENT]
     private static  let PEPPER_CHAR_LENGTH = 13;
     

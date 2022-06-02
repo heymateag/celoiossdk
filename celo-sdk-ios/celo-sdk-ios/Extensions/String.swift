@@ -193,10 +193,9 @@ extension String {
     }
     
     var isPhoneNumber: Bool {
-        let charcter  = NSCharacterSet(charactersInString: "+0123456789").invertedSet
-        var filtered:NSString!
-        let inputString:NSArray = self.componentsSeparatedByCharactersInSet(charcter)
-        filtered = inputString.componentsJoinedByString("")
-        return  self == filtered            
+        let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
+       let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+       let result = phoneTest.evaluate(with: self)
+       return result
     }
 }

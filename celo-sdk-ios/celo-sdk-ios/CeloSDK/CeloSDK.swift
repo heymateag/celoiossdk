@@ -209,27 +209,27 @@ import web3swift
 
 
 extension CeloSDK {
-    public func requestAttestationsForPhoneNumber(phoneNumber:String,completion:@escaping(_ result:Any?,error:Error?) -> Void) {
+    public func requestAttestationsForPhoneNumber(phoneNumber:String,completion:@escaping(_ result:Any?,_ error:Error?) -> Void) {
         if !phoneNumber.isPhoneNumber {
             return
         }
         
         var salt = ""
-        try {
-            salt = ODISSaltUtil.getSalt(contractKit: contractKit, odisUrl: "", odisPubKey: "", target: "1234567890")
+        do {
+            salt = try ODISSaltUtil.getSalt(contractKit: contractKit, odisUrl: "", odisPubKey: "", target: "1234567890")
         } catch {
             completion(nil,error)
         }
         AttestationRequester.requestAttestations(contractKit: contractKit, phoneNumber: "1234567890", salt: salt)
     }
     
-    public func completeAttestationForPhoneNumber(phoneNumber:String,code:String,completion:@escaping(_ result:Any?,error:Error?) -> Void) {
+    public func completeAttestationForPhoneNumber(phoneNumber:String,code:String,completion:@escaping(_ result:Any?,_ error:Error?) -> Void) {
         if !phoneNumber.isPhoneNumber {
             return
         }
         var salt = ""
-        try {
-            salt = ODISSaltUtil.getSalt(contractKit: contractKit, odisUrl: "", odisPubKey: "", target: "")
+        do {
+            salt = try ODISSaltUtil.getSalt(contractKit: contractKit, odisUrl: "", odisPubKey: "", target: "")
         } catch {
             completion(nil,error)
         }
