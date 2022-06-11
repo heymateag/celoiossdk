@@ -52,7 +52,6 @@ class AttestationRequester {
         let isRestarted = false
         while(true) {
             let withoutRevealing = !isRestarted && initialWithoutRevealing
-            //TODO: SD
             let attestationStat:AttestationsWrapper.AttestationStat;
             var actionableAttestations:[ActionableAttestation] = []
             
@@ -61,8 +60,7 @@ class AttestationRequester {
     
     private static func fetchVerificationState(contractKit:ContractKit,phoneNumbe:String,salt:String) throws -> (attestrationStat:AttestationsWrapper.AttestationStat,actionableAtts:[ActionableAttestation]) {
         let attestationStat:AttestationsWrapper.AttestationStat = AttestationsWrapper.AttestationStat.init()
-        //TODO: change second parameter to address from contract
-        contractKit.contracts.getAttestations().getAttestationStat(identifier: Data(), account: contractKit.getFeeCurrency())
+        contractKit.contracts.getAttestations().getAttestationStats(identifier: Data(), account: contractKit.getFeeCurrency())
         let actionableAttestations:[ActionableAttestation] = []
         return (attestationStat,actionableAttestations)
     }
@@ -75,9 +73,8 @@ class AttestationRequester {
     static func lookupAttestationServiceUrls(contractKit:ContractKit,identifier:Data) {
         let tries = 3;
         let attestations:AttestationsWrapper = contractKit.contracts.getAttestations();
-        let rawCompletableAttestations:([Int64],String,[Int64],Data) = ([0],"",[0],Data())
-        //TODO: on which class to add below line
-//        rawCompletableAttestations = attestations.getContract().getCompletableAttestations(identifier, contractKit.getAddress()).send();
+        //bhar
+        let rawCompletableAttestations = contractKit.contracts.getAttestations().getCompletableAttestations(identifier: identifier, account: CeloSDK.currentAccount!.address)
         let metadataURLs = parseSolidityStringArray(stringLengths: rawCompletableAttestations.2, stringData: rawCompletableAttestations.3);
         let lookupResults:[ActionableAttestation] = [];
         for i in 0..<lookupResults.count {

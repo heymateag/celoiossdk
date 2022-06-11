@@ -52,6 +52,7 @@
 		1847ABCC27E6A668006142F0 /* CeloContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABCB27E6A668006142F0 /* CeloContract.swift */; };
 		1847ABCF27E76D5C006142F0 /* StableTokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABCE27E76D5B006142F0 /* StableTokenWrapper.swift */; };
 		1847ABD527E78982006142F0 /* GasPriceMinimumWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABD427E78982006142F0 /* GasPriceMinimumWrapper.swift */; };
+		1898CCD82854DD3300FBDBAD /* AttestationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898CCD62854DD0D00FBDBAD /* AttestationTest.swift */; };
 		189D471827EB409800186B7F /* RawTransactionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471727EB409800186B7F /* RawTransactionHandler.swift */; };
 		189D471A27EB433F00186B7F /* CeloUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471927EB433F00186B7F /* CeloUtils.swift */; };
 		189D471C27EB603800186B7F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471B27EB603800186B7F /* Account.swift */; };
@@ -145,6 +146,7 @@
 		1847ABCB27E6A668006142F0 /* CeloContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloContract.swift; sourceTree = "<group>"; };
 		1847ABCE27E76D5B006142F0 /* StableTokenWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableTokenWrapper.swift; sourceTree = "<group>"; };
 		1847ABD427E78982006142F0 /* GasPriceMinimumWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasPriceMinimumWrapper.swift; sourceTree = "<group>"; };
+		1898CCD62854DD0D00FBDBAD /* AttestationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestationTest.swift; sourceTree = "<group>"; };
 		189D471727EB409800186B7F /* RawTransactionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RawTransactionHandler.swift; path = "celo-sdk-ios/Wallet/RawTransactionHandler.swift"; sourceTree = SOURCE_ROOT; };
 		189D471927EB433F00186B7F /* CeloUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeloUtils.swift; sourceTree = "<group>"; };
 		189D471B27EB603800186B7F /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				1847A8C027E4F4E5006142F0 /* celo_sdk_iosTests.swift */,
 				F7C2A54827EA0B8F00AABECC /* BalanceTest.swift */,
+				1898CCD62854DD0D00FBDBAD /* AttestationTest.swift */,
 			);
 			path = "celo-sdk-iosTests";
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				F7C2A54D27EA0BAB00AABECC /* StableTokenWrapper.swift in Sources */,
 				F7C2A54C27EA0BA600AABECC /* GasPriceMinimumWrapper.swift in Sources */,
 				F7C2A54A27EA0B9600AABECC /* CeloSDK.swift in Sources */,
+				1898CCD82854DD3300FBDBAD /* AttestationTest.swift in Sources */,
 				F7C2A55327EA0BBF00AABECC /* ContractKitOptions.swift in Sources */,
 				F7C2A55227EA0BBC00AABECC /* ContractKit.swift in Sources */,
 				F7C2A54927EA0B9000AABECC /* BalanceTest.swift in Sources */,
