@@ -165,6 +165,57 @@ This can be accessed from SDK via CeloSDK.web3Net
 ```
 
 
+Returns an array of attestations that can be completed, along with the issuers' attestation service urls
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * @param account Address of the account
+
+
+```swift
+contractKit.contracts.getAttestations().getCompletableAttestations(identifier: identifier, account: CeloSDK.currentAccount!.address)
+
+```
+
+Returns the attestation stats of a identifer/account pair
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * @param account Address of the account
+
+
+```swift
+contractKit.contracts.getAttestations().getAttestationStats(identifier: identifier, account: CeloSDK.currentAccount!.address)
+
+```
+
+Returns the list of accounts associated with an identifier
+   * @param identifier Attestation identifier (e.g. phone hash)
+
+
+
+```swift
+contractKit.contracts.getAttestations().lookupAccountsForIdentifier(identifier: identifier)
+
+```
+
+Returns the unselected attestation request for an identifier/account pair, if any.
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * @param account Address of the account
+
+
+
+```swift
+contractKit.contracts.getAttestations().getUnselectedRequest(identifier: identifier,account: CeloSDK.currentAccount!.address)
+
+```
+
+Returns the time an attestation can be completable before it is considered expired.
+
+
+
+```swift
+contractKit.contracts.getAttestations().getAttestationExpiryBlocks()
+
+```
+
+
 
 Generating a new account with password
 ```swift
