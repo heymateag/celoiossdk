@@ -35,13 +35,19 @@ public struct Configuration
     static func saveWalletAddress(_ address:String?) {
         UserDefaults.standard.set(address, forKey: Setting.KeyWalletAddress)
     }
-
     static func getGasPriceMinimumAddress() -> String? {
         return UserDefaults.standard.value(forKey: Setting.KeyGasPriceMinAddress) as? String
     }
     
     static func getStableTokenAddress() -> String? {
         return UserDefaults.standard.value(forKey: Setting.KeyStableTokenAddress) as? String
+    }
+    static func getAttestationWrapperAddress() -> String? {
+        return UserDefaults.standard.value(forKey: Setting.KeyAtestationWrapperAddress) as? String
+    }
+    
+    static func setAttestationWrapperAddress() -> String? {
+        return UserDefaults.standard.value(forKey: Setting.KeyAtestationWrapperAddress) as? String
     }
     
     static func setPreviousSession(session:Data?) {
@@ -72,6 +78,22 @@ public class GAS_PRICE_MINIMUM
     static let FUNCTION_GET_GASPRICE_MINIMUM = "getGasPriceMinimum"
 
 }
+public class ATTESTATION_CONTRACT
+{
+    static let FUNCTION_GET_ATTESTATION_STATS = "getAttestationStats"
+    static let FUNCTION_GET_COMPLETABLE_ATTESTATIONS = "getCompletableAttestations"
+    static let FUNCTION_LOOKUP_ACCOUNTS_IDENTIFIER =  "lookupAccountsForIdentifier"
+    static let FUNCTION_GET_UNSELECTED_REQUEST =  "getUnselectedRequest"
+    static let FUNCTION_GET_ATTESTATION_EXPIRY_BLOCKS = "attestationExpiryBlocks"
+    static let FUNCTION_REQUEST = "request"
+    static let FUNCTION_GET_ATTESTATION_REQUEST_FEE = "getAttestationRequestFee"
+    static let FUNCTION_SELECT_ISSUERS = "selectIssuers"
+    static let FUNCTION_SELECT_ISSUERS_WAIT_BLOCKS = "selectIssuersWaitBlocks"
+    static let FUNCTION_ATTESTATION_COMPLETE = "complete"
+    static let FUNCTION_VALIDATE_ATTESTATION_CODE = "validateAttestationCode"
+    
+
+}
 public class Setting {
     public static let ALFAJORES_URL = "https://alfajores-forno.celo-testnet.org"
     public static let MAINNET_URL = "https://forno.celo.org"
@@ -84,6 +106,7 @@ public class Setting {
     static let KeystoreFileName = "/key.json"
     static let KeyMnemonicKey = "mnemonicsKeystoreKey"
     static let KeyGasPriceMinAddress = "GAS_PRICE_MIN_ADDRESS"
+    static let KeyAtestationWrapperAddress = "KeyAtestationWrapperAddress"
     static let KeyStableTokenAddress = "STABLE_TOKEN_ADDRESS"
     static let KeyPreviousSession = "P_SESSION"
     public static let password = "web3swift"

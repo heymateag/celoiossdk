@@ -15,6 +15,7 @@ public class ContractKit
     public var feeCurrency: String?
     public var gatewayFeeRecipient: String?
     public var gatewayFee: BigUInt?
+    public var contracts:WrapperCache!
     public func getContractKit(web3Instance: web3 ,_ abiString: String, at: web3swift.EthereumAddress) -> web3swift.web3.web3contract?
     {
         return web3Instance.contract(abiString, at: at, abiVersion: 2)
