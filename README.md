@@ -215,6 +215,70 @@ contractKit.contracts.getAttestations().getAttestationExpiryBlocks()
 
 ```
 
+```
+
+Requests a new attestation.
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * @param attestationsRequested The number of attestations to request
+   * @param attestationRequestFeeToken Attestattion fee
+
+
+
+```swift
+contractKit.contracts.getAttestations().request(identifier:Data,attestationsRequested:BigUInt,attestationRequestFeeToken:String)
+
+```
+
+Requests a new attestation.
+   * @param token Stable Token address
+
+
+
+```swift
+contractKit.contracts.getAttestations().getAttestationFeeRequired(token:String)
+
+```
+
+Selects the issuers for previously requested attestations for a phone number
+   * @param identifier Attestation identifier (e.g. phone hash)
+
+
+
+```swift
+contractKit.contracts.getAttestations().selectIssuers(identifier:Data)
+
+```
+
+Returns the time an Issuer can be assigned for a given attestation
+
+
+
+```swift
+contractKit.contracts.getAttestations().selectIssuersWaitBlocks(identifier:Data)
+
+```
+
+Completes an attestation with the corresponding code
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * Signatures v,r,s to be calculated from account,issuer and code
+
+
+
+```swift
+contractKit.contracts.getAttestations().complete(identifier:Data,v:BigUInt,r:Data,s:Data)
+
+```
+
+Validates a given code by the issuer on-chain
+   * @param identifier Attestation identifier (e.g. phone hash)
+   * Signatures v,r,s to be calculated from account,issuer and code
+
+
+
+```swift
+contractKit.contracts.getAttestations().validateAttestationCode(identifier:Data,v:BigUInt,r:Data,s:Data)
+
+```
 
 
 Generating a new account with password
