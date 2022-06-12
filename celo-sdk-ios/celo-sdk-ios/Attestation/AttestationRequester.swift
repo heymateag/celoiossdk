@@ -7,6 +7,7 @@
 
 import Foundation
 import BigInt
+import PromiseKit
 
 class AttestationRequester {
    private static let TAG = "Attestation";
@@ -74,15 +75,20 @@ class AttestationRequester {
         let tries = 3;
         let attestations:AttestationsWrapper = contractKit.contracts.getAttestations();
         //bhar
-        let rawCompletableAttestations = contractKit.contracts.getAttestations().getCompletableAttestations(identifier: identifier, account: CeloSDK.currentAccount!.address)
-        let metadataURLs = parseSolidityStringArray(stringLengths: rawCompletableAttestations.2, stringData: rawCompletableAttestations.3);
-        let lookupResults:[ActionableAttestation] = [];
-        for i in 0..<lookupResults.count {
-            
+        firstly {
+            contractKit.contracts.getAttestations().getCompletableAttestations(identifier: identifier, account: CeloSDK.currentAccount!.address)
+        }.done { (blockNumbers: [BigUInt], issuers: [String], whereToBreakTheString: [BigUInt], metadataURLs: Data) in
+            let metadataURLs = parseSolidityStringArray(stringLengths: blockNumbers, stringData: metadataURLs);
+            let lookupResults:[ActionableAttestation] = [];
+            for i in 0..<lookupResults.count {
+                
+            }
         }
+        
+        
     }
     
-    private static func parseSolidityStringArray(stringLengths:[Int64],stringData:Data) -> [String] {
+    private static func parseSolidityStringArray(stringLengths:[BigUInt],stringData:Data) -> [String] {
         let strings:[String] = []
         var offset = 0
         for i in 0..<strings.count {

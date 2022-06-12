@@ -7,12 +7,13 @@
 
 import XCTest
 import PromiseKit
+import BigInt
 
+//TODO :- Once we get the end result ,
 class AttestationStatTest: XCTestCase {
-
-
-
+    let wrapper:AttestationsWrapper!
     override func setUpWithError() throws {
+        wrapper = AttestationsWrapper.init()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -20,9 +21,7 @@ class AttestationStatTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-
-
-    func testAttestationStat() throws {
+    func testAttestaationStat() throws {
         let wrapper = AttestationsWrapper.init()
         firstly {
             let request = "sampleData"
@@ -46,6 +45,8 @@ class AttestationStatTest: XCTestCase {
             let issuers = result.issuers
             let whereToBreakTheString = result.whereToBreakTheString
             let metadataURLs = result.metadataURLs
+            XCTAssertTrue(blockNums.count > 0)
+            
         }
     }
     
@@ -57,6 +58,7 @@ class AttestationStatTest: XCTestCase {
             wrapper.lookupAccountsForIdentifier(identifier: data)
         }.done { result in
             let identifierResults = result
+            XCTAssertNotNil(identifierResults)
         }
     }
     
@@ -70,6 +72,8 @@ class AttestationStatTest: XCTestCase {
             let block = result.blockNumber
             let attestationsRequested = result.attestationsRequested
             let attestationRequestFeeToken = result.attestationRequestFeeToken
+            XCTAssertEqual(attestationRequestFeeToken, "sometoken")
+            XCTAssertEqual(attestationsRequested, 0)
         }
     }
     
@@ -78,6 +82,7 @@ class AttestationStatTest: XCTestCase {
             wrapper.getAttestationExpiryBlocks()
         }.done { result in
             let blocks = result
+            XCTAssertEqual(result, 1)
         }
     }
     
@@ -87,6 +92,7 @@ class AttestationStatTest: XCTestCase {
             wrapper.getAttestationRequestFee(token: token)
         }.done { result in
             let fee = result
+            XCTAssertEqual(fee, 1)
         }
     }
     
@@ -95,9 +101,61 @@ class AttestationStatTest: XCTestCase {
             wrapper.selectIssuersWaitBlocks()
         }.done { result in
             let blocks = result
+            XCTAssertEqual(blocks, 1)
         }
     }
-
     
-
+    func testValidateAttestationCode() {
+        firstly {
+            let identifier = "identifier"
+            let data = identifier.data(using: .utf8)
+            let account = CeloSDK.account.address
+            let v = 0
+            let r = ""
+            let rData = r.data(using: .utf8)
+            let s = ""
+            let sData = s.data(using: .utf8)
+            wrapper.validateAttestationCode(identifier: data, account: account, v: v, r: rData, s: sData)
+        }.done { result in
+            XCTAssertEqual(result, "som value")
+        }
+    }
+    
+    func testComplete() {
+        firstly {
+            let identifier = "identifier"
+            let data = identifier.data(using: .utf8)
+            let v = 0
+            let r = ""
+            let rData = r.data(using: .utf8)
+            let s = ""
+            let sData = s.data(using: .utf8)
+            wrapper.complete(identifier: data, v: v, r: rData, s: sData)
+        }.done { result in
+            XCTAssertEqual(result, "som value")
+        }
+    }
+    
+    func testSelectIssuers() {
+        firstly {
+            let identifier = "identifier"
+            let data = identifier.data(using: .utf8)
+            wrapper.selectIssuers(identifier: data)
+        }.done { result in
+            XCTAssertEqual(result, "som value")
+        }
+    }
+    
+    func testRequest() {
+        firstly {
+            let identifier = "identifier"
+            let data = identifier.data(using: .utf8)
+            let attRequest = 0
+            let attFeeToken = ""
+            wrapper.request(identifier: data, attestationsRequested: attRequest, attestationRequestFeeToken: attFeeToken)
+        }.done { result in
+            XCTAssertEqual(result, "som value")
+        }
+    }
+    
 }

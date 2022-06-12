@@ -53,6 +53,8 @@
 		1847ABCF27E76D5C006142F0 /* StableTokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABCE27E76D5B006142F0 /* StableTokenWrapper.swift */; };
 		1847ABD527E78982006142F0 /* GasPriceMinimumWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABD427E78982006142F0 /* GasPriceMinimumWrapper.swift */; };
 		1898CCD82854DD3300FBDBAD /* AttestationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898CCD62854DD0D00FBDBAD /* AttestationTest.swift */; };
+		1898CCDA2854F3F200FBDBAD /* AttestationsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D236328453B7900322F1F /* AttestationsWrapper.swift */; };
+		1898CCDB2854F3FE00FBDBAD /* CeloConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847ABAF27E5A702006142F0 /* CeloConstants.swift */; };
 		189D471827EB409800186B7F /* RawTransactionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471727EB409800186B7F /* RawTransactionHandler.swift */; };
 		189D471A27EB433F00186B7F /* CeloUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471927EB433F00186B7F /* CeloUtils.swift */; };
 		189D471C27EB603800186B7F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D471B27EB603800186B7F /* Account.swift */; };
@@ -571,10 +573,12 @@
 				1898CCD82854DD3300FBDBAD /* AttestationTest.swift in Sources */,
 				F7C2A55327EA0BBF00AABECC /* ContractKitOptions.swift in Sources */,
 				F7C2A55227EA0BBC00AABECC /* ContractKit.swift in Sources */,
+				1898CCDA2854F3F200FBDBAD /* AttestationsWrapper.swift in Sources */,
 				F7C2A54927EA0B9000AABECC /* BalanceTest.swift in Sources */,
 				1847A8C127E4F4E5006142F0 /* celo_sdk_iosTests.swift in Sources */,
 				F7C2A54B27EA0BA200AABECC /* CeloError.swift in Sources */,
 				F7C2A54E27EA0BAF00AABECC /* Parser.swift in Sources */,
+				1898CCDB2854F3FE00FBDBAD /* CeloConstants.swift in Sources */,
 				F7C2A54F27EA0BB100AABECC /* AddressRegistry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
