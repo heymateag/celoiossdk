@@ -215,7 +215,6 @@ contractKit.contracts.getAttestations().getAttestationExpiryBlocks()
 
 ```
 
-```
 
 Requests a new attestation.
    * @param identifier Attestation identifier (e.g. phone hash)
